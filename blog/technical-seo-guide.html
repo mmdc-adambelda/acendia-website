@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete Guide to Technical SEO | Acendia International</title>
+<meta name="description" content="Crawlability, indexation, site architecture, schema markup, and Core Web Vitals — the definitive breakdown of the technical SEO foundation every ranking strategy needs.">
+<link rel="canonical" href="https://acendia.agency/blog/technical-seo-guide.html">
+<meta property="og:title" content="The Complete Guide to Technical SEO">
+<meta property="og:description" content="The technical SEO foundation every ranking strategy is built on, explained simply.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acendia.agency/blog/technical-seo-guide.html">
+<meta property="og:image" content="/images/blog-05.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://acendia.agency/"},
+    {"@type":"ListItem","position":2,"name":"Resources","item":"https://acendia.agency/blog.html"},
+    {"@type":"ListItem","position":3,"name":"The Complete Guide to Technical SEO","item":"https://acendia.agency/blog/technical-seo-guide.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Complete Guide to Technical SEO",
+  "author": {"@type":"Organization","name":"Acendia International"},
+  "publisher": {"@type":"Organization","name":"Acendia International"},
+  "image": "https://acendia.agency/images/blog-05.jpg",
+  "mainEntityOfPage": "https://acendia.agency/blog/technical-seo-guide.html"
+}
+</script>
+</head>
+<body>
+
+<div id="cookie" role="dialog" aria-label="Cookie consent">
+  <div class="ck-hd">
+    <div class="ck-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10"/><path d="M8.5 8.5h.01M12 12h.01M16 9h.01"/><path d="M22 12c-2 0-4-1-4-4 0 1.5-1 3-3 3 1 0 2 1.5 2 3 0-1 1-2 2-2s2 .5 3 1V12z"/></svg></div>
+    <div><h3>We use cookies</h3><p>Acendia uses cookies to enhance your experience, analyse traffic, and personalise content. You choose what we use.</p></div>
+  </div>
+  <div class="ck-panel" id="ck-panel">
+    <div class="ck-row"><div class="ck-info"><h4>Essential</h4><p>Required for core site functionality. Always on.</p></div><label class="toggle"><input type="checkbox" checked disabled><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Analytics</h4><p>Google Analytics 4 — helps us understand site usage.</p></div><label class="toggle"><input type="checkbox" id="tgl-analytics"><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Marketing</h4><p>Ad tracking and campaign performance measurement.</p></div><label class="toggle"><input type="checkbox" id="tgl-marketing"><span class="t-slider"></span></label></div>
+    <div class="ck-save"><button class="btn btn-white" style="width:100%" onclick="savePrefs()">Save Preferences</button></div>
+  </div>
+  <div class="ck-btns">
+    <button class="btn btn-white" onclick="acceptAll()">Accept All</button>
+    <button class="btn btn-ghost-white" onclick="togglePanel()">Customize</button>
+    <button class="btn btn-ghost-white" onclick="rejectAll()">Reject All</button>
+  </div>
+  <p class="ck-note">By continuing you agree to our <a href="../privacy-policy.html">Privacy Policy</a>. We comply with the NZ Privacy Act 2020.</p>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Acendia International — Home">
+      <svg viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg" height="30"><polyline points="12,44 28,10 44,44" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="20"/><text x="50" y="40" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="36" font-weight="300" letter-spacing="3" fill="#FFFFFF">cendia</text></svg>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../services.html">Services</a>
+      <a href="../industries.html">Industries</a>
+      <a href="../case-studies.html">Case Studies</a>
+      <a href="../blog.html" class="active">Resources</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="../contact.html" class="btn btn-ghost-white btn-sm">Book a Call</a>
+      <a href="../contact.html#audit" class="btn btn-white btn-sm">Get Free Audit →</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="../services.html">Services</a>
+  <a href="../industries.html">Industries</a>
+  <a href="../case-studies.html">Case Studies</a>
+  <a href="../blog.html">Resources</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../contact.html" class="btn btn-white btn-block">Book a Free Strategy Call</a>
+</div>
+
+<section class="article-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../blog.html">Resources</a><span>/</span>The Complete Guide to Technical SEO</nav>
+    <div class="article-meta-row"><span>Technical SEO</span><span class="sep">·</span><span>Acendia Team</span><span class="sep">·</span><span>11 min read</span></div>
+    <h1 class="h1 article-title">The Complete Guide to Technical SEO</h1>
+    <p class="article-excerpt">Crawlability, indexation, site architecture, schema markup, and Core Web Vitals — this is the definitive, no-jargon breakdown of the technical SEO foundation every ranking strategy is built on.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="img-ph wide fade" data-image-placeholder="blog-05.jpg" style="margin-bottom:8px"><span class="img-ph-label">blog-05.jpg</span></div>
+</div>
+
+<section class="section light">
+  <div class="container">
+    <div class="prose fade">
+      <p>Great content on a technically broken website rarely ranks. Technical SEO is the plumbing behind your visibility — invisible when it works, catastrophic when it doesn't. Here's the complete foundation, broken into the areas that matter most.</p>
+
+      <h2>1. Crawlability</h2>
+      <p>Before Google can rank a page, it has to be able to find and crawl it. A clean robots.txt file, a complete and accurate XML sitemap, and a logical internal linking structure all make sure Googlebot can discover every important page on your site — and that it doesn't waste time crawling pages that don't matter.</p>
+
+      <h2>2. Indexation</h2>
+      <p>Being crawled doesn't guarantee being indexed. Duplicate content, thin pages, and misconfigured canonical tags can quietly keep valuable pages out of Google's index entirely. Regularly auditing your indexed page count against your actual site structure catches these issues before they cost you traffic.</p>
+
+      <h2>3. Site Architecture</h2>
+      <p>A flat, logical structure — where every important page is reachable within three clicks of the homepage — distributes ranking authority efficiently across your site. Deep, buried pages rarely rank well, no matter how good the content on them is.</p>
+
+      <h2>4. Schema Markup</h2>
+      <p>Structured data tells Google explicitly what your content is — a business, a review, an article, a product, an FAQ — rather than making it infer this from raw text. Implementing Organization, LocalBusiness, Article, and FAQ schema correctly increases your eligibility for rich results that stand out in search.</p>
+
+      <h2>5. Mobile-First Indexing</h2>
+      <p>Google predominantly uses the mobile version of your site for indexing and ranking, regardless of desktop traffic share. Any content, links, or structured data missing from your mobile experience is effectively invisible to Google's ranking systems.</p>
+
+      <h2>6. Core Web Vitals</h2>
+      <p>Loading speed, interactivity, and visual stability are measured directly and factored into rankings. See our companion guide on website speed for the specific fixes that move these metrics fastest.</p>
+
+      <div class="callout">
+        <h3>Where to Start</h3>
+        <p>If you're auditing your own site for the first time, start with indexation (are your important pages actually in Google's index?) and crawlability (can Google reach them cleanly?) before worrying about advanced schema. Fix the foundation first.</p>
+      </div>
+
+      <h2>7. HTTPS and Security</h2>
+      <p>HTTPS has been a baseline ranking requirement for years, and browsers now actively warn visitors away from non-secure sites. If your site isn't fully secured, it's actively costing you both trust and rankings.</p>
+    </div>
+
+    <div class="article-cta fade">
+      <h3>Not Sure If Your Site Has Technical SEO Issues?</h3>
+      <p>Get a free technical SEO audit covering crawlability, indexation, speed, and schema.</p>
+      <a href="../contact.html" class="btn btn-white btn-lg">Request an SEO Audit →</a>
+    </div>
+
+    <h3 class="h3" style="margin-bottom:24px">Related Articles</h3>
+    <div class="related-grid fade">
+      <a href="website-speed-seo.html" class="blog-card">
+        <div class="blog-thumb img-ph" style="min-height:150px;border:none;border-radius:0" data-image-placeholder="blog-04.jpg"><span class="img-ph-label">blog-04.jpg</span></div>
+        <div class="blog-body"><h3>Website Speed and SEO</h3><p>How load time affects your rankings and conversions.</p></div>
+      </a>
+      <a href="google-ranking-factors.html" class="blog-card">
+        <div class="blog-thumb img-ph" style="min-height:150px;border:none;border-radius:0" data-image-placeholder="blog-07.jpg"><span class="img-ph-label">blog-07.jpg</span></div>
+        <div class="blog-body"><h3>Google Ranking Factors Explained</h3><p>The signals that actually move rankings, explained simply.</p></div>
+      </a>
+      <a href="why-businesses-need-seo.html" class="blog-card">
+        <div class="blog-thumb img-ph" style="min-height:150px;border:none;border-radius:0" data-image-placeholder="blog-01.jpg"><span class="img-ph-label">blog-01.jpg</span></div>
+        <div class="blog-body"><h3>Why Every Business Needs SEO in 2026</h3><p>The highest-ROI channel available to businesses today.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-inner fade">
+    <h2>Is Your Technical Foundation <span class="grad-light">Holding You Back?</span></h2>
+    <p>Book a free strategy call and get a clear picture of your technical SEO health.</p>
+    <div class="cta-actions">
+      <a href="../contact.html" class="btn btn-black btn-lg">Book Your Strategy Call</a>
+      <a href="../services.html#seo" class="btn btn-ghost-black btn-lg">Explore SEO Services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" aria-label="Acendia International — Home">
+          <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" height="28"><polyline points="10,40 24,10 38,40" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"/><text x="44" y="36" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="28" font-weight="300" letter-spacing="3" fill="#FFFFFF">cendia</text></svg>
+        </a>
+        <p>AI-native digital growth agency helping businesses dominate Google Search through websites, SEO, and automation.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/acendiainternational" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com/acendiainternational" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://linkedin.com/company/acendia-international" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+        <form class="footer-newsletter" onsubmit="return false" aria-label="Newsletter signup">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-white btn-sm">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../services.html#website-development">Website Development</a></li>
+          <li><a href="../services.html#seo">SEO</a></li>
+          <li><a href="../services.html#local-seo">Local SEO</a></li>
+          <li><a href="../services.html#google-business-profile">Google Business Profile</a></li>
+          <li><a href="../services.html#ai-automation">AI Automation</a></li>
+          <li><a href="../services.html#lead-generation">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../industries.html">Industries</a></li>
+          <li><a href="../case-studies.html">Case Studies</a></li>
+          <li><a href="../blog.html">Resources / Blog</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="return openCookieSettings()">Cookie Settings</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@acendia.agency">support@acendia.agency</a></li>
+            <li><a href="https://acendia.agency">acendia.agency</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Acendia International. All rights reserved.</p>
+      <div class="footer-btm-links">
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="#" onclick="return openCookieSettings()">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

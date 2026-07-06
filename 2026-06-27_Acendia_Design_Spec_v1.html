@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acendia International | AI-Powered Digital Growth for Local Businesses</title>
+<meta name="description" content="Acendia International is an AI-native digital growth agency specialising in local SEO, Google Maps ranking, website development, and lead generation for local businesses in New Zealand and Australia.">
+<meta name="keywords" content="local SEO, digital marketing agency, Google Maps ranking, website design, lead generation, Google Business Profile, SEO New Zealand, SEO Australia">
+<meta property="og:title" content="Acendia International | AI-Powered Digital Growth">
+<meta property="og:description" content="We help local businesses rank higher, convert better, and grow faster with AI-powered digital systems.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+
+<!-- ================================================================
+  ACENDIA INTERNATIONAL — WEBSITE DESIGN SPEC v1.0
+  Tech: Next.js + Tailwind CSS — Published via GitHub Pages
+  Design: Dark modern, SEO-forward, conversion-optimised
+  Colors: --bg #070B14 | --accent #4F6EF7 | --teal #06B6D4 | --purple #8B5CF6
+  Font: Inter (Google Fonts)
+================================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ================================================================
+   DESIGN SYSTEM — CSS VARIABLES
+================================================================ */
+:root {
+  --bg:          #070B14;
+  --bg2:         #0D1624;
+  --bg3:         #141E2E;
+  --bg4:         #1A2640;
+  --blue:        #4F6EF7;
+  --blue-dim:    rgba(79,110,247,0.15);
+  --teal:        #06B6D4;
+  --purple:      #8B5CF6;
+  --green:       #10B981;
+  --orange:      #F59E0B;
+  --red:         #EF4444;
+  --text1:       #F1F5F9;
+  --text2:       #94A3B8;
+  --text3:       #64748B;
+  --border:      rgba(255,255,255,0.07);
+  --border2:     rgba(79,110,247,0.25);
+  --grad:        linear-gradient(135deg,#4F6EF7,#8B5CF6);
+  --grad-teal:   linear-gradient(135deg,#06B6D4,#4F6EF7);
+  --grad-warm:   linear-gradient(135deg,#F59E0B,#EF4444);
+  --grad-green:  linear-gradient(135deg,#10B981,#06B6D4);
+  --shadow:      0 8px 32px rgba(0,0,0,0.5);
+  --glow:        0 0 60px rgba(79,110,247,0.18);
+  --r-sm:        8px;
+  --r-md:        14px;
+  --r-lg:        24px;
+  --r-xl:        40px;
+  --font:        'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+/* ================================================================
+   RESET & BASE
+================================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:var(--bg);color:var(--text1);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+ul{list-style:none}
+button{cursor:pointer;border:none;font-family:var(--font)}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.section-light{background:#fff;color:#0F172A}
+.section-mid{background:#F8FAFC;color:#0F172A}
+.section-dark{background:var(--bg2)}
+
+/* ================================================================
+   TYPOGRAPHY
+================================================================ */
+.display{font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em}
+.h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em}
+.h2{font-size:clamp(1.6rem,3vw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+.h3{font-size:1.25rem;font-weight:600;line-height:1.35}
+.h4{font-size:1rem;font-weight:600}
+.body-lg{font-size:1.125rem;line-height:1.75}
+.body{font-size:1rem;line-height:1.7}
+.body-sm{font-size:0.875rem;line-height:1.65}
+.label{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase}
+
+.gradient-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.teal-text{background:var(--grad-teal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.muted{color:var(--text2)}
+.text-center{text-align:center}
+
+/* ================================================================
+   BUTTONS
+================================================================ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:var(--r-sm);font-weight:600;font-size:0.95rem;transition:all 0.2s;white-space:nowrap}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 4px 20px rgba(79,110,247,0.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(79,110,247,0.5)}
+.btn-ghost{background:var(--border);color:var(--text1);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--blue);background:var(--blue-dim)}
+.btn-outline{background:transparent;color:var(--text1);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-sm{padding:9px 20px;font-size:0.85rem}
+.btn-lg{padding:16px 36px;font-size:1.05rem;border-radius:var(--r-md)}
+.btn-teal{background:var(--grad-teal);color:#fff;box-shadow:0 4px 20px rgba(6,182,212,0.35)}
+.btn-teal:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(6,182,212,0.45)}
+
+/* ================================================================
+   NAVIGATION
+================================================================ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:all 0.3s}
+.nav-inner{max-width:1200px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between}
+.nav.scrolled{background:rgba(7,11,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:var(--shadow)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo svg{height:34px;width:auto}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:0.9rem;font-weight:500;color:var(--text2);transition:color 0.2s}
+.nav-links a:hover{color:var(--text1)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;padding:8px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text1);border-radius:2px;transition:0.3s}
+
+/* ================================================================
+   HERO
+================================================================ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:72px}
+.hero-bg{position:absolute;inset:0;background:var(--bg)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 30%,transparent 100%)}
+.hero-glow1{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(79,110,247,0.15) 0%,transparent 70%);top:-200px;right:-100px;animation:float1 8s ease-in-out infinite}
+.hero-glow2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(139,92,246,0.1) 0%,transparent 70%);bottom:-100px;left:-100px;animation:float2 10s ease-in-out infinite}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid var(--border2);padding:6px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;color:var(--blue);margin-bottom:24px}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
+.hero h1{margin-bottom:24px}
+.hero p{color:var(--text2);font-size:1.15rem;line-height:1.8;margin-bottom:40px;max-width:520px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hero-stat-num{font-size:1.75rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat-label{font-size:0.8rem;color:var(--text3);font-weight:500;margin-top:2px}
+.hero-visual{position:relative}
+
+/* Data visualization SVG in hero */
+.hero-viz{width:100%;max-width:520px;margin-left:auto}
+
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,40px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.5)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes nodePulse{0%,100%{r:4;opacity:0.7}50%{r:7;opacity:1}}
+
+/* ================================================================
+   TICKER / SOCIAL PROOF BAR
+================================================================ */
+.ticker-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0;overflow:hidden}
+.ticker-inner{display:flex;gap:64px;animation:ticker 30s linear infinite;width:max-content}
+.ticker-inner:hover{animation-play-state:paused}
+.ticker-item{display:flex;align-items:center;gap:10px;white-space:nowrap;color:var(--text2);font-size:0.9rem;font-weight:500}
+.ticker-item svg{color:var(--blue);flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ================================================================
+   SECTION HEADERS
+================================================================ */
+.section-header{margin-bottom:64px}
+.section-header.centered{text-align:center}
+.section-label{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px}
+.section-label::before{content:'';display:block;width:24px;height:2px;background:var(--blue);border-radius:2px}
+.section-title{margin-bottom:16px}
+.section-sub{color:var(--text2);font-size:1.05rem;max-width:560px;line-height:1.75}
+.section-header.centered .section-sub{margin:0 auto}
+
+/* ================================================================
+   SERVICES
+================================================================ */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:36px 32px;transition:all 0.3s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity 0.3s;border-radius:var(--r-lg)}
+.service-card:hover{border-color:var(--border2);transform:translateY(-6px);box-shadow:var(--shadow),var(--glow)}
+.service-card:hover::before{opacity:0.04}
+.service-icon{width:56px;height:56px;border-radius:var(--r-md);background:var(--blue-dim);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;z-index:1}
+.service-icon svg{width:28px;height:28px;color:var(--blue)}
+.service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:12px;position:relative;z-index:1}
+.service-card p{color:var(--text2);font-size:0.9rem;line-height:1.7;position:relative;z-index:1;margin-bottom:20px}
+.service-link{color:var(--blue);font-size:0.85rem;font-weight:600;position:relative;z-index:1;display:flex;align-items:center;gap:6px;transition:gap 0.2s}
+.service-card:hover .service-link{gap:10px}
+
+/* ================================================================
+   WHY ACENDIA
+================================================================ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.why-points{display:flex;flex-direction:column;gap:28px}
+.why-point{display:flex;gap:20px;padding:24px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);transition:all 0.3s}
+.why-point:hover{border-color:var(--border2);background:var(--bg4)}
+.why-num{font-size:2rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;flex-shrink:0;width:48px}
+.why-point h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.why-point p{color:var(--text2);font-size:0.88rem;line-height:1.65}
+
+/* ================================================================
+   PROCESS
+================================================================ */
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:40px;left:16.66%;right:16.66%;height:1px;background:linear-gradient(90deg,var(--blue),var(--purple));opacity:0.4}
+.process-step{text-align:center;padding:0 32px;position:relative}
+.step-num{width:80px;height:80px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff;margin:0 auto 28px;position:relative;z-index:1;box-shadow:0 8px 32px rgba(79,110,247,0.4)}
+.process-step h3{font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.process-step p{color:var(--text2);font-size:0.88rem;line-height:1.7}
+
+/* ================================================================
+   BLOG
+================================================================ */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.blog-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column}
+.blog-card:hover{transform:translateY(-6px);border-color:var(--border2);box-shadow:var(--shadow)}
+.blog-thumb{height:200px;position:relative;overflow:hidden;flex-shrink:0}
+.blog-thumb-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.blog-category{position:absolute;top:16px;left:16px;background:rgba(7,11,20,0.75);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);padding:4px 12px;border-radius:999px;font-size:0.72rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.08em}
+.blog-card-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.blog-meta{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.blog-meta span{font-size:0.78rem;color:var(--text3)}
+.blog-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--text3)}
+.blog-card h3{font-size:1rem;font-weight:700;line-height:1.45;margin-bottom:10px;color:var(--text1)}
+.blog-card p{color:var(--text2);font-size:0.85rem;line-height:1.65;flex:1;margin-bottom:20px}
+.blog-read-more{color:var(--blue);font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:gap 0.2s;margin-top:auto}
+.blog-card:hover .blog-read-more{gap:10px}
+
+/* ================================================================
+   CTA SECTION
+================================================================ */
+.cta-section{position:relative;overflow:hidden;padding:100px 0}
+.cta-bg{position:absolute;inset:0;background:var(--grad);opacity:0.06}
+.cta-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(79,110,247,0.2) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-inner{position:relative;z-index:1;text-align:center;max-width:700px;margin:0 auto;padding:0 24px}
+.cta-inner h2{font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:800;margin-bottom:20px;letter-spacing:-0.02em}
+.cta-inner p{color:var(--text2);font-size:1.05rem;margin-bottom:40px;line-height:1.75}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ================================================================
+   FOOTER
+================================================================ */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:80px 0 0}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:64px}
+.footer-brand p{color:var(--text2);font-size:0.88rem;line-height:1.75;margin:20px 0 28px;max-width:300px}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:38px;height:38px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.footer-social a:hover{border-color:var(--blue);background:var(--blue-dim)}
+.footer-social svg{width:16px;height:16px;color:var(--text2)}
+.footer-col h4{font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:20px}
+.footer-col ul{display:flex;flex-direction:column;gap:12px}
+.footer-col a{color:var(--text2);font-size:0.88rem;transition:color 0.2s}
+.footer-col a:hover{color:var(--text1)}
+.footer-bottom{border-top:1px solid var(--border);padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.footer-bottom-links{display:flex;gap:24px}
+.footer-bottom-links a{color:var(--text3);font-size:0.8rem;transition:color 0.2s}
+.footer-bottom-links a:hover{color:var(--text1)}
+.footer-bottom p{color:var(--text3);font-size:0.8rem}
+
+/* ================================================================
+   COOKIE CONSENT
+================================================================ */
+#cookie-consent{position:fixed;bottom:24px;left:24px;right:24px;max-width:520px;z-index:9999;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r-lg);padding:28px;box-shadow:0 24px 60px rgba(0,0,0,0.6),var(--glow);transform:translateY(140%);transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);opacity:0}
+#cookie-consent.visible{transform:translateY(0);opacity:1}
+.cookie-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px}
+.cookie-icon{width:40px;height:40px;background:var(--blue-dim);border:1px solid var(--border2);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cookie-header h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+.cookie-header p{font-size:0.82rem;color:var(--text2);line-height:1.6}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.cookie-actions .btn{font-size:0.82rem;padding:9px 18px}
+.cookie-customize{display:none;margin-top:20px;border-top:1px solid var(--border);padding-top:20px}
+.cookie-customize.open{display:block}
+.cookie-toggle-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
+.cookie-toggle-row:last-child{border-bottom:none}
+.cookie-toggle-info h4{font-size:0.85rem;font-weight:600;margin-bottom:2px}
+.cookie-toggle-info p{font-size:0.75rem;color:var(--text2)}
+.toggle{position:relative;width:44px;height:24px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:var(--bg4);border-radius:999px;cursor:pointer;transition:0.3s;border:1px solid var(--border)}
+.toggle-slider::before{content:'';position:absolute;width:18px;height:18px;left:2px;top:2px;background:var(--text3);border-radius:50%;transition:0.3s}
+.toggle input:checked+.toggle-slider{background:var(--blue)}
+.toggle input:checked+.toggle-slider::before{transform:translateX(20px);background:#fff}
+.toggle input:disabled+.toggle-slider{opacity:0.6;cursor:not-allowed}
+.cookie-save{margin-top:16px;width:100%}
+
+/* ================================================================
+   UTILITY
+================================================================ */
+.tag{display:inline-block;background:var(--blue-dim);color:var(--blue);font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:999px;border:1px solid var(--border2)}
+.divider{height:1px;background:var(--border);margin:0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.gap-8{gap:8px}
+.mt-8{margin-top:8px}
+.mt-16{margin-top:16px}
+.mt-24{margin-top:24px}
+.mb-24{margin-bottom:24px}
+
+/* ================================================================
+   LIGHT SECTION OVERRIDES
+================================================================ */
+.section-light .section-label{color:#4F6EF7}
+.section-light .section-title{color:#0F172A}
+.section-light .section-sub{color:#475569}
+.section-light .blog-card{background:#fff;border-color:#E2E8F0;color:#0F172A}
+.section-light .blog-card:hover{border-color:#4F6EF7;box-shadow:0 12px 40px rgba(79,110,247,0.12)}
+.section-light .blog-card h3{color:#0F172A}
+.section-light .blog-card p{color:#475569}
+.section-light .blog-meta span{color:#94A3B8}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media(max-width:768px){
+  .section{padding:64px 0}
+  .hero-content{grid-template-columns:1fr;gap:48px}
+  .hero-visual{display:none}
+  .services-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr;gap:32px}
+  .process-steps::before{display:none}
+  .blog-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+  #cookie-consent{left:12px;right:12px;bottom:12px}
+}
+
+/* ================================================================
+   SCROLL ANIMATIONS
+================================================================ */
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.7s,transform 0.7s}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+   COOKIE CONSENT POPUP
+================================================================ -->
+<div id="cookie-consent" role="dialog" aria-label="Cookie Consent">
+  <div class="cookie-header">
+    <div class="cookie-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--blue)">
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10"/>
+        <path d="M8.5 8.5h.01M12 12h.01M16 9h.01"/>
+        <path d="M22 12c-2 0-4-1-4-4 0 1.5-1 3-3 3 1 0 2 1.5 2 3 0-1 1-2 2-2s2 .5 3 1V12z"/>
+      </svg>
+    </div>
+    <div>
+      <h3>We use cookies</h3>
+      <p>Acendia uses cookies to enhance your experience, analyse site traffic, and personalise content. You control which cookies we use.</p>
+    </div>
+  </div>
+
+  <div class="cookie-customize" id="cookie-customize">
+    <div class="cookie-toggle-row">
+      <div class="cookie-toggle-info">
+        <h4>Essential Cookies</h4>
+        <p>Required for the site to function. Always active.</p>
+      </div>
+      <label class="toggle"><input type="checkbox" checked disabled><span class="toggle-slider"></span></label>
+    </div>
+    <div class="cookie-toggle-row">
+      <div class="cookie-toggle-info">
+        <h4>Analytics Cookies</h4>
+        <p>Help us understand how visitors use our site (Google Analytics 4).</p>
+      </div>
+      <label class="toggle"><input type="checkbox" id="analytics-toggle"><span class="toggle-slider"></span></label>
+    </div>
+    <div class="cookie-toggle-row">
+      <div class="cookie-toggle-info">
+        <h4>Marketing Cookies</h4>
+        <p>Used to show you relevant ads and track campaign performance.</p>
+      </div>
+      <label class="toggle"><input type="checkbox" id="marketing-toggle"><span class="toggle-slider"></span></label>
+    </div>
+    <button class="btn btn-primary cookie-save" onclick="savePreferences()">Save My Preferences</button>
+  </div>
+
+  <div class="cookie-actions">
+    <button class="btn btn-primary" onclick="acceptAll()">Accept All</button>
+    <button class="btn btn-ghost" onclick="toggleCustomize()">Customize</button>
+    <button class="btn btn-outline" onclick="rejectAll()">Reject All</button>
+  </div>
+
+  <p style="font-size:0.72rem;color:var(--text3);margin-top:14px">
+    By using our site you agree to our <a href="/privacy-policy" style="color:var(--blue)">Privacy Policy</a>. We comply with the NZ Privacy Act 2020.
+  </p>
+</div>
+
+<!-- ================================================================
+   NAVIGATION
+================================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <!-- Logo: white chevron + wordmark (SVG inline from Acendia_Logo_Primary.svg) -->
+    <a href="/" class="nav-logo" aria-label="Acendia International">
+      <svg viewBox="0 0 280 72" xmlns="http://www.w3.org/2000/svg" height="36">
+        <polyline points="18,58 36,18 54,58" fill="none" stroke="#4F6EF7" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="20"/>
+        <text x="68" y="52" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="42" font-weight="300" letter-spacing="4" fill="#F1F5F9">Acendia</text>
+      </svg>
+    </a>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why-acendia">About</a>
+      <a href="#process">How It Works</a>
+      <a href="#blog">Blog</a>
+      <a href="/contact">Contact</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="tel:+6400000000" class="btn btn-ghost btn-sm">📞 Call Us</a>
+      <a href="/contact" class="btn btn-primary btn-sm">Book a Call</a>
+    </div>
+
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ================================================================
+   HERO
+================================================================ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        AI-Native Digital Growth Agency
+      </div>
+
+      <h1 class="display">
+        Rank Higher.<br>
+        <span class="gradient-text">Convert More.</span><br>
+        Grow Faster.
+      </h1>
+
+      <p>Acendia helps local businesses dominate Google Maps, build high-converting websites, and generate consistent leads — with AI-powered systems built to scale.</p>
+
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+          Book a Free Strategy Call
+        </a>
+        <a href="#services" class="btn btn-ghost btn-lg">See Our Services</a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Leads Generated</div>
+        </div>
+        <div style="width:1px;background:var(--border)"></div>
+        <div>
+          <div class="hero-stat-num">98%</div>
+          <div class="hero-stat-label">Client Satisfaction</div>
+        </div>
+        <div style="width:1px;background:var(--border)"></div>
+        <div>
+          <div class="hero-stat-num">3×</div>
+          <div class="hero-stat-label">Avg Traffic Growth</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <!-- SEO Data Visualization SVG -->
+      <svg class="hero-viz" viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4F6EF7"/>
+            <stop offset="100%" stop-color="#8B5CF6"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#06B6D4"/>
+            <stop offset="100%" stop-color="#4F6EF7"/>
+          </linearGradient>
+          <linearGradient id="g3" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#4F6EF7" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#4F6EF7" stop-opacity="0.3"/>
+          </linearGradient>
+          <filter id="glow-filter">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- Background card -->
+        <rect x="0" y="0" width="480" height="420" rx="20" fill="#0D1624" stroke="rgba(79,110,247,0.2)" stroke-width="1"/>
+
+        <!-- Rank chart bars -->
+        <text x="24" y="36" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#64748B" letter-spacing="1">GOOGLE RANKINGS</text>
+        <rect x="24" y="48" width="200" height="140" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <!-- Bar chart data -->
+        <rect x="36" y="150" width="20" height="28" rx="3" fill="url(#g1)" opacity="0.4"/>
+        <rect x="62" y="130" width="20" height="48" rx="3" fill="url(#g1)" opacity="0.5"/>
+        <rect x="88" y="108" width="20" height="70" rx="3" fill="url(#g1)" opacity="0.6"/>
+        <rect x="114" y="88" width="20" height="90" rx="3" fill="url(#g1)" opacity="0.75"/>
+        <rect x="140" y="68" width="20" height="110" rx="3" fill="url(#g1)" opacity="0.9"/>
+        <rect x="166" y="52" width="20" height="126" rx="3" fill="url(#g1)"/>
+        <!-- Labels -->
+        <text x="36" y="188" font-family="Inter,sans-serif" font-size="9" fill="#64748B">Jan</text>
+        <text x="62" y="188" font-family="Inter,sans-serif" font-size="9" fill="#64748B">Feb</text>
+        <text x="88" y="188" font-family="Inter,sans-serif" font-size="9" fill="#64748B">Mar</text>
+        <text x="114" y="188" font-family="Inter,sans-serif" font-size="9" fill="#64748B">Apr</text>
+        <text x="140" y="188" font-family="Inter,sans-serif" font-size="9" fill="#64748B">May</text>
+        <text x="166" y="188" font-family="Inter,sans-serif" font-size="9" fill="#4F6EF7" font-weight="700">Jun</text>
+
+        <!-- Search ranking card -->
+        <rect x="240" y="16" width="216" height="80" rx="10" fill="rgba(79,110,247,0.08)" stroke="rgba(79,110,247,0.2)" stroke-width="1"/>
+        <text x="256" y="42" font-family="Inter,sans-serif" font-size="10" fill="#64748B">ORGANIC POSITION</text>
+        <text x="256" y="68" font-family="Inter,sans-serif" font-size="28" font-weight="800" fill="url(#g1)">#1</text>
+        <text x="320" y="68" font-family="Inter,sans-serif" font-size="11" fill="#10B981" font-weight="600">↑ 14 places</text>
+
+        <!-- Traffic card -->
+        <rect x="240" y="108" width="216" height="80" rx="10" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
+        <text x="256" y="134" font-family="Inter,sans-serif" font-size="10" fill="#64748B">MONTHLY TRAFFIC</text>
+        <text x="256" y="162" font-family="Inter,sans-serif" font-size="28" font-weight="800" fill="url(#g2)">4,820</text>
+        <text x="360" y="162" font-family="Inter,sans-serif" font-size="11" fill="#10B981" font-weight="600">↑ 312%</text>
+
+        <!-- Maps ranking -->
+        <rect x="24" y="208" width="432" height="72" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="40" y="232" font-family="Inter,sans-serif" font-size="10" fill="#64748B" letter-spacing="1">GOOGLE MAPS — LOCAL PACK POSITION</text>
+        <!-- Map pin icons -->
+        <circle cx="64" cy="260" r="14" fill="url(#g1)" opacity="0.9"/>
+        <text x="64" y="265" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="white" text-anchor="middle">1</text>
+        <text x="88" y="264" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#F1F5F9">Your Business</text>
+        <text x="88" y="276" font-family="Inter,sans-serif" font-size="10" fill="#10B981">⭐ 4.9 · 142 reviews · Open now</text>
+        <text x="380" y="264" font-family="Inter,sans-serif" font-size="11" fill="#4F6EF7" font-weight="600">acendia.agency</text>
+
+        <!-- Line chart -->
+        <rect x="24" y="296" width="432" height="108" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <text x="40" y="320" font-family="Inter,sans-serif" font-size="10" fill="#64748B" letter-spacing="1">LEADS GENERATED / MONTH</text>
+
+        <!-- Area fill -->
+        <path d="M40 380 L80 368 L130 355 L180 340 L230 318 L280 298 L330 282 L380 265 L440 248 L440 390 L40 390Z" fill="url(#g3)"/>
+        <!-- Line -->
+        <path d="M40 380 L80 368 L130 355 L180 340 L230 318 L280 298 L330 282 L380 265 L440 248" fill="none" stroke="url(#g2)" stroke-width="2.5" stroke-linecap="round" filter="url(#glow-filter)"/>
+        <!-- Data points -->
+        <circle cx="440" cy="248" r="5" fill="#06B6D4" filter="url(#glow-filter)"/>
+        <circle cx="380" cy="265" r="3.5" fill="#4F6EF7"/>
+        <circle cx="280" cy="298" r="3.5" fill="#4F6EF7"/>
+
+        <!-- Floating badge -->
+        <rect x="330" y="230" width="100" height="36" rx="8" fill="#0F1724" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
+        <text x="380" y="247" font-family="Inter,sans-serif" font-size="9" fill="#64748B" text-anchor="middle">THIS MONTH</text>
+        <text x="380" y="260" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="#10B981" text-anchor="middle">+187 leads</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+   SOCIAL PROOF TICKER
+================================================================ -->
+<div class="ticker-bar">
+  <div class="ticker-inner" id="ticker">
+    <!-- Set 1 -->
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>Google Maps #1 Rankings</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>AI-Native Agency</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>500+ Leads Generated</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>Local SEO Specialists</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>WordPress → Next.js Migration Experts</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>GBP Optimisation</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>NZ & AU Markets</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>Fast Website Delivery</div>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>Google Maps #1 Rankings</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>AI-Native Agency</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>500+ Leads Generated</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>Local SEO Specialists</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>WordPress → Next.js Migration Experts</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>GBP Optimisation</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>NZ & AU Markets</div>
+    <div class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>Fast Website Delivery</div>
+  </div>
+</div>
+
+<!-- ================================================================
+   SERVICES
+================================================================ -->
+<section class="section section-dark" id="services">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="section-label">What We Do</div>
+      <h2 class="h1 section-title">Everything You Need to <span class="gradient-text">Win Online</span></h2>
+      <p class="section-sub">From a high-converting website to Google Maps dominance — we build the complete digital growth engine for your local business.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Local SEO -->
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v3l2 2"/></svg>
+        </div>
+        <h3>Local SEO</h3>
+        <p>Rank at the top of Google search and Google Maps for your target keywords. We use proven on-page, off-page, and technical SEO strategies to drive local traffic that converts.</p>
+        <a href="/services/local-seo" class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Website Design -->
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background:rgba(139,92,246,0.12);border-color:rgba(139,92,246,0.25)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M9 8h.01M12 8h6"/><path d="M6 11h12"/></svg>
+        </div>
+        <h3>Website Design & Development</h3>
+        <p>Fast, mobile-first, conversion-engineered websites built in Next.js. Every site is SEO-ready from day one and designed to turn visitors into leads automatically.</p>
+        <a href="/services/website-design" class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- GBP -->
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.25)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3>Google Business Profile</h3>
+        <p>Dominate the Google Maps Local Pack. We fully optimise and actively manage your GBP so your business appears at the top when local customers search for your services.</p>
+        <a href="/services/google-business-profile" class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Lead Generation -->
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background:rgba(245,158,11,0.12);border-color:rgba(245,158,11,0.25)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Lead Generation Systems</h3>
+        <p>We build automated systems that attract, capture, and nurture leads for your business. Predictable, scalable, and integrated directly with your CRM and sales process.</p>
+        <a href="/services/lead-generation" class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Google Ads -->
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.2)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.8"><path d="M3 3h18v4H3z"/><path d="M3 10h7v11H3z"/><path d="M14 10h7v5h-7z"/><path d="M14 19h7v2h-7z"/></svg>
+        </div>
+        <h3>Google Ads (PPC)</h3>
+        <p>Targeted paid campaigns that drive high-intent customers to your business fast. We manage your ad budget with precision — maximising ROI and eliminating wasted spend.</p>
+        <a href="/services/google-ads" class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- CRM Automation -->
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.2)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h3>CRM & AI Automation</h3>
+        <p>Connect your website, leads, and sales pipeline into one automated system. AI-powered follow-up, booking automation, and reporting — so nothing falls through the cracks.</p>
+        <a href="/services/crm-automation" class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+   WHY ACENDIA
+================================================================ -->
+<section class="section" id="why-acendia" style="background:var(--bg)">
+  <div class="container">
+    <div class="why-grid">
+      <div class="fade-up">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="h1 section-title" style="margin-bottom:16px">We Don't Just <span class="gradient-text">Deliver Services.</span><br>We Build Systems.</h2>
+        <p class="body-lg muted" style="margin-bottom:40px">Most agencies hand you a report. We hand you a growth engine — automated, scalable, and built to compound over time.</p>
+        <a href="/about" class="btn btn-primary">Meet the Team →</a>
+      </div>
+
+      <div class="why-points fade-up">
+        <div class="why-point">
+          <div class="why-num">01</div>
+          <div>
+            <h3>AI-Native from Day One</h3>
+            <p>Every workflow, every process, and every deliverable is built with AI at its core — giving you faster results at a fraction of the cost of a traditional agency.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">02</div>
+          <div>
+            <h3>Systems, Not Just Tasks</h3>
+            <p>We document, automate, and systematise everything we build for you — so results compound month after month without constant manual effort.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">03</div>
+          <div>
+            <h3>Transparent Reporting</h3>
+            <p>No black boxes. You see exactly what we're doing, why we're doing it, and what it's producing — in plain language, every month.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">04</div>
+          <div>
+            <h3>No Lock-In Contracts</h3>
+            <p>We earn your business every month. Our results speak for themselves, which is why we've never needed to trap clients in long contracts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+   PROCESS
+================================================================ -->
+<section class="section section-dark" id="process">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="section-label">How It Works</div>
+      <h2 class="h1 section-title">From Audit to <span class="gradient-text">Growth</span> in 3 Steps</h2>
+      <p class="section-sub">A simple, proven process that gets local businesses ranking, converting, and growing — fast.</p>
+    </div>
+
+    <div class="process-steps fade-up">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h3>Free Digital Audit</h3>
+        <p>We analyse your website, Google rankings, GBP, competitors, and digital footprint. You'll get a clear picture of exactly where you stand and what's possible.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h3>Custom Growth Strategy</h3>
+        <p>We build a tailored roadmap — prioritised by impact and ROI. No cookie-cutter packages. Every strategy is built around your specific business, market, and goals.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h3>Execute & Scale</h3>
+        <p>We implement, optimise, and report. As results compound, we scale what's working and adjust what isn't — continuously pushing your growth forward.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:56px" class="fade-up">
+      <a href="/contact" class="btn btn-primary btn-lg">Get Your Free Audit →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+   BLOG — 15 ARTICLES
+================================================================ -->
+<section class="section section-mid" id="blog">
+  <div class="container">
+    <div class="section-header centered fade-up" style="color:#0F172A">
+      <div class="section-label" style="color:#4F6EF7">Insights & Strategy</div>
+      <h2 class="h1 section-title" style="color:#0F172A">The Acendia <span class="gradient-text">Growth Blog</span></h2>
+      <p class="section-sub" style="color:#475569">Actionable digital marketing insights for local business owners. No fluff — just strategies that move the needle.</p>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- Article 1 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#4F6EF7"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t1)"/>
+            <circle cx="300" cy="40" r="80" fill="rgba(255,255,255,0.04)"/>
+            <circle cx="100" cy="160" r="60" fill="rgba(255,255,255,0.03)"/>
+            <text x="40" y="80" font-family="Inter,sans-serif" font-size="48" font-weight="900" fill="rgba(255,255,255,0.12)">#1</text>
+            <text x="40" y="130" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="white">Google Maps</text>
+            <text x="40" y="152" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="rgba(255,255,255,0.7)">Ranking Guide</text>
+            <path d="M280 100 L310 70 L340 100 L325 160 L295 160Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <circle cx="310" cy="88" r="8" fill="white" opacity="0.8"/>
+          </svg>
+          <span class="blog-category">Local SEO</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>June 20, 2026</span><span class="dot"></span><span>8 min read</span></div>
+          <h3>How to Rank #1 on Google Maps in 2026: The Definitive Guide</h3>
+          <p>Google Maps is where local customers find local businesses. Here's the complete, step-by-step playbook to dominate the Local Pack in 2026.</p>
+          <a href="/blog/rank-1-google-maps-2026" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2d1b69"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t2)"/>
+            <rect x="60" y="50" width="200" height="130" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <rect x="74" y="64" width="170" height="14" rx="3" fill="rgba(255,255,255,0.3)"/>
+            <rect x="74" y="84" width="130" height="8" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="74" y="100" width="150" height="8" rx="2" fill="rgba(255,255,255,0.15)"/>
+            <rect x="74" y="130" width="80" height="28" rx="5" fill="rgba(139,92,246,0.6)"/>
+            <text x="84" y="149" font-family="Inter,sans-serif" font-size="11" fill="white" font-weight="600">Book Now</text>
+            <path d="M290 80 L350 50 L360 140 L290 160Z" fill="rgba(255,255,255,0.06)"/>
+          </svg>
+          <span class="blog-category">Web Design</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>June 18, 2026</span><span class="dot"></span><span>6 min read</span></div>
+          <h3>Why Your Local Business Website is Losing You Customers Every Day</h3>
+          <p>Most local business websites fail at the one job they were built to do: convert visitors into customers. Here's why — and how to fix it.</p>
+          <a href="/blog/website-losing-customers" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#064e3b"/><stop offset="100%" stop-color="#10B981"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t3)"/>
+            <circle cx="200" cy="100" r="70" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <circle cx="200" cy="100" r="45" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <path d="M200 55 L200 145 M155 100 L245 100" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <circle cx="200" cy="72" r="6" fill="white" opacity="0.9"/>
+            <text x="185" y="60" font-family="Inter,sans-serif" font-size="10" fill="white" opacity="0.8">Your Business</text>
+            <text x="40" y="170" font-family="Inter,sans-serif" font-size="28" font-weight="900" fill="rgba(255,255,255,0.1)">GBP</text>
+          </svg>
+          <span class="blog-category">Google Business</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>June 15, 2026</span><span class="dot"></span><span>7 min read</span></div>
+          <h3>Google Business Profile Mastery: 9 Tactics That Actually Work in 2026</h3>
+          <p>Your GBP is your most powerful free marketing tool. These 9 optimisation tactics will dramatically improve your local search visibility starting this week.</p>
+          <a href="/blog/google-business-profile-tactics" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#06B6D4"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t4)"/>
+            <rect x="50" y="140" width="30" height="40" rx="3" fill="rgba(255,255,255,0.3)"/>
+            <rect x="95" y="110" width="30" height="70" rx="3" fill="rgba(255,255,255,0.45)"/>
+            <rect x="140" y="80" width="30" height="100" rx="3" fill="rgba(255,255,255,0.6)"/>
+            <rect x="185" y="50" width="30" height="130" rx="3" fill="rgba(255,255,255,0.75)"/>
+            <rect x="230" y="30" width="30" height="150" rx="3" fill="rgba(255,255,255,0.9)"/>
+            <text x="280" y="80" font-family="Inter,sans-serif" font-size="26" font-weight="900" fill="white">ROI</text>
+            <text x="280" y="106" font-family="Inter,sans-serif" font-size="14" fill="rgba(255,255,255,0.7)">of SEO</text>
+          </svg>
+          <span class="blog-category">Strategy</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>June 12, 2026</span><span class="dot"></span><span>9 min read</span></div>
+          <h3>The True ROI of Local SEO: A Data-Driven Analysis for Business Owners</h3>
+          <p>What does local SEO actually return on your investment? We break down the real numbers — traffic, leads, and revenue impact — with data from our client campaigns.</p>
+          <a href="/blog/roi-local-seo" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 5 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t5)"/>
+            <text x="40" y="110" font-family="Inter,sans-serif" font-size="72" font-weight="900" fill="rgba(255,255,255,0.12)">⚡</text>
+            <text x="140" y="80" font-family="Inter,sans-serif" font-size="20" font-weight="800" fill="white">2.1s</text>
+            <text x="140" y="102" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">Page Load Speed</text>
+            <rect x="140" y="114" width="160" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+            <rect x="140" y="114" width="60" height="6" rx="3" fill="#10B981"/>
+            <text x="140" y="140" font-family="Inter,sans-serif" font-size="12" fill="rgba(255,255,255,0.6)">Core Web Vitals</text>
+          </svg>
+          <span class="blog-category">Technical SEO</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>June 10, 2026</span><span class="dot"></span><span>7 min read</span></div>
+          <h3>Core Web Vitals 2026: What Google's Speed Update Means for Your Rankings</h3>
+          <p>Page speed is now a direct ranking factor. Learn what Core Web Vitals are, how to measure them, and the exact fixes that will improve your Google rankings fast.</p>
+          <a href="/blog/core-web-vitals-2026" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 6 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0c1a2e"/><stop offset="100%" stop-color="#4F6EF7"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t6)"/>
+            <circle cx="100" cy="100" r="20" fill="rgba(79,110,247,0.4)" stroke="rgba(79,110,247,0.8)" stroke-width="1.5"/>
+            <circle cx="200" cy="60" r="16" fill="rgba(79,110,247,0.3)" stroke="rgba(79,110,247,0.6)" stroke-width="1.5"/>
+            <circle cx="300" cy="110" r="22" fill="rgba(79,110,247,0.4)" stroke="rgba(79,110,247,0.8)" stroke-width="1.5"/>
+            <circle cx="180" cy="150" r="14" fill="rgba(139,92,246,0.4)" stroke="rgba(139,92,246,0.7)" stroke-width="1.5"/>
+            <line x1="100" y1="100" x2="200" y2="60" stroke="rgba(79,110,247,0.4)" stroke-width="1.5"/>
+            <line x1="200" y1="60" x2="300" y2="110" stroke="rgba(79,110,247,0.4)" stroke-width="1.5"/>
+            <line x1="100" y1="100" x2="180" y2="150" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+            <line x1="300" y1="110" x2="180" y2="150" stroke="rgba(79,110,247,0.3)" stroke-width="1"/>
+            <text x="220" y="170" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="rgba(255,255,255,0.6)">AI</text>
+          </svg>
+          <span class="blog-category">AI Marketing</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>June 8, 2026</span><span class="dot"></span><span>8 min read</span></div>
+          <h3>How AI is Reshaping Local SEO and What Your Business Needs to Do Now</h3>
+          <p>AI is changing how Google ranks local businesses and how customers find services. Here's what's changing in 2026 and how to stay ahead of the curve.</p>
+          <a href="/blog/ai-local-seo-2026" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 7 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1a1a2e"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t7)"/>
+            <text x="40" y="120" font-family="Inter,sans-serif" font-size="80" font-weight="900" fill="rgba(245,158,11,0.15)">5</text>
+            <text x="130" y="80" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="white">Signs You Need</text>
+            <text x="130" y="102" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="rgba(245,158,11,0.9)">a New Website</text>
+            <rect x="130" y="120" width="4" height="50" rx="2" fill="rgba(245,158,11,0.5)"/>
+            <text x="144" y="137" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">Slow load times</text>
+            <text x="144" y="155" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">No mobile version</text>
+            <text x="144" y="173" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">Zero conversions</text>
+          </svg>
+          <span class="blog-category">Web Design</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>June 5, 2026</span><span class="dot"></span><span>5 min read</span></div>
+          <h3>5 Signs Your Business Needs a New Website (And What to Do About It)</h3>
+          <p>Is your website helping or hurting your business? These 5 warning signs reveal when it's time to rebuild — and the modern approach to doing it right.</p>
+          <a href="/blog/signs-need-new-website" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 8 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#10B981"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t8)"/>
+            <path d="M80 40 L80 100 L120 120 L160 90 L200 110 L200 160 L320 160 L320 40Z" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.4)" stroke-width="1.5"/>
+            <text x="230" y="80" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="white">Top of Funnel</text>
+            <text x="230" y="110" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="rgba(16,185,129,0.9)">Qualified Leads</text>
+            <text x="230" y="140" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="rgba(255,255,255,0.5)">Conversions</text>
+          </svg>
+          <span class="blog-category">Lead Generation</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>June 3, 2026</span><span class="dot"></span><span>10 min read</span></div>
+          <h3>Lead Generation Systems That Generate Enquiries on Autopilot</h3>
+          <p>Stop chasing leads. Build a system that attracts, captures, and nurtures potential clients automatically — even while you sleep. Here's how we do it at Acendia.</p>
+          <a href="/blog/lead-generation-systems" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 9 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7f1d1d"/><stop offset="100%" stop-color="#EF4444"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t9)"/>
+            <rect x="40" y="60" width="140" height="90" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <text x="110" y="98" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">Google Ads</text>
+            <text x="110" y="116" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.6)" text-anchor="middle">Instant traffic</text>
+            <text x="110" y="130" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle">Stops when you pause</text>
+            <text x="220" y="100" font-family="Inter,sans-serif" font-size="20" font-weight="900" fill="rgba(255,255,255,0.5)">VS</text>
+            <rect x="240" y="60" width="120" height="90" rx="8" fill="rgba(79,110,247,0.2)" stroke="rgba(79,110,247,0.4)" stroke-width="1"/>
+            <text x="300" y="98" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">Local SEO</text>
+            <text x="300" y="116" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.6)" text-anchor="middle">Compounds over time</text>
+            <text x="300" y="130" font-family="Inter,sans-serif" font-size="10" fill="rgba(79,110,247,0.9)" text-anchor="middle">Free clicks forever</text>
+          </svg>
+          <span class="blog-category">Strategy</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>May 30, 2026</span><span class="dot"></span><span>8 min read</span></div>
+          <h3>Google Ads vs Local SEO: Where Should You Invest Your Marketing Budget?</h3>
+          <p>Paid ads deliver instant traffic. SEO compounds over time. So which is right for your business? The honest answer — and when to use both together.</p>
+          <a href="/blog/google-ads-vs-local-seo" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 10 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t10" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#064e3b"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t10)"/>
+            <text x="40" y="110" font-family="Inter,sans-serif" font-size="60" fill="rgba(245,158,11,0.3)">⭐</text>
+            <text x="140" y="80" font-family="Inter,sans-serif" font-size="32" font-weight="900" fill="white">4.9</text>
+            <text x="195" y="70" font-family="Inter,sans-serif" font-size="13" fill="rgba(245,158,11,0.9)">★★★★★</text>
+            <text x="140" y="100" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">142 Google Reviews</text>
+            <rect x="140" y="116" width="180" height="1" fill="rgba(255,255,255,0.1)"/>
+            <text x="140" y="140" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">How to get more 5-star</text>
+            <text x="140" y="158" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">reviews — without asking</text>
+          </svg>
+          <span class="blog-category">GBP</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>May 27, 2026</span><span class="dot"></span><span>6 min read</span></div>
+          <h3>How to Get More 5-Star Google Reviews (Without Asking Awkwardly)</h3>
+          <p>Reviews are the single biggest trust signal for local businesses. This guide covers ethical, effective strategies to grow your Google review count consistently.</p>
+          <a href="/blog/get-more-google-reviews" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 11 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t11" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t11)"/>
+            <rect x="40" y="30" width="100" height="160" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <rect x="50" y="45" width="80" height="12" rx="3" fill="rgba(255,255,255,0.3)"/>
+            <rect x="50" y="65" width="80" height="60" rx="4" fill="rgba(255,255,255,0.08)"/>
+            <rect x="50" y="133" width="40" height="20" rx="4" fill="rgba(139,92,246,0.6)"/>
+            <rect x="180" y="50" width="180" height="120" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <rect x="196" y="66" width="148" height="10" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="196" y="84" width="120" height="8" rx="2" fill="rgba(255,255,255,0.1)"/>
+            <text x="180" y="190" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.4)">Mobile-First Index</text>
+          </svg>
+          <span class="blog-category">Web Design</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>May 24, 2026</span><span class="dot"></span><span>6 min read</span></div>
+          <h3>Mobile-First Design: Why 70% of Your Customers Judge You on Their Phone</h3>
+          <p>Google indexes the mobile version of your site first. If your website isn't built mobile-first, you're invisible to most of your potential customers. Here's how to fix it.</p>
+          <a href="/blog/mobile-first-design" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 12 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t12" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1a1a2e"/><stop offset="100%" stop-color="#06B6D4"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t12)"/>
+            <circle cx="80" cy="100" r="25" fill="none" stroke="rgba(6,182,212,0.5)" stroke-width="2"/>
+            <circle cx="160" cy="100" r="25" fill="none" stroke="rgba(6,182,212,0.5)" stroke-width="2"/>
+            <circle cx="240" cy="100" r="25" fill="none" stroke="rgba(6,182,212,0.5)" stroke-width="2"/>
+            <circle cx="320" cy="100" r="25" fill="none" stroke="rgba(6,182,212,0.5)" stroke-width="2"/>
+            <line x1="105" y1="100" x2="135" y2="100" stroke="rgba(6,182,212,0.6)" stroke-width="2" stroke-dasharray="4,3"/>
+            <line x1="185" y1="100" x2="215" y2="100" stroke="rgba(6,182,212,0.6)" stroke-width="2" stroke-dasharray="4,3"/>
+            <line x1="265" y1="100" x2="295" y2="100" stroke="rgba(6,182,212,0.6)" stroke-width="2" stroke-dasharray="4,3"/>
+            <text x="80" y="104" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle">Yelp</text>
+            <text x="160" y="104" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle">FB</text>
+            <text x="240" y="104" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle">Maps</text>
+            <text x="320" y="104" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle">Bing</text>
+            <text x="200" y="165" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,0.5)" text-anchor="middle">Local Citations</text>
+          </svg>
+          <span class="blog-category">Local SEO</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>May 21, 2026</span><span class="dot"></span><span>7 min read</span></div>
+          <h3>Local Citation Building: The Underrated SEO Strategy Most Businesses Ignore</h3>
+          <p>Citations — mentions of your business name, address, and phone across the web — are a major local ranking factor. Here's how to build them systematically.</p>
+          <a href="/blog/local-citation-building" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 13 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t13" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#4F6EF7"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t13)"/>
+            <rect x="40" y="40" width="320" height="130" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <text x="56" y="68" font-family="Inter,sans-serif" font-size="10" fill="#64748B">KPI DASHBOARD</text>
+            <rect x="56" y="80" width="80" height="50" rx="6" fill="rgba(79,110,247,0.15)" stroke="rgba(79,110,247,0.2)" stroke-width="1"/>
+            <text x="96" y="102" font-family="Inter,sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">↑312%</text>
+            <text x="96" y="118" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" text-anchor="middle">Traffic</text>
+            <rect x="148" y="80" width="80" height="50" rx="6" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
+            <text x="188" y="102" font-family="Inter,sans-serif" font-size="14" font-weight="800" fill="#10B981" text-anchor="middle">#1</text>
+            <text x="188" y="118" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" text-anchor="middle">Maps Rank</text>
+            <rect x="240" y="80" width="80" height="50" rx="6" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+            <text x="280" y="102" font-family="Inter,sans-serif" font-size="14" font-weight="800" fill="#F59E0B" text-anchor="middle">187</text>
+            <text x="280" y="118" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" text-anchor="middle">Leads/mo</text>
+          </svg>
+          <span class="blog-category">Analytics</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>May 18, 2026</span><span class="dot"></span><span>7 min read</span></div>
+          <h3>How to Measure Local SEO Success: The KPIs That Actually Matter</h3>
+          <p>Not all SEO metrics are created equal. Learn which KPIs truly indicate local SEO performance — and how to track them without drowning in data.</p>
+          <a href="/blog/local-seo-kpis" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 14 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t14" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0c1a2e"/><stop offset="100%" stop-color="#06B6D4"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t14)"/>
+            <path d="M60 120 L100 90 L140 110 L180 70 L220 85 L260 50 L300 65 L340 40" fill="none" stroke="rgba(6,182,212,0.7)" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="340" cy="40" r="5" fill="#06B6D4"/>
+            <text x="284" y="30" font-family="Inter,sans-serif" font-size="10" fill="#06B6D4" font-weight="700">Closed!</text>
+            <text x="60" y="170" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,0.5)">CRM Automation Pipeline</text>
+          </svg>
+          <span class="blog-category">Automation</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>May 15, 2026</span><span class="dot"></span><span>8 min read</span></div>
+          <h3>CRM Automation for Local Businesses: Follow Up Faster and Close More Deals</h3>
+          <p>Speed to lead is everything. Learn how CRM automation helps local service businesses respond instantly, follow up consistently, and close more deals with less effort.</p>
+          <a href="/blog/crm-automation-local-businesses" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Article 15 -->
+      <article class="blog-card fade-up">
+        <div class="blog-thumb">
+          <svg width="100%" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t15" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#003d47"/><stop offset="100%" stop-color="#00C2A0"/></linearGradient></defs>
+            <rect width="400" height="200" fill="url(#t15)"/>
+            <text x="40" y="80" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="rgba(255,255,255,0.8)">New Zealand</text>
+            <text x="40" y="102" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="rgba(255,255,255,0.8)">Digital Marketing</text>
+            <text x="40" y="124" font-family="Inter,sans-serif" font-size="22" font-weight="900" fill="white">Guide 2026</text>
+            <path d="M280 40 C290 55 310 50 320 65 C330 80 315 95 305 108 C295 121 298 140 285 148 C272 156 255 145 248 132 C241 119 250 100 245 86 C240 72 220 68 225 54 C230 40 270 25 280 40Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="290" cy="90" r="5" fill="rgba(255,255,255,0.6)"/>
+            <circle cx="265" cy="110" r="3" fill="rgba(255,255,255,0.4)"/>
+          </svg>
+          <span class="blog-category">NZ Market</span>
+        </div>
+        <div class="blog-card-body" style="background:#fff">
+          <div class="blog-meta"><span>May 12, 2026</span><span class="dot"></span><span>11 min read</span></div>
+          <h3>New Zealand Small Business Digital Marketing Guide: What's Working in 2026</h3>
+          <p>The NZ digital landscape is evolving fast. This comprehensive guide covers what local businesses need to do across SEO, social, ads, and automation to grow in 2026.</p>
+          <a href="/blog/nz-digital-marketing-guide-2026" class="blog-read-more">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+    </div><!-- /blog-grid -->
+
+    <div style="text-align:center;margin-top:56px" class="fade-up">
+      <a href="/blog" class="btn btn-outline" style="color:#0F172A;border-color:#CBD5E1">View All Articles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+   CTA
+================================================================ -->
+<section class="cta-section" style="background:var(--bg2)">
+  <div class="cta-bg"></div>
+  <div class="cta-glow"></div>
+  <div class="cta-inner fade-up">
+    <div class="hero-badge" style="margin:0 auto 24px">
+      <span class="hero-badge-dot"></span>
+      Free — No Obligation
+    </div>
+    <h2 class="h1">Ready to Dominate Google in<br><span class="gradient-text">Your Local Market?</span></h2>
+    <p>Book a free 30-minute strategy call. We'll audit your digital presence and show you exactly what's possible — no hard sell, no obligation.</p>
+    <div class="cta-actions">
+      <a href="/contact" class="btn btn-primary btn-lg">Book My Free Strategy Call</a>
+      <a href="/services" class="btn btn-ghost btn-lg">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+   FOOTER
+================================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" aria-label="Acendia International">
+          <svg viewBox="0 0 220 56" xmlns="http://www.w3.org/2000/svg" height="32">
+            <polyline points="14,46 28,14 42,46" fill="none" stroke="#4F6EF7" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"/>
+            <text x="54" y="40" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="32" font-weight="300" letter-spacing="3" fill="#F1F5F9">Acendia</text>
+          </svg>
+        </a>
+        <p>AI-powered digital growth for local businesses in New Zealand and Australia. We help you rank higher, convert better, and grow faster.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/acendiainternational" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/acendiainternational" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/acendia-international" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/local-seo">Local SEO</a></li>
+          <li><a href="/services/website-design">Website Design</a></li>
+          <li><a href="/services/google-business-profile">Google Business Profile</a></li>
+          <li><a href="/services/lead-generation">Lead Generation</a></li>
+          <li><a href="/services/google-ads">Google Ads</a></li>
+          <li><a href="/services/crm-automation">CRM Automation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/contact">Book a Call</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+          <li><a href="/cookie-policy">Cookie Policy</a></li>
+        </ul>
+        <div style="margin-top:24px">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:info@acendia.agency">info@acendia.agency</a></li>
+            <li><a href="https://acendia.agency">acendia.agency</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Acendia International LLC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+        <a href="#" onclick="document.getElementById('cookie-consent').classList.add('visible');return false;">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================================
+   JAVASCRIPT
+================================================================ -->
+<script>
+// ── Cookie Consent ─────────────────────────────────────────────
+function showCookieBanner() {
+  if (!localStorage.getItem('acendia_cookie_consent')) {
+    setTimeout(() => {
+      document.getElementById('cookie-consent').classList.add('visible');
+    }, 1800);
+  }
+}
+
+function hideCookieBanner() {
+  document.getElementById('cookie-consent').classList.remove('visible');
+}
+
+function acceptAll() {
+  localStorage.setItem('acendia_cookie_consent', JSON.stringify({
+    essential: true, analytics: true, marketing: true, date: new Date().toISOString()
+  }));
+  hideCookieBanner();
+  // Fire GA4 consent
+  console.log('[Acendia] Cookies: All accepted');
+}
+
+function rejectAll() {
+  localStorage.setItem('acendia_cookie_consent', JSON.stringify({
+    essential: true, analytics: false, marketing: false, date: new Date().toISOString()
+  }));
+  hideCookieBanner();
+  console.log('[Acendia] Cookies: All rejected (essential only)');
+}
+
+function toggleCustomize() {
+  const panel = document.getElementById('cookie-customize');
+  panel.classList.toggle('open');
+}
+
+function savePreferences() {
+  const analytics = document.getElementById('analytics-toggle').checked;
+  const marketing = document.getElementById('marketing-toggle').checked;
+  localStorage.setItem('acendia_cookie_consent', JSON.stringify({
+    essential: true, analytics, marketing, date: new Date().toISOString()
+  }));
+  hideCookieBanner();
+  console.log('[Acendia] Cookies: Custom preferences saved', { analytics, marketing });
+}
+
+// ── Nav scroll effect ────────────────────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ── Scroll animation (IntersectionObserver) ──────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── Init ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  showCookieBanner();
+});
+</script>
+
+</body>
+</html>

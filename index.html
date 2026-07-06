@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acendia International | AI-Native Digital Growth Agency</title>
+<meta name="description" content="Acendia International helps businesses dominate Google Search with high-performing websites, data-driven SEO, Google Business Profile optimization, and AI automation. Book your free strategy call.">
+<meta name="keywords" content="digital growth agency, SEO agency, local SEO, Google Business Profile optimization, AI automation, website development, lead generation, Google Ads management">
+<link rel="canonical" href="https://acendia.agency/">
+<meta property="og:title" content="Acendia International | AI-Native Digital Growth Agency">
+<meta property="og:description" content="Helping businesses dominate Google Search through high-performing websites, SEO, AI automation, and lead generation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://acendia.agency/">
+<meta property="og:image" content="/images/hero-business-growth.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Acendia International | AI-Native Digital Growth Agency">
+<meta name="twitter:description" content="Helping businesses dominate Google Search through high-performing websites, SEO, AI automation, and lead generation.">
+<meta name="twitter:image" content="/images/hero-business-growth.jpg">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Organization schema placeholder -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Acendia International",
+  "url": "https://acendia.agency",
+  "logo": "https://acendia.agency/images/acendia-logo.png",
+  "description": "AI-native digital growth agency specializing in SEO, website development, Google Business Profile optimization, and lead generation.",
+  "sameAs": [
+    "https://facebook.com/acendiainternational",
+    "https://instagram.com/acendiainternational",
+    "https://linkedin.com/company/acendia-international"
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     COOKIE CONSENT
+═══════════════════════════════════════════════════ -->
+<div id="cookie" role="dialog" aria-label="Cookie consent">
+  <div class="ck-hd">
+    <div class="ck-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10"/>
+        <path d="M8.5 8.5h.01M12 12h.01M16 9h.01"/>
+        <path d="M22 12c-2 0-4-1-4-4 0 1.5-1 3-3 3 1 0 2 1.5 2 3 0-1 1-2 2-2s2 .5 3 1V12z"/>
+      </svg>
+    </div>
+    <div>
+      <h3>We use cookies</h3>
+      <p>Acendia uses cookies to enhance your experience, analyse traffic, and personalise content. You choose what we use.</p>
+    </div>
+  </div>
+  <div class="ck-panel" id="ck-panel">
+    <div class="ck-row">
+      <div class="ck-info"><h4>Essential</h4><p>Required for core site functionality. Always on.</p></div>
+      <label class="toggle"><input type="checkbox" checked disabled><span class="t-slider"></span></label>
+    </div>
+    <div class="ck-row">
+      <div class="ck-info"><h4>Analytics</h4><p>Google Analytics 4 — helps us understand site usage.</p></div>
+      <label class="toggle"><input type="checkbox" id="tgl-analytics"><span class="t-slider"></span></label>
+    </div>
+    <div class="ck-row">
+      <div class="ck-info"><h4>Marketing</h4><p>Ad tracking and campaign performance measurement.</p></div>
+      <label class="toggle"><input type="checkbox" id="tgl-marketing"><span class="t-slider"></span></label>
+    </div>
+    <div class="ck-save">
+      <button class="btn btn-white" style="width:100%" onclick="savePrefs()">Save Preferences</button>
+    </div>
+  </div>
+  <div class="ck-btns">
+    <button class="btn btn-white" onclick="acceptAll()">Accept All</button>
+    <button class="btn btn-ghost-white" onclick="togglePanel()">Customize</button>
+    <button class="btn btn-ghost-white" onclick="rejectAll()">Reject All</button>
+  </div>
+  <p class="ck-note">By continuing you agree to our <a href="privacy-policy.html">Privacy Policy</a>. We comply with the NZ Privacy Act 2020.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Acendia International — Home">
+      <svg viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg" height="30">
+        <polyline points="12,44 28,10 44,44" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="20"/>
+        <text x="50" y="40" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="36" font-weight="300" letter-spacing="3" fill="#FFFFFF">cendia</text>
+      </svg>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-ghost-white btn-sm">Book a Call</a>
+      <a href="contact.html#audit" class="btn btn-white btn-sm">Get Free Audit →</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="industries.html">Industries</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="blog.html">Resources</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-white btn-block">Book a Free Strategy Call</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+     Background image placeholder: /images/hero-business-growth.jpg
+═══════════════════════════════════════════════════ -->
+<section class="hero" aria-label="Hero — Helping businesses dominate Google Search" data-bg-placeholder="/images/hero-business-growth.jpg">
+  <div class="hero-dots"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>AI-Native Digital Growth Agency</div>
+      <h1 class="display">
+        Helping Businesses<br>
+        <span class="grad-dark">Dominate Google Search.</span>
+      </h1>
+
+      <p class="hero-sub">We build high-performing websites, implement data-driven SEO strategies, optimize Google Business Profiles, and leverage AI automation to generate more qualified leads and sustainable business growth.</p>
+
+      <div class="hero-actions">
+        <a href="contact.html" class="btn btn-white btn-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+          Book a Free Strategy Call
+        </a>
+        <a href="contact.html#audit" class="btn btn-ghost-white btn-lg">Get a Free Website Audit</a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <span class="stat-num">250+</span>
+          <div class="stat-label">Businesses Helped</div>
+        </div>
+        <div style="width:1px;background:var(--border)"></div>
+        <div>
+          <span class="stat-num">95%</span>
+          <div class="stat-label">Client Retention</div>
+        </div>
+        <div style="width:1px;background:var(--border)"></div>
+        <div>
+          <span class="stat-num">300%</span>
+          <div class="stat-label">Avg Organic Growth</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Data Visualization — B&W (illustrative dashboard, not a stock photo) -->
+    <div class="hero-visual">
+      <svg viewBox="0 0 480 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;margin-left:auto" role="img" aria-label="Illustrative Acendia growth dashboard showing rising Google rankings, traffic and leads">
+        <defs>
+          <linearGradient id="wg" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="480" height="440" rx="16" fill="#0A0A0A" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.8" fill="rgba(255,255,255,0.07)"/>
+        </pattern>
+        <rect x="0" y="0" width="480" height="440" rx="16" fill="url(#dots)"/>
+        <text x="24" y="36" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.3)" letter-spacing="2">ACENDIA — LIVE GROWTH DASHBOARD</text>
+        <line x1="24" y1="44" x2="456" y2="44" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+        <rect x="24" y="56" width="136" height="88" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="38" y="78" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.35)" letter-spacing="1">GOOGLE RANK</text>
+        <text x="38" y="112" font-family="Inter,sans-serif" font-size="40" font-weight="900" fill="#FFFFFF">#1</text>
+        <text x="95" y="112" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.5)">↑18</text>
+
+        <rect x="172" y="56" width="136" height="88" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="186" y="78" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.35)" letter-spacing="1">ORGANIC TRAFFIC</text>
+        <text x="186" y="112" font-family="Inter,sans-serif" font-size="36" font-weight="900" fill="#FFFFFF">6.2k</text>
+        <text x="268" y="112" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.5)">+300%</text>
+
+        <rect x="320" y="56" width="136" height="88" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="334" y="78" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.35)" letter-spacing="1">LEADS / MONTH</text>
+        <text x="334" y="112" font-family="Inter,sans-serif" font-size="36" font-weight="900" fill="#FFFFFF">214</text>
+        <text x="398" y="112" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.5)">new</text>
+
+        <line x1="24" y1="160" x2="456" y2="160" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="24" y="182" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.3)" letter-spacing="1">RANKING PROGRESSION — 6 MONTHS</text>
+        <rect x="24" y="344" width="30" height="26" rx="2" fill="rgba(255,255,255,0.15)"/>
+        <rect x="64" y="316" width="30" height="54" rx="2" fill="rgba(255,255,255,0.25)"/>
+        <rect x="104" y="288" width="30" height="82" rx="2" fill="rgba(255,255,255,0.35)"/>
+        <rect x="144" y="260" width="30" height="110" rx="2" fill="rgba(255,255,255,0.5)"/>
+        <rect x="184" y="222" width="30" height="148" rx="2" fill="rgba(255,255,255,0.7)"/>
+        <rect x="224" y="192" width="30" height="178" rx="2" fill="rgba(255,255,255,0.9)"/>
+        <text x="30" y="362" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.25)" text-anchor="middle">Jan</text>
+        <text x="70" y="362" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.25)" text-anchor="middle">Feb</text>
+        <text x="110" y="362" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.25)" text-anchor="middle">Mar</text>
+        <text x="150" y="362" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.25)" text-anchor="middle">Apr</text>
+        <text x="190" y="362" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.25)" text-anchor="middle">May</text>
+        <text x="230" y="362" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.6)" text-anchor="middle" font-weight="700">Jun</text>
+
+        <text x="290" y="182" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.3)" letter-spacing="1">AI-DRIVEN GROWTH TREND</text>
+        <path d="M290 360 L320 345 L350 326 L380 302 L410 272 L440 228 L456 200" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M290 360 L320 345 L350 326 L380 302 L410 272 L440 228 L456 200 L456 375 L290 375Z" fill="url(#wg)"/>
+        <circle cx="456" cy="200" r="4" fill="#FFFFFF"/>
+
+        <rect x="270" y="380" width="186" height="48" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <text x="286" y="400" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.3)" letter-spacing="1">GOOGLE LOCAL PACK</text>
+        <text x="286" y="418" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">⊙ Your Business — Position 1</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     TICKER
+═══════════════════════════════════════════════════ -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <div class="tick"><span class="tick-dot"></span>#1 Google Rankings Delivered</div>
+    <div class="tick"><span class="tick-dot"></span>AI-Native Growth Systems</div>
+    <div class="tick"><span class="tick-dot"></span>250+ Businesses Helped</div>
+    <div class="tick"><span class="tick-dot"></span>Local SEO Specialists</div>
+    <div class="tick"><span class="tick-dot"></span>Conversion-Focused Websites</div>
+    <div class="tick"><span class="tick-dot"></span>Google Business Profile Experts</div>
+    <div class="tick"><span class="tick-dot"></span>Transparent Reporting</div>
+    <div class="tick"><span class="tick-dot"></span>No Lock-In Contracts</div>
+    <div class="tick"><span class="tick-dot"></span>#1 Google Rankings Delivered</div>
+    <div class="tick"><span class="tick-dot"></span>AI-Native Growth Systems</div>
+    <div class="tick"><span class="tick-dot"></span>250+ Businesses Helped</div>
+    <div class="tick"><span class="tick-dot"></span>Local SEO Specialists</div>
+    <div class="tick"><span class="tick-dot"></span>Conversion-Focused Websites</div>
+    <div class="tick"><span class="tick-dot"></span>Google Business Profile Experts</div>
+    <div class="tick"><span class="tick-dot"></span>Transparent Reporting</div>
+    <div class="tick"><span class="tick-dot"></span>No Lock-In Contracts</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TRUST / STATISTICS — "Trusted by Growing Businesses"
+═══════════════════════════════════════════════════ -->
+<section class="off-dark section-sm">
+  <div class="container">
+    <div class="sec-head center fade">
+      <div class="sec-label-dark">By The Numbers</div>
+      <h2 class="h1 sec-title">Trusted by <span class="grad-dark">Growing Businesses</span></h2>
+    </div>
+    <div class="numbers-grid of-6 fade">
+      <div class="num-item"><span class="num-big">250+</span><span class="num-label">Businesses Helped</span></div>
+      <div class="num-item"><span class="num-big">1000+</span><span class="num-label">Keywords Ranked</span></div>
+      <div class="num-item"><span class="num-big">95%</span><span class="num-label">Client Retention</span></div>
+      <div class="num-item"><span class="num-big">300%</span><span class="num-label">Avg Organic Growth</span></div>
+      <div class="num-item"><span class="num-big">20+</span><span class="num-label">Industries Served</span></div>
+      <div class="num-item"><span class="num-big">100%</span><span class="num-label">Custom Strategies</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════════════ -->
+<section class="section dark" id="services">
+  <div class="container">
+    <div class="sec-head center fade">
+      <div class="sec-label-dark">What We Do</div>
+      <h2 class="h1 sec-title">Everything You Need to <span class="grad-dark">Win on Google</span></h2>
+      <p class="sec-sub-dark">From a high-converting website to Google Maps dominance — Acendia builds the complete AI-native growth engine for your business.</p>
+    </div>
+
+    <div class="services-grid fade">
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Website Development</h3>
+        <p>Fast, mobile-first, conversion-engineered websites designed to turn visitors into booked appointments — SEO-ready from day one.</p>
+        <a href="services.html#website-development" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></div>
+        <h3>SEO</h3>
+        <p>Data-driven on-page, off-page, and technical SEO that builds durable organic rankings and compounding traffic growth.</p>
+        <a href="services.html#seo" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <h3>Local SEO</h3>
+        <p>Rank at the top of Google search and Maps for your target keywords with proven local optimization that drives foot traffic and calls.</p>
+        <a href="services.html#local-seo" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h3>Google Business Profile</h3>
+        <p>Full optimization and active management of your GBP so your business dominates the Local Pack when customers are ready to buy.</p>
+        <a href="services.html#google-business-profile" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h3>AI Automation</h3>
+        <p>Intelligent workflows that automate follow-up, reporting, and content — so your growth systems run around the clock.</p>
+        <a href="services.html#ai-automation" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v6M12 13.5L5 16.7M12 13.5l7 3.2"/></svg></div>
+        <h3>CRM Development</h3>
+        <p>Custom CRM builds that unify your leads, pipeline, and communications into one automated, easy-to-manage system.</p>
+        <a href="services.html#crm-development" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Lead Generation</h3>
+        <p>Automated systems that attract, capture, and nurture leads — predictable and scalable, integrated with your sales process.</p>
+        <a href="services.html#lead-generation" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h9l5 5v10.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 8h5M8 12h8M8 16h8"/></svg></div>
+        <h3>Content Marketing</h3>
+        <p>SEO-optimized content that earns rankings, builds authority, and turns organic search into your most reliable lead source.</p>
+        <a href="services.html#content-marketing" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v4H3z"/><path d="M3 10h7v11H3z"/><path d="M14 10h7v5h-7z"/><path d="M14 19h7v2h-7z"/></svg></div>
+        <h3>Google Ads</h3>
+        <p>Targeted paid campaigns that drive high-intent customers fast, managed with precision to maximize ROI and eliminate waste.</p>
+        <a href="services.html#google-ads" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Website Maintenance</h3>
+        <p>Ongoing updates, security monitoring, speed optimization, and support so your site stays fast, safe, and always converting.</p>
+        <a href="services.html#website-maintenance" class="svc-link">Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     WHO WE ARE (About preview, light)
+═══════════════════════════════════════════════════ -->
+<section class="section light" id="about-preview">
+  <div class="container">
+    <div class="why-grid">
+      <div class="fade">
+        <div class="sec-label-light">Who We Are</div>
+        <h2 class="h1 sec-title" style="color:var(--black);margin-bottom:16px">An AI-Native Agency<br><span class="grad-light">Built for Measurable Growth.</span></h2>
+        <p class="body-lg muted-light" style="margin-bottom:40px">Acendia International is an AI-native digital growth agency dedicated to helping businesses establish a powerful online presence. We combine strategic SEO, high-performance websites, AI automation, and local search optimization to drive measurable growth.</p>
+        <a href="about.html" class="btn btn-black">Meet Acendia →</a>
+      </div>
+      <div class="img-ph on-light wide fade" data-image-placeholder="about-team.jpg">
+        <span class="img-ph-label">about-team.jpg</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     WHY CHOOSE ACENDIA (dark)
+═══════════════════════════════════════════════════ -->
+<section class="section off-dark" id="why">
+  <div class="container">
+    <div class="sec-head center fade">
+      <div class="sec-label-dark">Why Choose Us</div>
+      <h2 class="h1 sec-title">Why Businesses Choose <span class="grad-dark">Acendia</span></h2>
+      <p class="sec-sub-dark">Most agencies hand you a report. We hand you a growth engine — automated, scalable, and built to compound over time.</p>
+    </div>
+    <div class="why-points fade" style="border:1px solid var(--border);max-width:920px;margin:0 auto">
+      <div class="why-pt"><div class="why-num">01</div><div><h3 style="color:var(--white)">Results-Driven Strategy</h3><p style="color:var(--gray-3)">Every recommendation is tied to a measurable outcome — traffic, rankings, leads, or revenue.</p></div></div>
+      <div class="why-pt"><div class="why-num">02</div><div><h3 style="color:var(--white)">Transparent Reporting</h3><p style="color:var(--gray-3)">No black boxes. You see exactly what we're doing, why, and what it's producing — every month.</p></div></div>
+      <div class="why-pt"><div class="why-num">03</div><div><h3 style="color:var(--white)">AI-Powered Workflows</h3><p style="color:var(--gray-3)">We automate research, reporting, and follow-up so results compound without manual overhead.</p></div></div>
+      <div class="why-pt"><div class="why-num">04</div><div><h3 style="color:var(--white)">Technical Expertise</h3><p style="color:var(--gray-3)">From Core Web Vitals to schema markup, our engineers solve the technical SEO problems others miss.</p></div></div>
+      <div class="why-pt"><div class="why-num">05</div><div><h3 style="color:var(--white)">Conversion-Focused Websites</h3><p style="color:var(--gray-3)">Every page is designed to turn visitors into booked calls and paying customers, not just traffic.</p></div></div>
+      <div class="why-pt"><div class="why-num">06</div><div><h3 style="color:var(--white)">Dedicated Growth Partner</h3><p style="color:var(--gray-3)">You get a single accountable team that knows your business — not a rotating cast of contractors.</p></div></div>
+      <div class="why-pt"><div class="why-num">07</div><div><h3 style="color:var(--white)">Long-Term SEO Strategy</h3><p style="color:var(--gray-3)">We build rankings that compound for years, not short-lived tricks that disappear after an algorithm update.</p></div></div>
+      <div class="why-pt"><div class="why-num">08</div><div><h3 style="color:var(--white)">Local Search Specialists</h3><p style="color:var(--gray-3)">Deep expertise in Google Maps, Google Business Profile, and the local ranking factors that drive real customers.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PROCESS — Our Proven Growth Framework
+═══════════════════════════════════════════════════ -->
+<section class="section light" id="process">
+  <div class="container">
+    <div class="sec-head center fade">
+      <div class="sec-label-light">How It Works</div>
+      <h2 class="h1 sec-title" style="color:var(--black)">Our Proven <span class="grad-light">Growth Framework</span></h2>
+      <p class="sec-sub-light">A simple, proven process that gets businesses ranking, converting, and growing — fast.</p>
+    </div>
+
+    <div class="process-grid fade">
+      <div class="proc-step">
+        <div class="proc-num" style="background:var(--white);border-color:var(--border-dark-hi);color:var(--black)">1</div>
+        <h3 style="color:var(--black)">Discovery &amp; Strategy</h3>
+        <p style="color:var(--gray-4)">We audit your website, rankings, Google Business Profile, and competitors, then build a custom growth roadmap prioritized by impact and ROI.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num" style="background:var(--white);border-color:var(--border-dark-hi);color:var(--black)">2</div>
+        <h3 style="color:var(--black)">Build &amp; Optimize</h3>
+        <p style="color:var(--gray-4)">We implement the website, SEO, GBP, and automation systems defined in your strategy — engineered for both search engines and conversions.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num" style="background:var(--white);border-color:var(--border-dark-hi);color:var(--black)">3</div>
+        <h3 style="color:var(--black)">Scale &amp; Grow</h3>
+        <p style="color:var(--gray-4)">We monitor performance, double down on what's working, and continuously expand your reach — compounding results month over month.</p>
+      </div>
+    </div>
+    <div class="center fade" style="margin-top:60px">
+      <a href="contact.html" class="btn btn-black btn-lg">Get Your Free Audit →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CASE STUDIES PREVIEW (dark)
+═══════════════════════════════════════════════════ -->
+<section class="section dark" id="case-studies-preview">
+  <div class="container">
+    <div class="sec-head center fade">
+      <div class="sec-label-dark">Proven Results</div>
+      <h2 class="h1 sec-title">Real Businesses. <span class="grad-dark">Real Growth.</span></h2>
+      <p class="sec-sub-dark">A look at how Acendia has helped businesses rank higher, convert better, and grow faster.</p>
+    </div>
+    <div class="services-grid fade" style="grid-template-columns:repeat(3,1fr)">
+      <div class="svc-card">
+        <div class="img-ph wide" data-image-placeholder="case-study-1.jpg" style="margin:-40px -36px 24px;min-height:150px"><span class="img-ph-label">case-study-1.jpg</span></div>
+        <h3>Coastal Dental Group</h3>
+        <p>Took a two-location dental practice from page 3 to the top of the Google Local Pack, tripling new-patient enquiries in 5 months.</p>
+        <a href="case-studies.html#coastal-dental-group" class="svc-link">Read Case Study <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="img-ph wide" data-image-placeholder="case-study-2.jpg" style="margin:-40px -36px 24px;min-height:150px"><span class="img-ph-label">case-study-2.jpg</span></div>
+        <h3>Ironclad Roofing Co.</h3>
+        <p>Rebuilt a slow, non-converting website and layered in local SEO — organic leads grew 340% within two quarters.</p>
+        <a href="case-studies.html#ironclad-roofing" class="svc-link">Read Case Study <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="img-ph wide" data-image-placeholder="case-study-3.jpg" style="margin:-40px -36px 24px;min-height:150px"><span class="img-ph-label">case-study-3.jpg</span></div>
+        <h3>Harbourline Legal</h3>
+        <p>Combined CRM automation with Google Ads and SEO to build a predictable consultation pipeline for a boutique law firm.</p>
+        <a href="case-studies.html#harbourline-legal" class="svc-link">Read Case Study <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+    <div class="center fade" style="margin-top:56px">
+      <a href="case-studies.html" class="btn btn-ghost-white">View All Case Studies →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     TESTIMONIALS (off-dark)
+═══════════════════════════════════════════════════ -->
+<section class="section off-dark" id="testimonials">
+  <div class="container">
+    <div class="sec-head center fade">
+      <div class="sec-label-dark">Testimonials</div>
+      <h2 class="h1 sec-title">What Our Clients <span class="grad-dark">Say</span></h2>
+    </div>
+    <div class="testi-grid fade">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">"Acendia rebuilt our website and within four months we were ranking #1 on Google Maps for every service we offer. The leads have not stopped since."</p>
+        <div class="testi-person">
+          <div class="img-ph avatar" data-image-placeholder="testimonial-1.jpg"></div>
+          <div><h4>Sarah Mitchell</h4><span>Owner, Coastal Dental Group — Healthcare</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">"We'd tried three other agencies before Acendia. The difference is they actually explain what they're doing and the results speak for themselves — 340% more leads."</p>
+        <div class="testi-person">
+          <div class="img-ph avatar" data-image-placeholder="testimonial-2.jpg"></div>
+          <div><h4>Daniel Reeves</h4><span>Founder, Ironclad Roofing Co. — Home Services</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">"The CRM automation alone paid for the entire engagement. Our intake team responds to every enquiry in minutes instead of days now."</p>
+        <div class="testi-person">
+          <div class="img-ph avatar" data-image-placeholder="testimonial-3.jpg"></div>
+          <div><h4>Priya Anand</h4><span>Managing Partner, Harbourline Legal — Professional Services</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     RESOURCES / BLOG PREVIEW (light)
+═══════════════════════════════════════════════════ -->
+<section class="section off-light" id="resources">
+  <div class="container">
+    <div class="sec-head center fade">
+      <div class="sec-label-light">Insights &amp; Strategy</div>
+      <h2 class="h1 sec-title" style="color:var(--black)">The Acendia <span class="grad-light">Growth Blog</span></h2>
+      <p class="sec-sub-light">Actionable SEO and growth marketing insights for business owners. No fluff — just strategies that move the needle.</p>
+    </div>
+
+    <div class="blog-grid">
+      <article class="blog-card fade fade-delay-1">
+        <div class="blog-thumb">
+          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="190" fill="#000"/>
+            <text x="28" y="90" font-family="Inter,sans-serif" font-size="56" font-weight="900" fill="rgba(255,255,255,0.08)">SEO</text>
+            <text x="28" y="130" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="white">Why Every Business</text>
+            <text x="28" y="155" font-family="Inter,sans-serif" font-size="14" fill="rgba(255,255,255,0.5)">Needs SEO in 2026</text>
+          </svg>
+          <span class="blog-cat">SEO Strategy</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>7 min read</span></div>
+          <h3>Why Every Business Needs SEO in 2026</h3>
+          <p>Search is still where customers start. Here's why SEO is the highest-ROI channel available to businesses of every size in 2026.</p>
+          <a href="blog/why-businesses-need-seo.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="blog-card fade fade-delay-2">
+        <div class="blog-thumb">
+          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="190" fill="#0A0A0A"/>
+            <circle cx="200" cy="95" r="46" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <text x="200" y="100" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" text-anchor="middle">GBP</text>
+          </svg>
+          <span class="blog-cat">Google Business Profile</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>8 min read</span></div>
+          <h3>How to Rank Your Google Business Profile Higher</h3>
+          <p>Your GBP is free real estate on Google's front page. Here are the exact tactics that move you up the Local Pack.</p>
+          <a href="blog/google-business-profile-guide.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="blog-card fade fade-delay-3">
+        <div class="blog-thumb">
+          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="190" fill="#111"/>
+            <circle cx="90" cy="95" r="18" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <circle cx="180" cy="55" r="14" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <circle cx="270" cy="110" r="20" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          </svg>
+          <span class="blog-cat">Local SEO</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>9 min read</span></div>
+          <h3>Local SEO Strategies That Actually Work</h3>
+          <p>Skip the theory. These are the local SEO tactics we use every day to get real businesses ranking in real markets.</p>
+          <a href="blog/local-seo-strategies.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="center fade" style="margin-top:56px">
+      <a href="blog.html" class="btn btn-ghost-black">View All Articles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CTA (white section)
+═══════════════════════════════════════════════════ -->
+<section class="cta-sec">
+  <div class="cta-inner fade">
+    <div class="hero-badge" style="background:rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.15);color:var(--gray-4);margin:0 auto 28px">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--black);display:inline-block"></span>
+      Free — No Obligation
+    </div>
+    <h2>Ready to Dominate Google<br><span class="grad-light">in Your Market?</span></h2>
+    <p>Book a free 30-minute strategy call. We'll audit your digital presence and show you exactly what's possible — no hard sell, no obligation.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn btn-black btn-lg">Book My Free Strategy Call</a>
+      <a href="services.html" class="btn btn-ghost-black btn-lg">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" aria-label="Acendia International — Home">
+          <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" height="28">
+            <polyline points="10,40 24,10 38,40" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"/>
+            <text x="44" y="36" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="28" font-weight="300" letter-spacing="3" fill="#FFFFFF">cendia</text>
+          </svg>
+        </a>
+        <p>AI-native digital growth agency helping businesses dominate Google Search through websites, SEO, and automation.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/acendiainternational" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/acendiainternational" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/acendia-international" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+        <form class="footer-newsletter" onsubmit="return false" aria-label="Newsletter signup">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-white btn-sm">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#website-development">Website Development</a></li>
+          <li><a href="services.html#seo">SEO</a></li>
+          <li><a href="services.html#local-seo">Local SEO</a></li>
+          <li><a href="services.html#google-business-profile">Google Business Profile</a></li>
+          <li><a href="services.html#ai-automation">AI Automation</a></li>
+          <li><a href="services.html#lead-generation">Lead Generation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="blog.html">Resources / Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="return openCookieSettings()">Cookie Settings</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@acendia.agency">support@acendia.agency</a></li>
+            <li><a href="https://acendia.agency">acendia.agency</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Acendia International. All rights reserved.</p>
+      <div class="footer-btm-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="#" onclick="return openCookieSettings()">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
