@@ -292,13 +292,13 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .img-ph.avatar .img-ph-label { display: none }
 
 /* Real photo — replaces .img-ph once a generated image exists */
-.ph-photo { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-md); background: var(--card) }
+.ph-photo { display: block; width: 100%; object-fit: cover; border-radius: var(--r-md); background: var(--card) }
 .ph-photo.square { aspect-ratio: 1/1 }
 .ph-photo.wide { aspect-ratio: 16/9 }
 .ph-photo.portrait { aspect-ratio: 3/4 }
 .ph-photo.avatar { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; aspect-ratio: 1/1 }
-.ph-photo.case-media { height: 100%; border-radius: 0 }
-.ph-photo.blog-thumb { border-radius: 0 }
+.ph-photo.case-media { width: 100%; height: 100%; border-radius: 0 }
+.ph-photo.blog-thumb { width: 100%; height: 100%; border-radius: 0 }
 
 /* ═══════════════════════════════════════════════════════
    TEAM (about.html)
