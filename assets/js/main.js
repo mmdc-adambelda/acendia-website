@@ -56,6 +56,42 @@ if (hamburger && drawer) {
   }));
 }
 
+// ── Contact form (Web3Forms) ─────────────────────────
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  const statusEl = document.getElementById('form-status');
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.style.display = 'none';
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' }
+      });
+      const data = await res.json();
+      if (data.success) {
+        contactForm.reset();
+        statusEl.textContent = "Thanks — we've received your message and will follow up within one business day.";
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      statusEl.textContent = 'Something went wrong sending your message. Please email us directly at support@acendia.agency.';
+    } finally {
+      statusEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    }
+  });
+}
+
 // ── Scroll fade-in ──────────────────────────────────
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') });

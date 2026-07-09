@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=mrdpcq1a">
+<link rel="stylesheet" href="assets/css/style.css?v=mre2xjfg">
 
 <script type="application/ld+json">
 {
@@ -138,9 +138,11 @@
         <h2 class="h2" style="margin-bottom:12px">Tell Us About Your Business</h2>
         <p class="muted-dark" style="margin-bottom:32px">Fill out the form and a member of our team will follow up within one business day with your free website and SEO audit.</p>
 
-        <form action="https://formsubmit.co/support@acendia.agency" method="POST">
-          <input type="hidden" name="_subject" value="New Strategy Call Request — Acendia Website">
-          <input type="hidden" name="_template" value="table">
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="93e0569b-3b4f-43be-9be0-889205d8743f">
+          <input type="hidden" name="subject" value="New Strategy Call Request — Acendia Website">
+          <input type="hidden" name="from_name" value="Acendia Website Contact Form">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-field">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" placeholder="Jane Smith" required>
@@ -174,6 +176,7 @@
             <textarea id="message" name="message" placeholder="Tell us a bit about your business and goals..."></textarea>
           </div>
           <button type="submit" class="btn btn-white btn-lg btn-block">Book My Free Strategy Call</button>
+          <p id="form-status" class="small" style="margin-top:16px;display:none"></p>
         </form>
       </div>
 
@@ -306,6 +309,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=mrdpcq1a"></script>
+<script src="assets/js/main.js?v=mre2xjfg"></script>
 </body>
 </html>
