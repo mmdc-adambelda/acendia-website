@@ -133,6 +133,8 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 72px; background: var(--black) }
 .page-hero { min-height: auto; padding: 192px 0 96px; display: block }
 
+.hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(1) contrast(1.1); mask-image: radial-gradient(ellipse 80% 70% at 30% 50%, black 10%, transparent 75%) }
+
 /* Grid-line background pattern (v1-style graph grid, monochrome) */
 .hero-dots { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%) }
 .hero-glow1 { position: absolute; width: 700px; height: 700px; background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%); top: -200px; right: -100px; pointer-events: none; animation: drift1 8s ease-in-out infinite }
@@ -289,12 +291,21 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .img-ph.avatar::before { display: none }
 .img-ph.avatar .img-ph-label { display: none }
 
+/* Real photo — replaces .img-ph once a generated image exists */
+.ph-photo { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-md); background: var(--card) }
+.ph-photo.square { aspect-ratio: 1/1 }
+.ph-photo.wide { aspect-ratio: 16/9 }
+.ph-photo.portrait { aspect-ratio: 3/4 }
+.ph-photo.avatar { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; aspect-ratio: 1/1 }
+.ph-photo.case-media { height: 100%; border-radius: 0 }
+.ph-photo.blog-thumb { border-radius: 0 }
+
 /* ═══════════════════════════════════════════════════════
    TEAM (about.html)
 ═══════════════════════════════════════════════════════ */
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px }
 .team-card { text-align: center }
-.team-card .img-ph { border-radius: var(--r-lg); margin-bottom: 20px }
+.team-card .img-ph, .team-card .ph-photo { border-radius: var(--r-lg); margin-bottom: 20px }
 .team-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px }
 .team-card p { font-size: 0.82rem; color: var(--gray-4) }
 
