@@ -62,6 +62,33 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade').forEach(el => io.observe(el));
 
+// ── Animated stat counters (rapid count-up on scroll) ─
+function animateCount(el) {
+  const raw = el.textContent.trim();
+  const match = raw.match(/^([\d,]+)(.*)$/);
+  if (!match) return;
+  const target = parseInt(match[1].replace(/,/g, ''), 10);
+  const suffix = match[2];
+  const duration = 1400;
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCount(entry.target);
+      countObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.numbers-grid .num-big').forEach(el => countObserver.observe(el));
+
 // ── FAQ accordion ────────────────────────────────────
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
