@@ -305,7 +305,7 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 /* ═══════════════════════════════════════════════════════
    TEAM (about.html)
 ═══════════════════════════════════════════════════════ */
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 900px; margin: 0 auto }
 .team-card { text-align: center }
 .team-card .img-ph, .team-card .ph-photo { border-radius: var(--r-lg); margin-bottom: 20px }
 .team-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px }
