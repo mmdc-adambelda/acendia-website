@@ -203,7 +203,8 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .svc-icon svg { width: 26px; height: 26px; color: var(--white) }
 .svc-card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 12px; color: var(--white); position: relative; z-index: 1 }
 .svc-card p { color: var(--gray-3); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; position: relative; z-index: 1 }
-.svc-link { color: var(--gray-2); font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: all 0.2s; position: relative; z-index: 1 }
+.svc-link { color: var(--gray-2); font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: all 0.2s }
+.svc-link::after { content: ''; position: absolute; inset: 0 }
 .svc-card:hover .svc-link { color: var(--white); gap: 10px }
 
 /* ═══════════════════════════════════════════════════════
@@ -261,7 +262,7 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
    BLOG — rounded floating cards, pill category badge (v1-style)
 ═══════════════════════════════════════════════════════ */
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px }
-.blog-card { background: var(--white); border: 1px solid var(--gray-1); border-radius: var(--r-lg); overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column }
+.blog-card { background: var(--white); border: 1px solid var(--gray-1); border-radius: var(--r-lg); overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; position: relative }
 .blog-card:hover { border-color: var(--black); transform: translateY(-6px); box-shadow: var(--shadow-light) }
 .blog-thumb { height: 200px; position: relative; overflow: hidden; flex-shrink: 0; background: var(--black) }
 .blog-thumb svg { width: 100%; height: 100% }
@@ -273,6 +274,7 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .blog-card h3 { font-size: 1rem; font-weight: 700; line-height: 1.45; color: var(--black); margin-bottom: 10px }
 .blog-card p  { color: var(--gray-4); font-size: 0.85rem; line-height: 1.65; flex: 1; margin-bottom: 20px }
 .blog-arrow { color: var(--black); font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; gap: 6px; transition: gap 0.2s; margin-top: auto }
+.blog-arrow::after { content: ''; position: absolute; inset: 0 }
 .blog-card:hover .blog-arrow { gap: 10px }
 
 /* ═══════════════════════════════════════════════════════
@@ -298,7 +300,7 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .ph-photo.portrait { aspect-ratio: 3/4 }
 .ph-photo.avatar { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; aspect-ratio: 1/1 }
 .ph-photo.case-media { width: 100%; height: 100%; border-radius: 0 }
-.ph-photo.blog-thumb { width: 100%; height: 100%; border-radius: 0 }
+.ph-photo.blog-thumb { border-radius: 0 }
 
 /* ═══════════════════════════════════════════════════════
    TEAM (about.html)
