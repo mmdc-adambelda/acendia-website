@@ -46,6 +46,21 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://acendia.uk/seo-agency-sydney.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/seo-agency-melbourne.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/seo-agency-london.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://acendia.uk/privacy-policy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
