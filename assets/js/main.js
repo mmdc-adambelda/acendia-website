@@ -12,12 +12,19 @@ function showCookie() {
 }
 function hideCookie() { if (ck) ck.classList.remove('show') }
 
+function updateAnalyticsConsent(granted) {
+  if (typeof gtag === 'function') {
+    gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+  }
+}
 function acceptAll() {
   localStorage.setItem('acendia_consent', JSON.stringify({ essential:true, analytics:true, marketing:true, ts: Date.now() }));
+  updateAnalyticsConsent(true);
   hideCookie();
 }
 function rejectAll() {
   localStorage.setItem('acendia_consent', JSON.stringify({ essential:true, analytics:false, marketing:false, ts: Date.now() }));
+  updateAnalyticsConsent(false);
   hideCookie();
 }
 function togglePanel() {
@@ -27,6 +34,7 @@ function savePrefs() {
   const a = document.getElementById('tgl-analytics').checked;
   const m = document.getElementById('tgl-marketing').checked;
   localStorage.setItem('acendia_consent', JSON.stringify({ essential:true, analytics:a, marketing:m, ts: Date.now() }));
+  updateAnalyticsConsent(a);
   hideCookie();
 }
 function openCookieSettings() {
