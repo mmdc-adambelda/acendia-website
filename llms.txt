@@ -1,0 +1,30 @@
+# Acendia International
+
+> AI-native digital growth agency helping businesses in Australia and the United Kingdom dominate Google Search through high-performing websites, SEO, Google Business Profile optimization, and AI automation.
+
+Acendia International builds and manages the full organic growth stack for local and national businesses: website development, SEO, local SEO, Google Business Profile management, AI automation, CRM development, lead generation, content marketing, Google Ads, and website maintenance. Engagements are month-to-month with no lock-in contracts, and every strategy is built around measurable rankings, traffic, and leads rather than vanity metrics.
+
+## Services
+
+- [Services Overview](https://acendia.uk/services.html): Full service stack — website development, SEO, local SEO, Google Business Profile, AI automation, CRM development, lead generation, content marketing, Google Ads, website maintenance.
+- [About Acendia](https://acendia.uk/about.html): Company background, values, and approach.
+- [Case Studies](https://acendia.uk/case-studies.html): Real client results across SEO and local search campaigns.
+- [Industries We Serve](https://acendia.uk/industries.html): Sectors Acendia specializes in.
+
+## Markets
+
+- [SEO Services in Australia](https://acendia.uk/seo-services-australia.html): SEO for Melbourne, Sydney, and businesses nationwide.
+- [SEO Agency Sydney](https://acendia.uk/seo-agency-sydney.html): Local SEO for Sydney businesses.
+- [SEO Agency Melbourne](https://acendia.uk/seo-agency-melbourne.html): Local SEO for Melbourne businesses.
+- [SEO Services in the UK](https://acendia.uk/seo-services-uk.html): SEO for London and businesses across the UK.
+- [SEO Agency London](https://acendia.uk/seo-agency-london.html): Local SEO for London businesses.
+
+## Resources
+
+- [Blog / Resources](https://acendia.uk/blog.html): Guides on technical SEO, local SEO, Google Business Profile, AI marketing, and lead generation.
+- [Contact](https://acendia.uk/contact.html): Book a free strategy call or SEO audit.
+
+## Optional
+
+- [Privacy Policy](https://acendia.uk/privacy-policy.html)
+- [Terms & Conditions](https://acendia.uk/terms-and-conditions.html)
