@@ -120,4 +120,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://acendia.uk/blog/australia/how-to-choose-seo-company-australia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/australia/how-to-rank-number-one-google-australia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/uk/how-to-choose-seo-company-united-kingdom.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/uk/how-to-rank-higher-google-uk.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
