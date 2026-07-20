@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var granted = false;
+    try {
+      var saved = JSON.parse(localStorage.getItem('acendia_consent'));
+      granted = !!(saved && saved.analytics);
+    } catch (e) {}
+    gtag('consent', 'default', { analytics_storage: granted ? 'granted' : 'denied' });
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BB9LLXMDMD"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-BB9LLXMDMD');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../images/acendia-favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Measure SEO ROI and Business Growth | Acendia</title>
+<meta name="description" content="How to measure SEO ROI properly — organic conversions, revenue attribution, cost per lead, and a 30/60/90-day measurement framework. Formulas, not fabricated numbers.">
+<link rel="canonical" href="https://acendia.uk/blog/how-to-measure-seo-roi-business-growth.html">
+<meta property="og:title" content="How to Measure SEO ROI and Business Growth">
+<meta property="og:description" content="Rankings are a leading indicator. Here's how to measure what SEO actually does for your business.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acendia.uk/blog/how-to-measure-seo-roi-business-growth.html">
+<meta property="og:image" content="/images/blog-10.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.min.css?v=min1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://acendia.uk/"},
+    {"@type":"ListItem","position":2,"name":"Resources","item":"https://acendia.uk/blog.html"},
+    {"@type":"ListItem","position":3,"name":"How to Measure SEO ROI and Business Growth","item":"https://acendia.uk/blog/how-to-measure-seo-roi-business-growth.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Measure SEO ROI and Business Growth",
+  "description": "How to measure SEO ROI properly — organic conversions, revenue attribution, cost per lead, and a 30/60/90-day measurement framework.",
+  "image": "https://acendia.uk/images/blog-10.png",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type":"Organization","name":"Acendia International"},
+  "publisher": {"@type":"Organization","name":"Acendia International"},
+  "mainEntityOfPage": "https://acendia.uk/blog/how-to-measure-seo-roi-business-growth.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a good SEO ROI?","acceptedAnswer":{"@type":"Answer","text":"There's no universal benchmark — it depends on your margins, average customer value, and how competitive your market is. A more useful question than \"is this good\" is whether the trend is improving over time and whether the return justifies the investment relative to your other channels."}},
+    {"@type":"Question","name":"How do you attribute a sale to SEO when a customer used multiple channels?","acceptedAnswer":{"@type":"Answer","text":"No single method is perfect. Last-click attribution credits the final touchpoint; assisted-conversion reporting shows where organic search contributed earlier in the journey even if it wasn't the final click. Using both together gives a more honest picture than either alone."}},
+    {"@type":"Question","name":"How soon should I expect to see SEO ROI?","acceptedAnswer":{"@type":"Answer","text":"Meaningful ROI typically takes several months to become visible, since SEO's traffic and lead gains build gradually rather than immediately. Track leading indicators — impressions, rankings, early traffic — in the interim rather than expecting ROI figures from month one."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div id="cookie" role="dialog" aria-label="Cookie consent">
+  <div class="ck-hd">
+    <div class="ck-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10"/><path d="M8.5 8.5h.01M12 12h.01M16 9h.01"/><path d="M22 12c-2 0-4-1-4-4 0 1.5-1 3-3 3 1 0 2 1.5 2 3 0-1 1-2 2-2s2 .5 3 1V12z"/></svg></div>
+    <div><h3>We use cookies</h3><p>Acendia uses cookies to enhance your experience, analyse traffic, and personalise content. You choose what we use.</p></div>
+  </div>
+  <div class="ck-panel" id="ck-panel">
+    <div class="ck-row"><div class="ck-info"><h4>Essential</h4><p>Required for core site functionality. Always on.</p></div><label class="toggle"><input type="checkbox" checked disabled><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Analytics</h4><p>Google Analytics 4 — helps us understand site usage.</p></div><label class="toggle"><input type="checkbox" id="tgl-analytics"><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Marketing</h4><p>Ad tracking and campaign performance measurement.</p></div><label class="toggle"><input type="checkbox" id="tgl-marketing"><span class="t-slider"></span></label></div>
+    <div class="ck-save"><button class="btn btn-white" style="width:100%" onclick="savePrefs()">Save Preferences</button></div>
+  </div>
+  <div class="ck-btns">
+    <button class="btn btn-white" onclick="acceptAll()">Accept All</button>
+    <button class="btn btn-ghost-white" onclick="togglePanel()">Customize</button>
+    <button class="btn btn-ghost-white" onclick="rejectAll()">Reject All</button>
+  </div>
+  <p class="ck-note">By continuing you agree to our <a href="../privacy-policy.html">Privacy Policy</a>. We comply with the NZ Privacy Act 2020.</p>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Acendia International — Home">
+      <img src="../images/acendia-logo.png" alt="Acendia International" height="48">
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../services.html">Services</a>
+      <a href="../industries.html">Industries</a>
+      <a href="../case-studies.html">Case Studies</a>
+      <a href="../blog.html" class="active">Resources</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="../contact.html" class="btn btn-ghost-white btn-sm">Book a Call</a>
+      <a href="../contact.html#audit" class="btn btn-white btn-sm">Get Free Audit →</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="../services.html">Services</a>
+  <a href="../industries.html">Industries</a>
+  <a href="../case-studies.html">Case Studies</a>
+  <a href="../blog.html">Resources</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../contact.html" class="btn btn-white btn-block">Book a Free Strategy Call</a>
+</div>
+
+<section class="article-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../blog.html">Resources</a><span>/</span>How to Measure SEO ROI and Business Growth</nav>
+    <div class="article-meta-row"><span>SEO Strategy</span><span class="sep">·</span><span>Acendia Team</span><span class="sep">·</span><span>14 min read</span></div>
+    <h1 class="h1 article-title">How to Measure SEO ROI and Business Growth</h1>
+    <p class="article-excerpt">Rankings are a leading indicator, not the outcome that matters. Here's how to measure what SEO actually does for your business — with formulas, not fabricated numbers.</p>
+  </div>
+</section>
+
+<div class="container">
+  <img class="ph-photo wide fade" src="../images/blog-10.png" alt="SEO ROI measurement dashboard and reporting framework" style="margin-bottom:8px" loading="lazy">
+</div>
+
+<section class="section light">
+  <div class="container">
+    <div class="prose fade">
+
+      <div class="callout" id="toc">
+        <h3>In This Guide</h3>
+        <ul>
+          <li><a href="#rankings-vs-outcomes">Rankings vs business outcomes</a></li>
+          <li><a href="#organic-conversions">Organic conversions</a></li>
+          <li><a href="#qualified-leads">Qualified leads</a></li>
+          <li><a href="#revenue-attribution">Revenue attribution</a></li>
+          <li><a href="#assisted">Assisted conversions</a></li>
+          <li><a href="#branded">Branded vs non-branded traffic</a></li>
+          <li><a href="#gbp-actions">Google Business Profile actions</a></li>
+          <li><a href="#call-tracking">Call tracking</a></li>
+          <li><a href="#crm">CRM attribution</a></li>
+          <li><a href="#ltv">Customer lifetime value</a></li>
+          <li><a href="#cpl">Cost per lead</a></li>
+          <li><a href="#roi-formula">Return-on-investment formula</a></li>
+          <li><a href="#dashboard">Reporting dashboard</a></li>
+          <li><a href="#mistakes">Common attribution mistakes</a></li>
+          <li><a href="#framework">30/60/90-day measurement framework</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+
+      <h2 id="rankings-vs-outcomes">Rankings vs Business Outcomes</h2>
+      <p>Rankings are a leading indicator, not the outcome that actually matters — a business can rank first for a dozen keywords and still not see it reflected in revenue if nothing downstream is being measured. Business outcomes are leads, enquiries, sales, and ultimately revenue and profit. Everything in this guide is aimed at connecting the two, since a rankings report alone can't tell you whether SEO is actually growing the business.</p>
+
+      <h2 id="organic-conversions">Organic Conversions</h2>
+      <p>Set up conversion tracking in Google Analytics (or your analytics platform of choice) for every meaningful action a visitor can take — a form submission, a phone click, a booking, a purchase — and filter that data by organic search as a traffic source. This is the first real bridge between traffic and business outcome, and it's the minimum viable measurement setup before anything more sophisticated is worth building.</p>
+
+      <h2 id="qualified-leads">Qualified Leads</h2>
+      <p>Not every conversion is equally valuable — a genuine enquiry from a prospect who matches your ideal customer profile is worth more than a low-quality form fill. Where possible, tag or categorise leads by quality (using your CRM or a simple manual review) and track organic-sourced lead quality specifically, not just volume. A channel producing fewer, higher-quality leads can be outperforming a channel producing more, lower-quality ones.</p>
+
+      <h2 id="revenue-attribution">Revenue Attribution</h2>
+      <p>If your sales process and CRM allow it, tag leads by source at the point of capture and track them through to closed revenue. This is the most direct way to answer "what did SEO actually generate," though it requires sales and marketing data to be connected — worth investing in even a simple version of this connection before scaling SEO spend significantly, since it's the data that ultimately justifies (or doesn't) further investment.</p>
+
+      <h2 id="assisted">Assisted Conversions</h2>
+      <p>Many customers interact with a business across multiple channels and multiple visits before converting — discovering you through organic search, then converting later through a direct visit or a branded search. Assisted-conversion reporting in Google Analytics shows where organic search contributed earlier in a journey even when it wasn't the final click, which last-click attribution alone would miss entirely and can meaningfully understate organic's real contribution.</p>
+
+      <h2 id="branded">Branded vs Non-Branded Traffic</h2>
+      <p>Split organic traffic into branded (searches for your business name) and non-branded (searches for what you do) — non-branded growth is the clearer signal of genuine new-customer reach, since branded search often reflects people who already know about you through another channel. A growing non-branded share over time is one of the better indicators that SEO is expanding your reach, not just capturing demand that already existed.</p>
+
+      <h2 id="gbp-actions">Google Business Profile Actions</h2>
+      <p>For local businesses, Google Business Profile Insights shows calls, direction requests, and website clicks generated directly from your listing — a meaningful and often underused source of measurable local SEO impact that sits outside standard website analytics entirely. Review this data alongside your website's organic metrics, not instead of them, for a complete local picture.</p>
+
+      <h2 id="call-tracking">Call Tracking</h2>
+      <p>If phone enquiries matter to your business, call tracking numbers on your website and Google Business Profile attribute calls back to the specific channel — and even the specific page — that generated them, something a standard analytics setup usually can't see on its own. This is one of the highest-value additions for any business where phone is a primary conversion channel.</p>
+
+      <h2 id="crm">CRM Attribution</h2>
+      <p>Connecting your CRM to your analytics and lead-source data closes the loop from first click to closed deal, letting you see not just how many leads a channel produced but how many of those leads actually became customers, and at what value. This is more setup work than the other measurement steps here, but it's what ultimately lets you calculate true ROI rather than a proxy for it.</p>
+
+      <div class="callout">
+        <h3 id="ltv">Customer Lifetime Value</h3>
+        <p>For businesses with repeat purchases or ongoing service relationships, a single transaction value understates a customer's real worth. Customer lifetime value (average order or contract value × purchase frequency × average customer lifespan) gives a more accurate picture of what an organic-acquired customer is actually worth, and often makes SEO's ROI case considerably stronger than a first-purchase-only view would suggest.</p>
+      </div>
+
+      <h2 id="cpl">Cost Per Lead</h2>
+      <p>Divide your total SEO investment over a given period by the number of qualified organic leads generated in that period to get cost per lead — the most direct, comparable metric against your other marketing channels. Track this over time rather than in a single month; SEO's cost per lead should trend downward as organic traffic compounds, even as total spend stays flat.</p>
+
+      <div class="callout">
+        <h3 id="roi-formula">Return-on-Investment Formula</h3>
+        <p>A simple working formula: <strong>ROI = (Revenue attributed to organic search − SEO investment) ÷ SEO investment</strong>, expressed as a percentage. For example, a hypothetical business investing $3,000 a month that can attribute $9,000 in revenue to organic search in a given month has a rough ROI of 200% for that period. Treat any specific numbers here as an illustration of the formula, not a benchmark — your own figures depend entirely on your margins, average customer value, and market.</p>
+      </div>
+
+      <h2 id="dashboard">Reporting Dashboard</h2>
+      <p>Bring the metrics above together into one recurring view rather than checking each tool separately: organic traffic and rankings as leading indicators, conversions and qualified leads as the core outcome metric, cost per lead and ROI as the commercial summary, and call tracking or GBP actions layered in for local businesses. A dashboard that takes five minutes to review monthly is more useful in practice than a comprehensive one nobody actually opens.</p>
+
+      <h2 id="mistakes">Common Attribution Mistakes</h2>
+      <ul>
+        <li><strong>Relying only on last-click attribution</strong> — it understates organic's real contribution to multi-touch customer journeys.</li>
+        <li><strong>Tracking traffic and rankings but never setting up conversion tracking</strong> — the most common gap, and the one that makes ROI impossible to calculate at all.</li>
+        <li><strong>Comparing SEO's cost per lead in month one to a paid channel's mature cost per lead</strong> — an unfair comparison, since SEO's cost per lead improves over time in a way paid channels' generally don't.</li>
+        <li><strong>Ignoring branded search growth as a signal</strong> — it can mask whether non-branded, genuinely new-customer reach is actually improving.</li>
+        <li><strong>Treating every conversion as equally valuable</strong> — without a quality filter, a channel producing high lead volume can look better than one producing fewer, more valuable leads.</li>
+      </ul>
+
+      <div class="callout">
+        <h3 id="framework">30/60/90-Day Measurement Framework</h3>
+        <ul>
+          <li><strong>Day 30:</strong> Confirm conversion tracking, call tracking, and analytics are correctly set up and capturing organic-sourced actions. Establish your baseline numbers.</li>
+          <li><strong>Day 60:</strong> Review early leading indicators — impressions, rankings, and organic traffic trend — against the baseline. ROI figures are typically too early to be meaningful yet.</li>
+          <li><strong>Day 90:</strong> Review organic-sourced leads and, if CRM attribution is in place, early revenue data. Calculate a first cost-per-lead figure and treat it as a starting point to improve from, not a final verdict.</li>
+        </ul>
+      </div>
+
+      <h2 id="faq">FAQs</h2>
+      <h3>What is a good SEO ROI?</h3>
+      <p>There's no universal benchmark — it depends on your margins, average customer value, and how competitive your market is. A more useful question than "is this good" is whether the trend is improving over time and whether the return justifies the investment relative to your other channels.</p>
+      <h3>How do you attribute a sale to SEO when a customer used multiple channels?</h3>
+      <p>No single method is perfect. Last-click attribution credits the final touchpoint; assisted-conversion reporting shows where organic search contributed earlier in the journey even if it wasn't the final click. Using both together gives a more honest picture than either alone.</p>
+      <h3>How soon should I expect to see SEO ROI?</h3>
+      <p>Meaningful ROI typically takes several months to become visible, since SEO's traffic and lead gains build gradually rather than immediately. Track leading indicators — impressions, rankings, early traffic — in the interim rather than expecting ROI figures from month one.</p>
+
+    </div>
+
+    <div class="article-cta fade">
+      <h3>Want Help Setting Up Real SEO Measurement?</h3>
+      <p>Get a free audit of your current tracking setup and a plan for measuring SEO's actual business impact.</p>
+      <a href="../contact.html" class="btn btn-white btn-lg">Request an SEO Measurement Audit →</a>
+    </div>
+
+    <h3 class="h3" style="margin-bottom:24px">Related Articles</h3>
+    <div class="related-grid fade">
+      <a href="why-businesses-need-seo.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../images/blog-01.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>How SEO Improves Businesses</h3><p>Traffic, leads, trust, and long-term growth.</p></div>
+      </a>
+      <a href="generate-leads-google.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../images/blog-08.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>How to Generate Leads from Google</h3><p>Three ways to turn Google traffic into a predictable pipeline.</p></div>
+      </a>
+      <a href="australia/what-makes-a-top-seo-company-australia.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../images/blog-09.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>What Makes a Top SEO Company in Australia?</h3><p>An objective evaluation framework.</p></div>
+      </a>
+    </div>
+
+    <div class="callout" style="margin-top:40px">
+      <h3>About This Guide</h3>
+      <p>Written by the Acendia International team, an SEO company working with businesses across Australia and the United Kingdom. Published 20 July 2026. Last updated 20 July 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-inner fade">
+    <h2>Ready to Know What SEO Is <span class="grad-light">Actually Worth to You?</span></h2>
+    <p>Book a free strategy call and get a measurement plan built around your actual sales process.</p>
+    <div class="cta-actions">
+      <a href="../contact.html" class="btn btn-black btn-lg">Book Your Strategy Call</a>
+      <a href="../services.html#seo" class="btn btn-ghost-black btn-lg">Explore SEO Services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" aria-label="Acendia International — Home">
+          <img src="../images/acendia-logo.png" alt="Acendia International" height="40">
+        </a>
+        <p>AI-native digital growth agency helping businesses dominate Google Search through websites, SEO, and automation.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/acendia.international" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/acendia.international" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+        <form class="footer-newsletter" onsubmit="return false" aria-label="Newsletter signup">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-white btn-sm">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../services.html#website-development">Website Development</a></li>
+          <li><a href="../services.html#seo">SEO</a></li>
+          <li><a href="../services.html#local-seo">Local SEO</a></li>
+          <li><a href="../services.html#google-business-profile">Google Business Profile</a></li>
+          <li><a href="../services.html#ai-automation">AI Automation</a></li>
+          <li><a href="../services.html#lead-generation">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="../seo-services-australia.html">SEO in Australia</a></li>
+          <li><a href="../seo-services-uk.html">SEO in the UK</a></li>
+          <li><a href="../seo-agency-sydney.html">SEO Agency Sydney</a></li>
+          <li><a href="../seo-agency-melbourne.html">SEO Agency Melbourne</a></li>
+          <li><a href="../seo-agency-london.html">SEO Agency London</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../industries.html">Industries</a></li>
+            <li><a href="../case-studies.html">Case Studies</a></li>
+            <li><a href="../blog.html">Resources / Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="return openCookieSettings()">Cookie Settings</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@acendia.agency">support@acendia.agency</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Acendia International. All rights reserved.</p>
+      <div class="footer-btm-links">
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="#" onclick="return openCookieSettings()">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.min.js?v=min1"></script>
+</body>
+</html>

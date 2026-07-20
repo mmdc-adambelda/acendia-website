@@ -61,6 +61,26 @@ The Article 19 refresh (title change from "Why Every Business Needs SEO in 2026"
 
 The sitewide footer "Locations" block (AU, UK, Sydney, Melbourne, London) was not modified in this phase — it already covers cross-linking to all 5 commercial pages from every page on the site.
 
-## Not Yet Linked (pending Phase 2–4 articles)
+## Phase 2 Additions (2026-07-20)
 
-Articles 2–5, 7–12, 14–15, 17–18, and 20 don't exist yet, so their planned internal links (per the original content brief's per-article "Required internal links" lists) cannot be added until those pages are built. When each is published, cross-reference its brief entry and add the specified links both from and to the new page — update this document at the same time.
+| From | Links to | Anchor text used |
+|---|---|---|
+| Article 1 (AU choose) | Article 2 (top SEO company AU) | related-articles card |
+| Article 1 (AU choose) | Article 4 (AU costs) | related-articles card |
+| Article 6 (AU rank #1) | Article 5 (AU timeline) | related-articles card |
+| Article 13 (UK choose) | Article 14 (UK costs) | related-articles card |
+| Article 16 (UK rank higher) | Article 15 (UK timeline) | related-articles card |
+| Article 19 refresh | Article 20 (measure ROI) | related-articles card |
+| Article 2 | Article 1, Article 3, Article 5 (forward ref, built same phase) | inline text + related-articles |
+| Article 3 | Article 1, Article 2, Article 4 | inline text + related-articles |
+| Article 4 | Article 1, Article 3, Article 5 | inline text + related-articles |
+| Article 5 | Article 4, Article 6, `/blog/google-ranking-factors.html` | related-articles card |
+| Article 14 | Article 13, Article 15, Article 16 | inline text + related-articles |
+| Article 15 | Article 14, Article 16, `/blog/google-ranking-factors.html` | related-articles card |
+| Article 20 | Article 19 refresh, `/blog/generate-leads-google.html`, Article 2 | related-articles card |
+
+Each of the 7 new Phase 2 articles also links to `/seo-services-australia.html` or `/seo-services-uk.html` in its CTA/footer, per the standing AU/UK hub-linking rule.
+
+## Not Yet Linked (pending Phase 3–4 articles)
+
+Articles 7–12, 17–18 don't exist yet, so their planned internal links (per the original content brief's per-article "Required internal links" lists) cannot be added until those pages are built. When each is published, cross-reference its brief entry and add the specified links both from and to the new page — update this document at the same time.

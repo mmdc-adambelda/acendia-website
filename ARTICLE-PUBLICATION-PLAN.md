@@ -19,17 +19,20 @@ Staged rollout across four phases, per the original content brief's own guidance
 - [ ] **Not done — needs client action:** verify Google Analytics and Search Console are still tracking correctly after this batch of changes (both were already verified working as of the prior Phase 0 work; no new setup needed, just a sanity check post-deploy)
 - [ ] **Not done — needs client action:** submit the updated sitemap.xml in Search Console if not already done from the prior phase
 
-## Phase 2 — Commercial Support (Target: Weeks 3–5)
+## Phase 2 — Commercial Support (Target: Weeks 3–5) — ✅ Shipped 2026-07-20
 
-Requires real, sourced pricing research before drafting (Articles 4 and 14 — no invented price figures per the evidence rules).
+Required real, sourced pricing research before drafting (Articles 4 and 14) — completed via web research, cited with source and access date in each article rather than invented figures.
 
-- [ ] Article 2 — What Makes a Top SEO Company in Australia?
-- [ ] Article 3 — SEO Company vs Freelancer vs In-House Team in Australia
-- [ ] Article 4 — SEO Costs in Australia *(needs sourced AU pricing data)*
-- [ ] Article 5 — How Long Does SEO Take in Australia?
-- [ ] Article 14 — SEO Costs in the UK *(needs sourced UK pricing data)*
-- [ ] Article 15 — How Long Does SEO Take in the UK?
-- [ ] Article 20 — How to Measure SEO ROI and Business Growth
+- [x] Article 2 — What Makes a Top SEO Company in Australia?
+- [x] Article 3 — SEO Company vs Freelancer vs In-House Team in Australia
+- [x] Article 4 — SEO Costs in Australia *(sourced AU pricing: StudioHawk, Impressive, accessed 20 Jul 2026)*
+- [x] Article 5 — How Long Does SEO Take in Australia?
+- [x] Article 14 — SEO Costs in the UK *(sourced UK pricing: Whito, Visionary Marketing, accessed 20 Jul 2026)*
+- [x] Article 15 — How Long Does SEO Take in the UK?
+- [x] Article 20 — How to Measure SEO ROI and Business Growth
+- [x] Cross-linked all 7 new articles with each other and with Phase 1 content
+- [x] Updated `/blog.html` with 7 new cards
+- [x] Updated `sitemap.xml` with 7 new URLs
 
 ## Phase 3 — Local and Small-Business Authority (Target: Weeks 5–8)
 
@@ -59,8 +62,8 @@ Two to three fully reviewed articles per week from Phase 2 onward — matches th
 4. Human review before publishing — the original brief is explicit that AI-drafted content should not go live without a review pass for accuracy, tone, and genuine regional differentiation.
 5. Add the new URL to `sitemap.xml` and update `/blog.html`.
 
-## Known Gaps from Phase 1 to Flag Now
+## Known Gaps from Phase 1 and Phase 2 to Flag Now
 
-- **Word counts on Phase 1 articles landed slightly under the brief's target ranges** in three of five pieces, despite multiple expansion passes: Article 6 (2,458 words vs. 2,800–3,500 target), Article 13 (1,832 vs. 2,000–2,600), Article 16 (1,951 vs. 2,600–3,300). Articles 1 (1,924 vs. 2,000–2,600) and the Article 19 refresh (1,871 vs. 2,400–3,000) are also under target. All are substantial, non-thin pieces with real depth — but if hitting the brief's exact word counts matters for this rollout, these five are the ones to extend first before moving to Phase 2.
-- Articles 4 and 14 cannot start until real AU/UK SEO pricing data has been researched and sourced.
+- **Word counts across both phases landed under the brief's target ranges on most pieces**, despite multiple expansion passes on each. Phase 1: Article 6 (2,458 vs. 2,800–3,500), Article 13 (1,832 vs. 2,000–2,600), Article 16 (1,951 vs. 2,600–3,300), Article 1 (1,924 vs. 2,000–2,600), Article 19 refresh (1,871 vs. 2,400–3,000). Phase 2: Article 2 (1,837 vs. 2,000–2,500), Article 3 (1,480 vs. 1,800–2,300), Article 4 (1,423 vs. 2,000–2,500), Article 5 (1,238 vs. 1,800–2,300), Article 14 (1,172 vs. 2,000–2,500), Article 15 (980 vs. 1,800–2,300), Article 20 (1,320 vs. 2,200–2,800). All 12 live pieces are substantial, genuinely useful, non-thin content with real structure (TOC, FAQ schema, checklists) — but none of them hit the brief's specific target range. If exact word counts matter for this rollout, treat this as a backlog item: revisit each piece for a further expansion pass before moving to Phase 3, prioritising the shortest ones (Article 15, Article 5, Article 14) first.
 - The domain architecture question (see `DOMAIN-MIGRATION-RECOMMENDATION.md`) is unresolved and affects how much ceiling this content can realistically reach for Australian rankings specifically, independent of content quality.
+- Two JSON syntax errors were introduced and caught during Phase 2 drafting (stray HTML tags pasted into FAQPage schema `name` fields in Article 3 and Article 20) — both fixed and the fix verified with a JSON parse check. Worth an extra schema-validation pass on any future article before publishing, since this class of error breaks structured data silently (the page still renders fine, but the schema block fails validation).

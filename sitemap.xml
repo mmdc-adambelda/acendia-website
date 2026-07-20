@@ -140,4 +140,39 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://acendia.uk/blog/australia/what-makes-a-top-seo-company-australia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/australia/seo-company-vs-freelancer-vs-in-house-australia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/australia/seo-costs-australia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/australia/how-long-does-seo-take-australia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/uk/seo-costs-uk.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/uk/how-long-does-seo-take-uk.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/how-to-measure-seo-roi-business-growth.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
