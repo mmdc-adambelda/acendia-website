@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var granted = false;
+    try {
+      var saved = JSON.parse(localStorage.getItem('acendia_consent'));
+      granted = !!(saved && saved.analytics);
+    } catch (e) {}
+    gtag('consent', 'default', { analytics_storage: granted ? 'granted' : 'denied' });
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BB9LLXMDMD"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-BB9LLXMDMD');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/images/acendia-favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Sydney Businesses Can Rank Higher on Google | Acendia</title>
+<meta name="description" content="A practical ranking guide for Sydney businesses — suburb competition, harbour-city search behaviour, citations, and what actually moves the needle here.">
+<link rel="canonical" href="https://acendia.uk/blog/australia/how-sydney-businesses-rank-higher-google.html">
+<meta property="og:title" content="How Sydney Businesses Can Rank Higher on Google">
+<meta property="og:description" content="Not a generic ranking guide — how Sydney's suburb structure, competition, and search behaviour specifically shape what works.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acendia.uk/blog/australia/how-sydney-businesses-rank-higher-google.html">
+<meta property="og:image" content="https://acendia.uk/images/blog-07.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.min.css?v=min1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://acendia.uk/"},
+    {"@type":"ListItem","position":2,"name":"Resources","item":"https://acendia.uk/blog.html"},
+    {"@type":"ListItem","position":3,"name":"How Sydney Businesses Can Rank Higher on Google","item":"https://acendia.uk/blog/australia/how-sydney-businesses-rank-higher-google.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Sydney Businesses Can Rank Higher on Google",
+  "description": "A practical ranking guide for Sydney businesses — suburb competition, harbour-city search behaviour, citations, and what actually moves the needle here.",
+  "image": "https://acendia.uk/images/blog-07.png",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type":"Organization","name":"Acendia International"},
+  "publisher": {"@type":"Organization","name":"Acendia International"},
+  "mainEntityOfPage": "https://acendia.uk/blog/australia/how-sydney-businesses-rank-higher-google.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Should a Sydney business target the whole city or specific suburbs?","acceptedAnswer":{"@type":"Answer","text":"For most local businesses, targeting genuine service-area suburbs specifically outperforms a single generic 'Sydney' page, because the ranking factors that matter — proximity, local relevance, GBP service area — are inherently suburb-level. A citywide page still has a role for brand and broader informational content, but it shouldn't be the only local page a business relies on."}},
+    {"@type":"Question","name":"Is competition genuinely higher in Sydney than other Australian cities?","acceptedAnswer":{"@type":"Answer","text":"In most commercial categories, yes — Sydney's population and business density mean more competitors chasing the same searches, which typically means it takes more sustained, higher-quality work to rank than in a smaller regional market for the same type of business."}},
+    {"@type":"Question","name":"Do different Sydney regions need genuinely different SEO approaches?","acceptedAnswer":{"@type":"Answer","text":"The core mechanics (GBP, citations, content, links) stay the same everywhere, but competition levels and customer expectations vary meaningfully between, say, the CBD and a growth corridor in Western Sydney, which affects how much effort is required and what content resonates with the local audience."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div id="cookie" role="dialog" aria-label="Cookie consent">
+  <div class="ck-hd">
+    <div class="ck-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10"/><path d="M8.5 8.5h.01M12 12h.01M16 9h.01"/><path d="M22 12c-2 0-4-1-4-4 0 1.5-1 3-3 3 1 0 2 1.5 2 3 0-1 1-2 2-2s2 .5 3 1V12z"/></svg></div>
+    <div><h3>We use cookies</h3><p>Acendia uses cookies to enhance your experience, analyse traffic, and personalise content. You choose what we use.</p></div>
+  </div>
+  <div class="ck-panel" id="ck-panel">
+    <div class="ck-row"><div class="ck-info"><h4>Essential</h4><p>Required for core site functionality. Always on.</p></div><label class="toggle"><input type="checkbox" checked disabled><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Analytics</h4><p>Google Analytics 4 — helps us understand site usage.</p></div><label class="toggle"><input type="checkbox" id="tgl-analytics"><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Marketing</h4><p>Ad tracking and campaign performance measurement.</p></div><label class="toggle"><input type="checkbox" id="tgl-marketing"><span class="t-slider"></span></label></div>
+    <div class="ck-save"><button class="btn btn-white" style="width:100%" onclick="savePrefs()">Save Preferences</button></div>
+  </div>
+  <div class="ck-btns">
+    <button class="btn btn-white" onclick="acceptAll()">Accept All</button>
+    <button class="btn btn-ghost-white" onclick="togglePanel()">Customize</button>
+    <button class="btn btn-ghost-white" onclick="rejectAll()">Reject All</button>
+  </div>
+  <p class="ck-note">By continuing you agree to our <a href="/privacy-policy.html">Privacy Policy</a>. We comply with the NZ Privacy Act 2020.</p>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo" aria-label="Acendia International — Home">
+      <img src="/images/acendia-logo.png" alt="Acendia International" height="48">
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/case-studies.html">Case Studies</a>
+      <a href="/blog.html" class="active">Resources</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="/contact.html" class="btn btn-ghost-white btn-sm">Book a Call</a>
+      <a href="/contact.html#audit" class="btn btn-white btn-sm">Get Free Audit →</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="/index.html">Home</a>
+  <a href="/about.html">About</a>
+  <a href="/services.html">Services</a>
+  <a href="/industries.html">Industries</a>
+  <a href="/case-studies.html">Case Studies</a>
+  <a href="/blog.html">Resources</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/contact.html" class="btn btn-white btn-block">Book a Free Strategy Call</a>
+</div>
+
+<section class="article-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/index.html">Home</a><span>/</span><a href="/blog.html">Resources</a><span>/</span>How Sydney Businesses Can Rank Higher on Google</nav>
+    <div class="article-meta-row"><span>Australia SEO</span><span class="sep">·</span><span>Acendia Team</span><span class="sep">·</span><span>13 min read</span></div>
+    <h1 class="h1 article-title">How Sydney Businesses Can Rank Higher on Google</h1>
+    <p class="article-excerpt">Not a generic ranking guide with the city name swapped in — how Sydney's suburb structure, competition levels, and search behaviour specifically shape what actually works.</p>
+  </div>
+</section>
+
+<div class="container">
+  <img class="ph-photo wide fade" src="/images/blog-07.png" alt="SEO strategy guide for Sydney businesses" style="margin-bottom:8px" loading="lazy">
+</div>
+
+<section class="section light">
+  <div class="container">
+    <div class="prose fade">
+
+      <div class="callout" id="toc">
+        <h3>In This Guide</h3>
+        <ul>
+          <li><a href="#why-different">Why Sydney SEO isn't just national SEO with a city name</a></li>
+          <li><a href="#suburb-competition">Suburb-level competition varies enormously</a></li>
+          <li><a href="#gbp-sydney">Google Business Profile for a Sydney service area</a></li>
+          <li><a href="#citations-sydney">Sydney-specific citations and directories</a></li>
+          <li><a href="#commute-intent">Commute and cross-suburb search behaviour</a></li>
+          <li><a href="#content-sydney">Content that resonates with a Sydney audience</a></li>
+          <li><a href="#regions">CBD vs. inner-west vs. north shore vs. western Sydney</a></li>
+          <li><a href="#mistakes">Common mistakes Sydney businesses make</a></li>
+          <li><a href="#plan">A practical starting plan</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+
+      <p>Sydney is Australia's largest and most competitive market, and generic national SEO advice tends to understate exactly how much that changes the calculus for a local business trying to rank here. This guide focuses specifically on what's different about ranking in Sydney — not a rehash of general local SEO principles with "Sydney" inserted throughout. For the underlying local SEO framework this builds on, see our <a href="local-seo-australia-guide.html">local SEO Australia guide</a>, and for the broader national picture, our <a href="how-to-rank-number-one-google-australia.html">guide to ranking number one on Google Australia</a>. If Melbourne is also in your service area, our <a href="how-melbourne-businesses-rank-higher-google.html">guide to how Melbourne businesses can rank higher on Google</a> covers the same approach applied to that market's own suburb structure.</p>
+
+      <h2 id="why-different">Why Sydney SEO Isn't Just National SEO With a City Name</h2>
+      <p>Sydney's sheer size means it behaves less like one market and more like a collection of overlapping local markets — a business in Parramatta is realistically competing with other Parramatta and greater-western-Sydney businesses for local searches, not with every SEO agency or plumber in the harbour city as a whole. Treating "Sydney" as a single target keyword, rather than the more specific, higher-intent suburb-level searches customers actually use, is one of the most common strategic mistakes local businesses make here.</p>
+      <p>Population density and business count also mean that generic tactics that might be sufficient to rank in a smaller Australian city often aren't enough in Sydney — a thinly optimised Google Business Profile or a single generic services page might be competitive in a regional centre with a handful of comparable businesses, but rarely survives contact with Sydney's genuinely larger competitor pool. Our <a href="google-ranking-factors-australia.html">Google ranking factors for Australian businesses</a> guide covers the underlying signals; in Sydney specifically, doing each one thoroughly matters more than in a less contested market.</p>
+
+      <h2 id="suburb-competition">Suburb-Level Competition Varies Enormously</h2>
+      <p>Competition isn't uniform across Sydney. A category that's fiercely contested in the CBD or the Eastern Suburbs might have relatively light local competition in parts of Western Sydney or the Sutherland Shire, and vice versa for certain trades and services that cluster around specific growth corridors. This means a genuinely useful Sydney SEO strategy starts with an honest assessment of competition in the specific suburb or cluster of suburbs a business actually serves, rather than assuming "Sydney" is one uniformly difficult market.</p>
+      <p>For businesses with a genuine choice about which suburbs to prioritise (multi-location or wide-service-area businesses), this competition variance is worth factoring into where to invest first — a well-executed local SEO push in a moderately competitive growth suburb often produces faster, more visible results than the same effort spent trying to break into the most contested inner-city categories.</p>
+
+      <h2 id="gbp-sydney">Google Business Profile for a Sydney Service Area</h2>
+      <p>For any Sydney business with local intent, Google Business Profile is the single highest-leverage asset, and the same principles from our <a href="/blog/google-business-profile-guide.html">Google Business Profile guide</a> apply — but the honesty of the service area setting matters more here than in a smaller market, because Sydney's geography (harbour, national parks, sprawling outer suburbs) means "nearby" genuinely varies by tens of kilometres depending on where in the city a business sits. A CBD-based business claiming a service area that stretches to the outer west, or vice versa, is making a claim that doesn't match real travel or delivery patterns, and Google's systems are increasingly effective at recognising the mismatch.</p>
+      <p>Category and service accuracy also carry more weight in a market this size, simply because there are more competing profiles for Google to differentiate between. A precisely chosen primary category and a complete, accurate services list is a genuine differentiator against Sydney competitors who've left their profile generic or incomplete.</p>
+      <p>Photo and post activity also compounds differently here — with more competing profiles in most categories, a visibly active listing (recent photos, regular posts, prompt Q&A responses) stands out more clearly against a larger set of comparison options than it would in a market with only two or three genuine competitors. Sydney customers comparing options in the Local Pack are frequently comparing five or six plausible choices rather than one or two, which makes every completeness and activity signal work harder.</p>
+
+      <h2 id="citations-sydney">Sydney-Specific Citations and Directories</h2>
+      <p>Beyond the standard Australian directories covered in our local SEO guide, Sydney businesses benefit from citations and mentions on genuinely Sydney-relevant sources: local chambers of commerce (the Sydney Business Chamber and suburb-specific business associations), local council business directories where available, and Sydney-focused media and community publications for genuinely newsworthy stories. These carry more local-relevance weight than a generic national directory listing, because they signal specific, verifiable ties to the Sydney market rather than a broad Australia-wide presence.</p>
+      <p>Council-level engagement is also worth considering specifically in Sydney, given how many distinct local government areas the metro spans — City of Sydney, Parramatta, Northern Beaches, Canterbury-Bankstown, and dozens more. A business listed and engaged with its specific council's local business directory or community initiatives builds a genuinely local footprint that a broad, undifferentiated "Sydney-wide" presence doesn't replicate.</p>
+
+      <h2 id="commute-intent">Commute and Cross-Suburb Search Behaviour</h2>
+      <p>Sydney's commuting patterns create a distinct search behaviour worth accounting for: searches for services "near work" versus "near home" can pull from genuinely different parts of the city depending on time of day, and a business near a major transport corridor or interchange (train stations, the M4/M5 corridors, ferry wharves) may capture demand from a wider catchment than its immediate suburb alone. This is particularly relevant for businesses near CBD-adjacent transport hubs, where daytime search intent skews toward commuters rather than local residents.</p>
+      <p>This doesn't change the core SEO mechanics, but it's worth reflecting in how service area and content are framed — a business near a major station might reasonably reference the suburbs along that transport line as part of its genuine catchment, where a business in a purely residential pocket would not.</p>
+      <p>Weekend and evening search behaviour also shifts geographically in a way worth accounting for — a business near a harbourside, beach, or entertainment precinct may see a genuine spike in broader-catchment searches outside standard commuting hours, from people travelling specifically to that area rather than searching from their home suburb. Businesses that understand which pattern applies to them (steady local demand vs. destination-driven weekend demand) can tailor both their GBP hours-based posting and their content to match how customers are actually arriving at that decision.</p>
+
+      <h2 id="content-sydney">Content That Resonates With a Sydney Audience</h2>
+      <p>Generic content that could apply to any Australian city reads as noticeably less credible to a Sydney audience than content that demonstrates real local knowledge — genuine familiarity with specific suburbs, transport, or local context, rather than a template with "Sydney" dropped in. This doesn't mean padding content with landmark references for their own sake; it means writing from real, specific knowledge of how the business actually serves customers in this market, which is also what search engines increasingly reward as a genuine relevance signal.</p>
+      <p>Genuine local case studies and project examples carry particular weight in a market this size, since a Sydney customer comparing options can usually tell the difference between a business that's genuinely worked in their area and one presenting generic, could-be-anywhere content. Where possible, referencing real completed work in specific suburbs — with photos, outcomes, or direct quotes from local clients — does more to build trust and differentiate a Sydney business than broader claims about experience or quality that any competitor could equally make.</p>
+
+      <div class="callout">
+        <h3 id="regions">CBD vs. Inner-West vs. North Shore vs. Western Sydney</h3>
+        <p>Sydney's major sub-regions carry genuinely different competitive and customer profiles worth understanding before investing heavily in any one of them. The CBD and Eastern Suburbs tend to have the highest competition and highest customer expectations, often justifying more premium positioning. The Inner West carries a distinct, community-oriented audience that tends to respond well to genuine local character rather than generic corporate messaging. The North Shore skews toward a customer base with higher expectations around trust and credentialing. Western Sydney, one of the fastest-growing parts of the country, often has comparatively lighter competition in several categories relative to its population and growth — frequently an underrated opportunity for businesses willing to build genuine local presence there early.</p>
+      </div>
+
+      <div class="callout">
+        <h3 id="mistakes">Common Mistakes Sydney Businesses Make</h3>
+        <ul>
+          <li><strong>Targeting "Sydney" as a single keyword</strong> instead of the specific suburbs where customers actually search.</li>
+          <li><strong>Inflating GBP service areas</strong> to cover the whole metro area rather than a genuine, travel-realistic catchment.</li>
+          <li><strong>Assuming uniform competition</strong> across the city, missing lighter-competition opportunities in growth corridors.</li>
+          <li><strong>Generic content</strong> that could describe a business in any Australian city, with no genuine Sydney specificity.</li>
+          <li><strong>Underestimating the effort required</strong> to compete in Sydney's larger, denser market compared to a regional centre.</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <h3 id="plan">A Practical Starting Plan</h3>
+        <p>Start by mapping the genuine service area — the specific suburbs a business actually serves, not an aspirational metro-wide claim. Set Google Business Profile category, services, and service area to match that reality precisely. Build or refine a small number of genuinely differentiated suburb or region pages rather than a single generic "Sydney" page. Prioritise citations from genuinely Sydney-relevant sources over high-volume generic ones. Then measure — geo-grid rank tracking (covered in our <a href="local-seo-australia-guide.html">local SEO Australia guide</a>) is particularly valuable in a city this large, since a single-point rank check can badly misrepresent visibility across a genuinely large service area.</p>
+      </div>
+
+      <h2 id="faq">FAQs</h2>
+      <h3>Should a Sydney business target the whole city or specific suburbs?</h3>
+      <p>For most local businesses, targeting genuine service-area suburbs specifically outperforms a single generic "Sydney" page, because the ranking factors that matter — proximity, local relevance, GBP service area — are inherently suburb-level. A citywide page still has a role for brand and broader informational content, but it shouldn't be the only local page a business relies on.</p>
+      <h3>Is competition genuinely higher in Sydney than other Australian cities?</h3>
+      <p>In most commercial categories, yes — Sydney's population and business density mean more competitors chasing the same searches, which typically means it takes more sustained, higher-quality work to rank than in a smaller regional market for the same type of business.</p>
+      <h3>Do different Sydney regions need genuinely different SEO approaches?</h3>
+      <p>The core mechanics (GBP, citations, content, links) stay the same everywhere, but competition levels and customer expectations vary meaningfully between, say, the CBD and a growth corridor in Western Sydney, which affects how much effort is required and what content resonates with the local audience.</p>
+
+    </div>
+
+    <div class="article-cta fade">
+      <h3>Want a Sydney-Specific Ranking Strategy?</h3>
+      <p>Get a free audit that maps exactly where your Sydney visibility stands today, suburb by suburb.</p>
+      <a href="/contact.html" class="btn btn-white btn-lg">Request a Free Ranking Audit →</a>
+    </div>
+
+    <h3 class="h3" style="margin-bottom:24px">Related Articles</h3>
+    <div class="related-grid fade">
+      <a href="local-seo-australia-guide.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="/images/blog-02.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>Local SEO Australia Guide</h3><p>How to win Google Maps and local search.</p></div>
+      </a>
+      <a href="google-ranking-factors-australia.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="/images/blog-07.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>Google Ranking Factors for Australian Businesses</h3><p>How these signals actually apply here.</p></div>
+      </a>
+      <a href="/seo-agency-sydney.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="/images/blog-04.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>SEO Agency Sydney</h3><p>Our SEO services for Sydney businesses.</p></div>
+      </a>
+    </div>
+
+    <div class="callout" style="margin-top:40px">
+      <h3>About This Guide</h3>
+      <p>Written by the Acendia International team, an SEO company working with businesses across Australia and the United Kingdom. Published 20 July 2026. Last updated 20 July 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-inner fade">
+    <h2>Ready to Rank Higher <span class="grad-light">in Sydney?</span></h2>
+    <p>Book a free strategy call and get a plan built around your actual Sydney service area.</p>
+    <div class="cta-actions">
+      <a href="/contact.html" class="btn btn-black btn-lg">Book Your Strategy Call</a>
+      <a href="/seo-agency-sydney.html" class="btn btn-ghost-black btn-lg">Explore SEO in Sydney</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" aria-label="Acendia International — Home">
+          <img src="/images/acendia-logo.png" alt="Acendia International" height="40">
+        </a>
+        <p>AI-native digital growth agency helping businesses dominate Google Search through websites, SEO, and automation.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/acendia.international" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/acendia.international" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+        <form class="footer-newsletter" onsubmit="return false" aria-label="Newsletter signup">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-white btn-sm">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services.html#website-development">Website Development</a></li>
+          <li><a href="/services.html#seo">SEO</a></li>
+          <li><a href="/services.html#local-seo">Local SEO</a></li>
+          <li><a href="/services.html#google-business-profile">Google Business Profile</a></li>
+          <li><a href="/services.html#ai-automation">AI Automation</a></li>
+          <li><a href="/services.html#lead-generation">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="/seo-services-australia.html">SEO in Australia</a></li>
+          <li><a href="/seo-services-uk.html">SEO in the UK</a></li>
+          <li><a href="/seo-agency-sydney.html">SEO Agency Sydney</a></li>
+          <li><a href="/seo-agency-melbourne.html">SEO Agency Melbourne</a></li>
+          <li><a href="/seo-agency-london.html">SEO Agency London</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/industries.html">Industries</a></li>
+            <li><a href="/case-studies.html">Case Studies</a></li>
+            <li><a href="/blog.html">Resources / Blog</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="return openCookieSettings()">Cookie Settings</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@acendia.agency">support@acendia.agency</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Acendia International. All rights reserved.</p>
+      <div class="footer-btm-links">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="#" onclick="return openCookieSettings()">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.min.js?v=min1"></script>
+</body>
+</html>

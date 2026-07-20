@@ -47,12 +47,17 @@ Required real, sourced pricing research before drafting (Articles 4 and 14) — 
 - [x] Updated `sitemap.xml` with 6 new URLs
 - [x] All 6 articles passed JSON-LD schema validation (BreadcrumbList, Article, FAQPage)
 
-## Phase 4 — City Support (Target: Weeks 8–9)
+## Phase 4 — City Support (Target: Weeks 8–9) — ✅ Shipped 2026-07-20
 
-- [ ] Article 11 — How Sydney Businesses Can Rank Higher on Google
-- [ ] Article 12 — How Melbourne Businesses Can Rank Higher on Google
+- [x] Article 11 — How Sydney Businesses Can Rank Higher on Google *(1,741 words)*
+- [x] Article 12 — How Melbourne Businesses Can Rank Higher on Google *(1,753 words)*
+- [x] Confirmed differentiation from `/seo-agency-sydney.html` and `/seo-agency-melbourne.html`: the commercial pages pitch Acendia's services; the new articles are educational guides on suburb-level competition, GBP service-area accuracy, tram/transport-corridor search behaviour, and region-by-region differences — no overlapping page targets the same search intent
+- [x] Cross-linked both new articles with each other, with Article 7/8 (ranking factors, local SEO), and reciprocally with their respective commercial city pages (including keeping FAQ schema and visible FAQ text in sync on both commercial pages)
+- [x] Updated `/blog.html` with 2 new cards
+- [x] Updated `sitemap.xml` with 2 new URLs
+- [x] Both articles passed JSON-LD schema validation (BreadcrumbList, Article, FAQPage)
 
-Note: these two supplement the existing `/seo-agency-sydney.html` and `/seo-agency-melbourne.html` commercial pages with genuinely distinct, non-duplicate long-form guides — see each article's differentiation requirement in the original brief before drafting.
+**This completes the full 20-article AU/UK content expansion plan — 20 of 20 articles live.**
 
 ## Recommended Cadence
 
@@ -66,8 +71,9 @@ Two to three fully reviewed articles per week from Phase 2 onward — matches th
 4. Human review before publishing — the original brief is explicit that AI-drafted content should not go live without a review pass for accuracy, tone, and genuine regional differentiation.
 5. Add the new URL to `sitemap.xml` and update `/blog.html`.
 
-## Known Gaps from Phase 1–3 to Flag Now
+## Known Gaps From the Full Rollout to Flag Now
 
-- **Word counts across all three phases landed under the brief's target ranges on most pieces**, despite multiple expansion passes on each. Phase 1: Article 6 (2,458 vs. 2,800–3,500), Article 13 (1,832 vs. 2,000–2,600), Article 16 (1,951 vs. 2,600–3,300), Article 1 (1,924 vs. 2,000–2,600), Article 19 refresh (1,871 vs. 2,400–3,000). Phase 2: Article 2 (1,837 vs. 2,000–2,500), Article 3 (1,480 vs. 1,800–2,300), Article 4 (1,423 vs. 2,000–2,500), Article 5 (1,238 vs. 1,800–2,300), Article 14 (1,172 vs. 2,000–2,500), Article 15 (980 vs. 1,800–2,300), Article 20 (1,320 vs. 2,200–2,800). Phase 3 closed this gap on most pieces: Article 7 (2,049), Article 8 (2,579), Article 17 (2,288) landed within or close to typical target ranges after expansion passes; Article 9 (1,869), Article 10 (1,760), Article 18 (1,735) are still moderately under a 2,000+ target but substantial and non-thin. All 18 live pieces have real structure (TOC, FAQ schema, checklists) — if exact word counts matter, Articles 9, 10, and 18 are the remaining backlog candidates for a further expansion pass.
+- **Word counts landed under the brief's target ranges on most pieces across all four phases**, despite multiple expansion passes on each. Phase 1: Article 6 (2,458 vs. 2,800–3,500), Article 13 (1,832 vs. 2,000–2,600), Article 16 (1,951 vs. 2,600–3,300), Article 1 (1,924 vs. 2,000–2,600), Article 19 refresh (1,871 vs. 2,400–3,000). Phase 2: Article 2 (1,837), Article 3 (1,480), Article 4 (1,423), Article 5 (1,238), Article 14 (1,172), Article 15 (980), Article 20 (1,320) — all below 1,800–2,800 target ranges. Phase 3: Article 7 (2,049), Article 8 (2,579), Article 17 (2,288) landed within or close to target; Article 9 (1,869), Article 10 (1,760), Article 18 (1,735) landed moderately under. Phase 4: Article 11 (1,741), Article 12 (1,753) — same moderate-shortfall pattern as the smaller Phase 3 pieces. All 20 live pieces have real structure (TOC or equivalent, FAQ schema, checklists) and are substantial, non-thin content — but if exact word counts matter, the shortest pieces (Article 15, Article 14, Article 5, Article 20) are the top backlog candidates for a further expansion pass.
 - The domain architecture question (see `DOMAIN-MIGRATION-RECOMMENDATION.md`) is unresolved and affects how much ceiling this content can realistically reach for Australian rankings specifically, independent of content quality.
-- Three JSON syntax errors were introduced and caught during Phase 2–3 drafting (stray HTML tags pasted into FAQPage schema `name` fields in Article 3 and Article 20; a duplicate `acceptedAnswer` key in Article 7) — all fixed and verified with a JSON parse check before publishing. Every article now goes through a mandatory schema-validation pass (via a reusable JSON.parse checker script) before being considered done, which is how the Article 7 issue was caught pre-publish rather than post-publish.
+- Three JSON syntax errors were introduced and caught during drafting across the rollout (stray HTML tags pasted into FAQPage schema `name` fields in Article 3 and Article 20; a duplicate `acceptedAnswer` key in Article 7) — all fixed and verified with a JSON parse check before publishing. Every article from Phase 2 onward went through a mandatory schema-validation pass (via a reusable JSON.parse checker script) before being considered done.
+- **Next steps now that all 20 articles are live:** (1) submit the updated sitemap.xml in Search Console if not already done; (2) monitor initial indexing and ranking movement over the next 4–8 weeks before making further content decisions; (3) revisit the shortest pieces listed above for a word-count expansion pass if early performance data suggests it's warranted; (4) begin the content refresh cadence (see below) rather than producing new articles, unless a genuine new keyword gap is identified.

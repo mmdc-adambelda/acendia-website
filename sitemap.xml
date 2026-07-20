@@ -205,4 +205,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://acendia.uk/blog/australia/how-sydney-businesses-rank-higher-google.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://acendia.uk/blog/australia/how-melbourne-businesses-rank-higher-google.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

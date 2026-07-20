@@ -1,6 +1,6 @@
 # SEO Content Map — Acendia AU/UK Content Expansion
 
-Master keyword-to-URL ownership map for the 20-article content plan. Each keyword has exactly one designated primary URL to avoid cannibalisation. Status reflects what's actually live as of 2026-07-20 (Phase 3 complete).
+Master keyword-to-URL ownership map for the 20-article content plan. Each keyword has exactly one designated primary URL to avoid cannibalisation. Status reflects what's actually live as of 2026-07-20 — **all 4 phases complete, 20/20 articles live.**
 
 ## Commercial Service Pages (unchanged ownership)
 
@@ -26,8 +26,8 @@ Master keyword-to-URL ownership map for the 20-article content plan. Each keywor
 | 8 | Local SEO Australia | `/blog/australia/local-seo-australia-guide.html` | **Live** — 2,579 words |
 | 9 | SEO for small business Australia | `/blog/australia/seo-for-small-business-australia.html` | **Live** — 1,869 words |
 | 10 | SEO audit Australia | `/blog/australia/seo-audit-checklist-australia.html` | **Live** — 1,760 words |
-| 11 | Rank higher on Google Sydney | `/blog/australia/how-sydney-businesses-rank-higher-google.html` | Not yet built — Phase 4 |
-| 12 | Rank higher on Google Melbourne | `/blog/australia/how-melbourne-businesses-rank-higher-google.html` | Not yet built — Phase 4 |
+| 11 | Rank higher on Google Sydney | `/blog/australia/how-sydney-businesses-rank-higher-google.html` | **Live** — 1,741 words |
+| 12 | Rank higher on Google Melbourne | `/blog/australia/how-melbourne-businesses-rank-higher-google.html` | **Live** — 1,753 words |
 
 ## United Kingdom Cluster
 
@@ -63,7 +63,8 @@ Master keyword-to-URL ownership map for the 20-article content plan. Each keywor
 
 ## Summary
 
-- **18 of 20 content pieces are live**: Articles 1–10, 13–20, and the Article 19 refresh, plus both AU/UK commercial service page updates.
-- **2 pieces remain**, both in Phase 4: Article 11 (Sydney) and Article 12 (Melbourne) city-specific ranking guides — see `ARTICLE-PUBLICATION-PLAN.md`.
-- No keyword currently has more than one owning URL. When Phase 4 articles are built, cross-check this table before assigning a URL to avoid duplicate targeting.
-- Articles 4 and 14 (SEO cost Australia / UK) are complete, using real sourced pricing ranges from published 2026 industry pricing guides — cited with source and access date in each article, not invented figures.
+- **All 20 of 20 content pieces are live**: Articles 1–20 plus the Article 19 refresh, plus both AU/UK commercial service page updates. The 20-article AU/UK content expansion plan is complete.
+- No keyword currently has more than one owning URL — every entry in this table maps to exactly one live page.
+- Articles 4 and 14 (SEO cost Australia / UK) use real sourced pricing ranges from published 2026 industry pricing guides — cited with source and access date in each article, not invented figures.
+- Articles 11 and 12 (Sydney/Melbourne) are deliberately differentiated from the existing commercial pages `/seo-agency-sydney.html` and `/seo-agency-melbourne.html` — the new articles are educational ranking guides, the existing pages are service pitches; both now cross-link to each other rather than competing for the same intent.
+- Ongoing maintenance from here is content refreshes and monitoring, not new article production — see `ARTICLE-PUBLICATION-PLAN.md` for the recommended review cadence.

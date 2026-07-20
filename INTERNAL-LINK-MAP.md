@@ -96,6 +96,17 @@ Each of the 7 new Phase 2 articles also links to `/seo-services-australia.html` 
 
 Each of the 6 new Phase 3 articles also links to `/seo-services-australia.html` or `/seo-services-uk.html` in its CTA/footer, per the standing AU/UK hub-linking rule.
 
-## Not Yet Linked (pending Phase 4 articles)
+## Phase 4 Additions (2026-07-20) — Final Phase
 
-Articles 11–12 (Sydney/Melbourne city guides) don't exist yet, so their planned internal links cannot be added until those pages are built. When each is published, cross-reference the original brief's per-article "Required internal links" list and add the specified links both from and to the new page — update this document at the same time.
+| From | Links to | Anchor text used |
+|---|---|---|
+| Article 11 (Sydney rank higher) | Article 8, Article 7, `/blog/google-business-profile-guide.html`, `/seo-agency-sydney.html` | inline text + related-articles |
+| Article 12 (Melbourne rank higher) | Article 8, Article 7, `/blog/google-business-profile-guide.html`, `/seo-agency-melbourne.html`, Article 11 | inline text + related-articles |
+| `/seo-agency-sydney.html` | Article 11 | FAQ answer text (visible + schema kept in sync) |
+| `/seo-agency-melbourne.html` | Article 12 | FAQ answer text (visible + schema kept in sync) |
+
+Each of the 2 new Phase 4 articles also links to its respective commercial city page (`/seo-agency-sydney.html` or `/seo-agency-melbourne.html`) in its CTA/footer.
+
+## Link Map Complete
+
+All 20 articles in the AU/UK content plan are now cross-linked. No further "not yet linked" items remain from the original 20-article plan. Any future new content should follow the same pattern established across Phases 1–4: link to the relevant commercial hub page, 2+ sibling cluster articles, and 1 relevant evergreen article — then update this document.
