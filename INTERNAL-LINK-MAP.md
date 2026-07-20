@@ -81,6 +81,21 @@ The sitewide footer "Locations" block (AU, UK, Sydney, Melbourne, London) was no
 
 Each of the 7 new Phase 2 articles also links to `/seo-services-australia.html` or `/seo-services-uk.html` in its CTA/footer, per the standing AU/UK hub-linking rule.
 
-## Not Yet Linked (pending Phase 3–4 articles)
+## Phase 3 Additions (2026-07-20)
 
-Articles 7–12, 17–18 don't exist yet, so their planned internal links (per the original content brief's per-article "Required internal links" lists) cannot be added until those pages are built. When each is published, cross-reference its brief entry and add the specified links both from and to the new page — update this document at the same time.
+| From | Links to | Anchor text used |
+|---|---|---|
+| Article 7 (AU ranking factors) | Article 6, Article 8, `/blog/technical-seo-guide.html` | inline text + related-articles |
+| Article 8 (AU local SEO) | Article 6, Article 9 (forward ref), `/blog/google-business-profile-guide.html`, `/blog/local-seo-strategies.html`, `/seo-agency-sydney.html`, `/seo-agency-melbourne.html` | inline text + related-articles |
+| Article 9 (AU small business) | Article 1, Article 4, Article 8, Article 10 (forward ref) | inline text + related-articles |
+| Article 10 (AU audit checklist) | Article 6, Article 8, Article 9, `/blog/technical-seo-guide.html`, `/blog/common-seo-mistakes.html` | inline text + related-articles |
+| Article 17 (UK local SEO) | Article 16, Article 18 (forward ref), `/blog/google-business-profile-guide.html`, `/blog/local-seo-strategies.html`, `/seo-agency-london.html` | inline text + related-articles |
+| Article 18 (UK small business) | Article 13, Article 14, Article 17 | inline text + related-articles |
+| Article 6 (AU rank #1) | Article 7, Article 8 | inline text + related-articles card (replaced generic `/blog/google-ranking-factors.html` and `/blog/local-seo-strategies.html` links with AU-specific pieces) |
+| Article 16 (UK rank higher) | Article 17 | inline text + related-articles card (replaced generic `/blog/google-ranking-factors.html` and `/blog/local-seo-strategies.html` links with UK-specific pieces) |
+
+Each of the 6 new Phase 3 articles also links to `/seo-services-australia.html` or `/seo-services-uk.html` in its CTA/footer, per the standing AU/UK hub-linking rule.
+
+## Not Yet Linked (pending Phase 4 articles)
+
+Articles 11–12 (Sydney/Melbourne city guides) don't exist yet, so their planned internal links cannot be added until those pages are built. When each is published, cross-reference the original brief's per-article "Required internal links" list and add the specified links both from and to the new page — update this document at the same time.

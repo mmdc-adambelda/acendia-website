@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var granted = false;
+    try {
+      var saved = JSON.parse(localStorage.getItem('acendia_consent'));
+      granted = !!(saved && saved.analytics);
+    } catch (e) {}
+    gtag('consent', 'default', { analytics_storage: granted ? 'granted' : 'denied' });
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BB9LLXMDMD"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-BB9LLXMDMD');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/images/acendia-favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO for Small Business in the UK: Practical Guide | Acendia</title>
+<meta name="description" content="A realistic SEO framework for UK small businesses with limited time and budget — what to prioritise, what to DIY, and when to bring in help.">
+<link rel="canonical" href="https://acendia.uk/blog/uk/seo-for-small-business-uk.html">
+<meta property="og:title" content="SEO for UK Small Businesses: A Practical Guide">
+<meta property="og:description" content="What actually moves the needle for a small UK business with limited time and budget — and what to skip.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acendia.uk/blog/uk/seo-for-small-business-uk.html">
+<meta property="og:image" content="https://acendia.uk/images/blog-03.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.min.css?v=min1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://acendia.uk/"},
+    {"@type":"ListItem","position":2,"name":"Resources","item":"https://acendia.uk/blog.html"},
+    {"@type":"ListItem","position":3,"name":"SEO for UK Small Businesses: A Practical Guide","item":"https://acendia.uk/blog/uk/seo-for-small-business-uk.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SEO for UK Small Businesses: A Practical Guide",
+  "description": "A realistic SEO framework for UK small businesses with limited time and budget — what to prioritise, what to DIY, and when to bring in help.",
+  "image": "https://acendia.uk/images/blog-03.png",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type":"Organization","name":"Acendia International"},
+  "publisher": {"@type":"Organization","name":"Acendia International"},
+  "mainEntityOfPage": "https://acendia.uk/blog/uk/seo-for-small-business-uk.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Can a small business really compete with larger competitors in Google search in the UK?","acceptedAnswer":{"@type":"Answer","text":"Yes, particularly for local and long-tail searches, where relevance and specificity often matter more than domain size. A small business with a genuinely well-optimised Google Business Profile and a handful of specific, well-written pages can outrank a much larger competitor for the searches that matter most to it."}},
+    {"@type":"Question","name":"How much should a small UK business budget for SEO?","acceptedAnswer":{"@type":"Answer","text":"It depends heavily on competitiveness and goals, and figures vary by source and by market segment — see our dedicated guide to SEO costs in the UK for sourced current ranges. Many small businesses start with a mix of in-house effort on free levers (Google Business Profile, basic on-page fixes) and a modest paid budget for the technical or content work that genuinely requires expertise."}},
+    {"@type":"Question","name":"Should a small UK business do SEO in-house or hire an agency?","acceptedAnswer":{"@type":"Answer","text":"It depends on available time, existing skill in the business, and how competitive the target keywords are. Many small businesses start in-house on the free, high-leverage basics, then bring in outside help for technical SEO, content at scale, or a genuinely competitive market once the basics are in place."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div id="cookie" role="dialog" aria-label="Cookie consent">
+  <div class="ck-hd">
+    <div class="ck-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10"/><path d="M8.5 8.5h.01M12 12h.01M16 9h.01"/><path d="M22 12c-2 0-4-1-4-4 0 1.5-1 3-3 3 1 0 2 1.5 2 3 0-1 1-2 2-2s2 .5 3 1V12z"/></svg></div>
+    <div><h3>We use cookies</h3><p>Acendia uses cookies to enhance your experience, analyse traffic, and personalise content. You choose what we use.</p></div>
+  </div>
+  <div class="ck-panel" id="ck-panel">
+    <div class="ck-row"><div class="ck-info"><h4>Essential</h4><p>Required for core site functionality. Always on.</p></div><label class="toggle"><input type="checkbox" checked disabled><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Analytics</h4><p>Google Analytics 4 — helps us understand site usage.</p></div><label class="toggle"><input type="checkbox" id="tgl-analytics"><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Marketing</h4><p>Ad tracking and campaign performance measurement.</p></div><label class="toggle"><input type="checkbox" id="tgl-marketing"><span class="t-slider"></span></label></div>
+    <div class="ck-save"><button class="btn btn-white" style="width:100%" onclick="savePrefs()">Save Preferences</button></div>
+  </div>
+  <div class="ck-btns">
+    <button class="btn btn-white" onclick="acceptAll()">Accept All</button>
+    <button class="btn btn-ghost-white" onclick="togglePanel()">Customize</button>
+    <button class="btn btn-ghost-white" onclick="rejectAll()">Reject All</button>
+  </div>
+  <p class="ck-note">By continuing you agree to our <a href="/privacy-policy.html">Privacy Policy</a>. We comply with the NZ Privacy Act 2020.</p>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo" aria-label="Acendia International — Home">
+      <img src="/images/acendia-logo.png" alt="Acendia International" height="48">
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/case-studies.html">Case Studies</a>
+      <a href="/blog.html" class="active">Resources</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="/contact.html" class="btn btn-ghost-white btn-sm">Book a Call</a>
+      <a href="/contact.html#audit" class="btn btn-white btn-sm">Get Free Audit →</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="/index.html">Home</a>
+  <a href="/about.html">About</a>
+  <a href="/services.html">Services</a>
+  <a href="/industries.html">Industries</a>
+  <a href="/case-studies.html">Case Studies</a>
+  <a href="/blog.html">Resources</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/contact.html" class="btn btn-white btn-block">Book a Free Strategy Call</a>
+</div>
+
+<section class="article-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/index.html">Home</a><span>/</span><a href="/blog.html">Resources</a><span>/</span>SEO for UK Small Businesses: A Practical Guide</nav>
+    <div class="article-meta-row"><span>UK SEO</span><span class="sep">·</span><span>Acendia Team</span><span class="sep">·</span><span>13 min read</span></div>
+    <h1 class="h1 article-title">SEO for UK Small Businesses: A Practical Guide</h1>
+    <p class="article-excerpt">What actually moves the needle for a small UK business with limited time and budget — prioritised, realistic, and without the padding.</p>
+  </div>
+</section>
+
+<div class="container">
+  <img class="ph-photo wide fade" src="/images/blog-03.png" alt="SEO guide for UK small businesses" style="margin-bottom:8px" loading="lazy">
+</div>
+
+<section class="section light">
+  <div class="container">
+    <div class="prose fade">
+
+      <div class="callout" id="toc">
+        <h3>In This Guide</h3>
+        <ul>
+          <li><a href="#reality">The reality for small business SEO</a></li>
+          <li><a href="#priorities">What to prioritise first</a></li>
+          <li><a href="#free-levers">The highest-leverage free levers</a></li>
+          <li><a href="#diy-vs-help">What to DIY vs. what to outsource</a></li>
+          <li><a href="#budget">Budgeting realistically</a></li>
+          <li><a href="#tools">Tools worth paying for</a></li>
+          <li><a href="#content">Content on a limited schedule</a></li>
+          <li><a href="#mistakes">Common small business mistakes</a></li>
+          <li><a href="#checklist">A simple starting checklist</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+
+      <p>Most SEO advice is written as if every business has a marketing team, a development budget, and months to wait for results. Small UK businesses generally have none of those in abundance, which means the right SEO strategy for a five-person business looks meaningfully different from the strategy for an enterprise. This guide is built around that constraint: a realistic, prioritised approach for a business with limited time, a limited budget, and a genuine need for results that matter.</p>
+
+      <h2 id="reality">The Reality for Small Business SEO</h2>
+      <p>Small businesses can genuinely compete in search — but not by trying to do everything a large competitor does at a smaller scale. The more realistic path is choosing a narrower set of high-leverage actions and doing them thoroughly, rather than attempting a comprehensive strategy with a fraction of the resources it requires. A well-optimised Google Business Profile and three genuinely useful, specific pages will outperform a sprawling, thinly maintained website with fifty mediocre pages, every time, for the searches that actually matter to a small business's customers.</p>
+      <p>The other reality worth naming plainly: SEO is not fast, regardless of business size, and any provider promising guaranteed rankings or overnight results should be treated as a red flag rather than a shortcut. Our guide to <a href="how-to-choose-seo-company-united-kingdom.html">choosing an SEO company in the United Kingdom</a> covers how to evaluate outside help if that's the direction a business ultimately takes.</p>
+
+      <h2 id="priorities">What to Prioritise First</h2>
+      <p>For a small business starting close to zero, the order of operations matters more than the total list of possible tasks. Google Business Profile setup and optimisation comes first — it's free, it's the fastest lever available for local-intent searches, and it directly affects whether a business shows up in the Local Pack for the searches that convert best. Basic on-page fixes come second: accurate title tags and meta descriptions, a clear services page, and a working, mobile-friendly site. Content and link building come third, because they compound over a longer timeframe and are less urgent than getting the fundamentals genuinely right.</p>
+      <p>This sequencing avoids a common failure mode: businesses that jump straight to blog content or backlink outreach while their Google Business Profile is incomplete and their website has basic technical problems are building on a weak foundation, and the return on that early content and outreach effort suffers as a result. Fix the foundation first, then build. A realistic starting commitment for a business owner doing this alongside running the business is two to four hours a week for the first couple of months — enough to work through the basics without it consuming the week.</p>
+
+      <h2 id="free-levers">The Highest-Leverage Free Levers</h2>
+      <p>Several of the most effective SEO actions available to a small business cost nothing but time. A complete, accurate Google Business Profile — correct category, complete services list, regular photos and posts — is the standout example, and our <a href="/blog/google-business-profile-guide.html">Google Business Profile guide</a> covers this in detail. Asking every satisfied customer for a review, consistently and without gating responses by sentiment, is another: reviews are both a ranking signal and a direct driver of conversion for anyone comparing options in search results.</p>
+      <p>Beyond GBP and reviews, fixing basic on-page elements costs nothing beyond time: writing accurate, specific title tags and meta descriptions for each page rather than leaving them auto-generated or duplicated across the site; making sure the site's core pages (home, services, contact, and a page per major service or location) actually exist and are clearly written; and ensuring NAP details are consistent between the website, Google Business Profile, and any existing directory listings. None of this requires paid tools or outside expertise — it requires attention and consistency, which is a genuinely achievable bar for a small business willing to put in the time.</p>
+
+      <h2 id="diy-vs-help">What to DIY vs. What to Outsource</h2>
+      <p>Google Business Profile management, basic on-page fixes, and review-request processes are realistically DIY-able by a business owner or a team member with a few hours a month, without specialist SEO knowledge. Technical SEO — site speed diagnosis and fixes, structured data implementation, crawlability and indexation issues — is where DIY effort tends to hit a genuine skill ceiling, since diagnosing these issues correctly usually requires tooling and experience most small business owners haven't built up.</p>
+      <p>Content production is a middle case: a business owner with genuine expertise in their field can often write authentic, useful content themselves — arguably better than a generalist agency writer, since real experience and specificity are exactly what search engines and readers reward. What's harder to DIY at that same quality is doing it consistently on a schedule, alongside everything else running a small business requires. This is often where small businesses first bring in outside help — not because they can't write good content, but because they can't sustain the cadence alone.</p>
+
+      <h2 id="budget">Budgeting Realistically</h2>
+      <p>SEO costs in the UK vary widely by scope, competitiveness, and provider, and any number given without that context should be treated with scepticism. Our dedicated <a href="seo-costs-uk.html">guide to SEO costs in the UK</a> covers current sourced pricing ranges in detail. For a small business specifically, a realistic approach is often a hybrid: doing the free, high-leverage basics in-house first, then allocating a modest, sustainable monthly budget toward the specific gaps — usually technical fixes or consistent content — that genuinely require outside expertise, rather than committing to a large retainer before the foundational work is even done.</p>
+      <p>Whatever the budget, matching it to realistic expectations matters. A small monthly spend won't out-compete a well-funded competitor in a highly contested national keyword, but it can be entirely sufficient to dominate a specific local niche where competition is genuinely limited to a handful of comparable local businesses — which, for most small businesses, is exactly where the customers actually are.</p>
+
+      <h2 id="tools">Tools Worth Paying For</h2>
+      <p>Most small businesses don't need an enterprise SEO platform. A free Google Search Console account (essential, not optional — it's the direct line to how Google actually sees the site) and Google Analytics cover the core measurement needs at no cost. Beyond that, a single mid-tier paid tool for keyword research and basic rank tracking is usually enough for a small business's scope — the more expensive enterprise platforms are built for agencies and larger sites managing far more keywords and pages than a typical small business needs to track.</p>
+      <p>Spending on tools before spending on the underlying work is a common false economy — a business with a comprehensive rank-tracking dashboard but an incomplete Google Business Profile and no consistent review process is measuring a problem it hasn't yet started fixing. Tools are worth paying for once the fundamentals are in motion and there's a genuine need to measure and prioritise ongoing work, not before.</p>
+
+      <h2 id="content">Content on a Limited Schedule</h2>
+      <p>A small business doesn't need to publish weekly to benefit from content — a smaller number of genuinely useful, specific pages published consistently over time will outperform an ambitious content calendar that gets abandoned after two months. Realistic small business content usually falls into a few categories: detailed service pages that answer the specific questions a prospective customer actually has, an FAQ page addressing genuinely common questions, and occasional posts drawing on real, specific expertise or experience rather than generic industry commentary that could have been written by anyone.</p>
+      <p>The advantage a small business genuinely has over larger, more generic competitors is authenticity and specificity — direct experience with the local market, real answers to real customer questions, a genuine point of view. A practical cadence that tends to hold up alongside running a business is one genuinely useful piece of content a month, drawing on real, recurring questions from actual customers, rather than an ambitious weekly schedule that inevitably slips.</p>
+
+      <div class="callout">
+        <h3 id="mistakes">Common Small Business SEO Mistakes</h3>
+        <ul>
+          <li><strong>Trying to do everything at once.</strong> Spreading limited time across GBP, content, technical fixes, and link building simultaneously instead of sequencing them, so nothing gets done thoroughly.</li>
+          <li><strong>Leaving Google Business Profile incomplete.</strong> The single highest-leverage free asset, often left half-finished while effort goes elsewhere.</li>
+          <li><strong>Chasing national keywords with no realistic path to compete.</strong> Targeting broad, highly competitive terms instead of the specific local or long-tail searches a small business can genuinely win.</li>
+          <li><strong>Buying tools before doing the work.</strong> Paying for enterprise-grade tracking and reporting before the underlying fundamentals are even in place.</li>
+          <li><strong>Expecting fast results.</strong> Abandoning a strategy after a few weeks because visible movement hasn't happened yet, when most local SEO gains take two to four months to fully materialise.</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <h3 id="checklist">A Simple Starting Checklist</h3>
+        <p>In order: (1) claim and fully complete Google Business Profile; (2) audit and fix NAP consistency across existing listings; (3) write accurate, specific title tags and meta descriptions for every core page; (4) start a consistent, compliant review-request process; (5) confirm the site works properly on mobile and loads quickly; (6) write or refine service pages to genuinely answer what a prospective customer wants to know; (7) set up Google Search Console and check it monthly.</p>
+      </div>
+
+      <h2 id="faq">FAQs</h2>
+      <h3>Can a small business really compete with larger competitors in Google search in the UK?</h3>
+      <p>Yes, particularly for local and long-tail searches, where relevance and specificity often matter more than domain size. A small business with a genuinely well-optimised Google Business Profile and a handful of specific, well-written pages can outrank a much larger competitor for the searches that matter most to it.</p>
+      <h3>How much should a small UK business budget for SEO?</h3>
+      <p>It depends heavily on competitiveness and goals, and figures vary by source and by market segment — see our dedicated guide to SEO costs in the UK for sourced current ranges. Many small businesses start with a mix of in-house effort on free levers (Google Business Profile, basic on-page fixes) and a modest paid budget for the technical or content work that genuinely requires expertise.</p>
+      <h3>Should a small UK business do SEO in-house or hire an agency?</h3>
+      <p>It depends on available time, existing skill in the business, and how competitive the target keywords are. Many small businesses start in-house on the free, high-leverage basics, then bring in outside help for technical SEO, content at scale, or a genuinely competitive market once the basics are in place.</p>
+
+    </div>
+
+    <div class="article-cta fade">
+      <h3>Not Sure Where to Start?</h3>
+      <p>Get a free audit that tells you exactly which of these priorities matters most for your business right now.</p>
+      <a href="/contact.html" class="btn btn-white btn-lg">Request a Free SEO Audit →</a>
+    </div>
+
+    <h3 class="h3" style="margin-bottom:24px">Related Articles</h3>
+    <div class="related-grid fade">
+      <a href="local-seo-uk-guide.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="/images/blog-02.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>Local SEO UK Guide</h3><p>How to rank in Google Maps and local results.</p></div>
+      </a>
+      <a href="seo-costs-uk.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="/images/blog-03.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>SEO Costs in the UK</h3><p>Real, sourced pricing ranges for 2026.</p></div>
+      </a>
+      <a href="how-to-choose-seo-company-united-kingdom.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="/images/blog-01.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>How to Choose an SEO Company in the UK</h3><p>A practical, no-fluff evaluation framework.</p></div>
+      </a>
+    </div>
+
+    <div class="callout" style="margin-top:40px">
+      <h3>About This Guide</h3>
+      <p>Written by the Acendia International team, an SEO company working with businesses across Australia and the United Kingdom. Published 20 July 2026. Last updated 20 July 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-inner fade">
+    <h2>Ready to Get Serious <span class="grad-light">About Local Search?</span></h2>
+    <p>Book a free strategy call and get a prioritised plan built for your budget and your time.</p>
+    <div class="cta-actions">
+      <a href="/contact.html" class="btn btn-black btn-lg">Book Your Strategy Call</a>
+      <a href="/seo-services-uk.html" class="btn btn-ghost-black btn-lg">Explore SEO in the UK</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" aria-label="Acendia International — Home">
+          <img src="/images/acendia-logo.png" alt="Acendia International" height="40">
+        </a>
+        <p>AI-native digital growth agency helping businesses dominate Google Search through websites, SEO, and automation.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/acendia.international" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/acendia.international" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+        <form class="footer-newsletter" onsubmit="return false" aria-label="Newsletter signup">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-white btn-sm">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services.html#website-development">Website Development</a></li>
+          <li><a href="/services.html#seo">SEO</a></li>
+          <li><a href="/services.html#local-seo">Local SEO</a></li>
+          <li><a href="/services.html#google-business-profile">Google Business Profile</a></li>
+          <li><a href="/services.html#ai-automation">AI Automation</a></li>
+          <li><a href="/services.html#lead-generation">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="/seo-services-australia.html">SEO in Australia</a></li>
+          <li><a href="/seo-services-uk.html">SEO in the UK</a></li>
+          <li><a href="/seo-agency-sydney.html">SEO Agency Sydney</a></li>
+          <li><a href="/seo-agency-melbourne.html">SEO Agency Melbourne</a></li>
+          <li><a href="/seo-agency-london.html">SEO Agency London</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/industries.html">Industries</a></li>
+            <li><a href="/case-studies.html">Case Studies</a></li>
+            <li><a href="/blog.html">Resources / Blog</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="return openCookieSettings()">Cookie Settings</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@acendia.agency">support@acendia.agency</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Acendia International. All rights reserved.</p>
+      <div class="footer-btm-links">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="#" onclick="return openCookieSettings()">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.min.js?v=min1"></script>
+</body>
+</html>

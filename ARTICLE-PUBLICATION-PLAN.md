@@ -34,14 +34,18 @@ Required real, sourced pricing research before drafting (Articles 4 and 14) — 
 - [x] Updated `/blog.html` with 7 new cards
 - [x] Updated `sitemap.xml` with 7 new URLs
 
-## Phase 3 — Local and Small-Business Authority (Target: Weeks 5–8)
+## Phase 3 — Local and Small-Business Authority (Target: Weeks 5–8) — ✅ Shipped 2026-07-20
 
-- [ ] Article 7 — Google Ranking Factors for Australian Businesses
-- [ ] Article 8 — Local SEO Australia: How to Win Google Maps and Local Search
-- [ ] Article 9 — SEO for Australian Small Businesses
-- [ ] Article 10 — SEO Audit Checklist for Australian Websites
-- [ ] Article 17 — Local SEO UK: How to Rank in Google Maps and Local Results
-- [ ] Article 18 — SEO for UK Small Businesses
+- [x] Article 7 — Google Ranking Factors for Australian Businesses *(2,049 words)*
+- [x] Article 8 — Local SEO Australia: How to Win Google Maps and Local Search *(2,579 words)*
+- [x] Article 9 — SEO for Australian Small Businesses *(1,869 words)*
+- [x] Article 10 — SEO Audit Checklist for Australian Websites *(1,760 words)*
+- [x] Article 17 — Local SEO UK: How to Rank in Google Maps and Local Results *(2,288 words)*
+- [x] Article 18 — SEO for UK Small Businesses *(1,735 words)*
+- [x] Cross-linked all 6 new articles with each other, with Phase 1/2 content, and updated Articles 6 & 16 to point into the new local/ranking-factors pieces instead of the generic evergreen articles
+- [x] Updated `/blog.html` with 6 new cards
+- [x] Updated `sitemap.xml` with 6 new URLs
+- [x] All 6 articles passed JSON-LD schema validation (BreadcrumbList, Article, FAQPage)
 
 ## Phase 4 — City Support (Target: Weeks 8–9)
 
@@ -62,8 +66,8 @@ Two to three fully reviewed articles per week from Phase 2 onward — matches th
 4. Human review before publishing — the original brief is explicit that AI-drafted content should not go live without a review pass for accuracy, tone, and genuine regional differentiation.
 5. Add the new URL to `sitemap.xml` and update `/blog.html`.
 
-## Known Gaps from Phase 1 and Phase 2 to Flag Now
+## Known Gaps from Phase 1–3 to Flag Now
 
-- **Word counts across both phases landed under the brief's target ranges on most pieces**, despite multiple expansion passes on each. Phase 1: Article 6 (2,458 vs. 2,800–3,500), Article 13 (1,832 vs. 2,000–2,600), Article 16 (1,951 vs. 2,600–3,300), Article 1 (1,924 vs. 2,000–2,600), Article 19 refresh (1,871 vs. 2,400–3,000). Phase 2: Article 2 (1,837 vs. 2,000–2,500), Article 3 (1,480 vs. 1,800–2,300), Article 4 (1,423 vs. 2,000–2,500), Article 5 (1,238 vs. 1,800–2,300), Article 14 (1,172 vs. 2,000–2,500), Article 15 (980 vs. 1,800–2,300), Article 20 (1,320 vs. 2,200–2,800). All 12 live pieces are substantial, genuinely useful, non-thin content with real structure (TOC, FAQ schema, checklists) — but none of them hit the brief's specific target range. If exact word counts matter for this rollout, treat this as a backlog item: revisit each piece for a further expansion pass before moving to Phase 3, prioritising the shortest ones (Article 15, Article 5, Article 14) first.
+- **Word counts across all three phases landed under the brief's target ranges on most pieces**, despite multiple expansion passes on each. Phase 1: Article 6 (2,458 vs. 2,800–3,500), Article 13 (1,832 vs. 2,000–2,600), Article 16 (1,951 vs. 2,600–3,300), Article 1 (1,924 vs. 2,000–2,600), Article 19 refresh (1,871 vs. 2,400–3,000). Phase 2: Article 2 (1,837 vs. 2,000–2,500), Article 3 (1,480 vs. 1,800–2,300), Article 4 (1,423 vs. 2,000–2,500), Article 5 (1,238 vs. 1,800–2,300), Article 14 (1,172 vs. 2,000–2,500), Article 15 (980 vs. 1,800–2,300), Article 20 (1,320 vs. 2,200–2,800). Phase 3 closed this gap on most pieces: Article 7 (2,049), Article 8 (2,579), Article 17 (2,288) landed within or close to typical target ranges after expansion passes; Article 9 (1,869), Article 10 (1,760), Article 18 (1,735) are still moderately under a 2,000+ target but substantial and non-thin. All 18 live pieces have real structure (TOC, FAQ schema, checklists) — if exact word counts matter, Articles 9, 10, and 18 are the remaining backlog candidates for a further expansion pass.
 - The domain architecture question (see `DOMAIN-MIGRATION-RECOMMENDATION.md`) is unresolved and affects how much ceiling this content can realistically reach for Australian rankings specifically, independent of content quality.
-- Two JSON syntax errors were introduced and caught during Phase 2 drafting (stray HTML tags pasted into FAQPage schema `name` fields in Article 3 and Article 20) — both fixed and the fix verified with a JSON parse check. Worth an extra schema-validation pass on any future article before publishing, since this class of error breaks structured data silently (the page still renders fine, but the schema block fails validation).
+- Three JSON syntax errors were introduced and caught during Phase 2–3 drafting (stray HTML tags pasted into FAQPage schema `name` fields in Article 3 and Article 20; a duplicate `acceptedAnswer` key in Article 7) — all fixed and verified with a JSON parse check before publishing. Every article now goes through a mandatory schema-validation pass (via a reusable JSON.parse checker script) before being considered done, which is how the Article 7 issue was caught pre-publish rather than post-publish.
