@@ -152,50 +152,64 @@
     <div class="contact-grid">
 
       <div class="fade">
-        <div class="sec-label-dark">Request a Free Audit or Call</div>
-        <h2 class="h2" style="margin-bottom:12px">Tell Us About Your Business</h2>
-        <p class="muted-dark" style="margin-bottom:32px">Fill out the form and a member of our team will follow up within one business day with your free website and SEO audit.</p>
+        <div class="sec-label-dark">Get Started</div>
+        <h2 class="h2" style="margin-bottom:12px">Let's Get You Growing.</h2>
+        <p class="muted-dark" style="margin-bottom:28px">Book a free 30-minute strategy call directly, or request a free website and SEO audit first — either way, a member of our team will follow up within one business day.</p>
 
-        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="93e0569b-3b4f-43be-9be0-889205d8743f">
-          <input type="hidden" name="subject" value="New Strategy Call Request — Acendia Website">
-          <input type="hidden" name="from_name" value="Acendia Website Contact Form">
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="form-field">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        <div class="contact-tabs" role="tablist">
+          <button type="button" class="contact-tab active" data-tab="call" role="tab" aria-selected="true" aria-controls="tab-call">Book a Call</button>
+          <button type="button" class="contact-tab" data-tab="audit" role="tab" aria-selected="false" aria-controls="tab-audit">Request an Audit</button>
+        </div>
+
+        <div class="contact-tab-panel" id="tab-call" data-panel="call">
+          <p class="muted-dark" style="margin-bottom:20px">Pick a time that works for you — no back-and-forth emails required.</p>
+          <div class="calendar-embed">
+            <iframe src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1k9VHI-pmQkkT9XZIwheJi3eWalZmBjNK-1W_aTZtJsN4qL8l3illVj_NSO0lZlNnAvHFcUnCX" title="Book a free strategy call with Acendia International"></iframe>
           </div>
-          <div class="form-field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" required>
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="+64 21 000 0000">
-          </div>
-          <div class="form-field">
-            <label for="website">Website URL</label>
-            <input type="url" id="website" name="website" placeholder="https://yourbusiness.com">
-          </div>
-          <div class="form-field">
-            <label for="service">What are you interested in?</label>
-            <select id="service" name="service">
-              <option>Free Website Audit</option>
-              <option>SEO / Local SEO</option>
-              <option>Website Development</option>
-              <option>Google Business Profile</option>
-              <option>AI Automation / CRM</option>
-              <option>Google Ads</option>
-              <option>Not sure — general enquiry</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us a bit about your business and goals..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-white btn-lg btn-block">Book My Free Strategy Call</button>
-          <p id="form-status" class="small" style="margin-top:16px;display:none"></p>
-        </form>
+        </div>
+
+        <div class="contact-tab-panel" id="tab-audit" data-panel="audit" hidden>
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="93e0569b-3b4f-43be-9be0-889205d8743f">
+            <input type="hidden" name="subject" value="New Strategy Call Request — Acendia Website">
+            <input type="hidden" name="from_name" value="Acendia Website Contact Form">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="form-field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" required>
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+64 21 000 0000">
+            </div>
+            <div class="form-field">
+              <label for="website">Website URL</label>
+              <input type="url" id="website" name="website" placeholder="https://yourbusiness.com">
+            </div>
+            <div class="form-field">
+              <label for="service">What are you interested in?</label>
+              <select id="service" name="service">
+                <option>Free Website Audit</option>
+                <option>SEO / Local SEO</option>
+                <option>Website Development</option>
+                <option>Google Business Profile</option>
+                <option>AI Automation / CRM</option>
+                <option>Google Ads</option>
+                <option>Not sure — general enquiry</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us a bit about your business and goals..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-white btn-lg btn-block">Request My Free Audit</button>
+            <p id="form-status" class="small" style="margin-top:16px;display:none"></p>
+          </form>
+        </div>
       </div>
 
       <div class="fade">

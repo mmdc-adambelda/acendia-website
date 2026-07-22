@@ -64,6 +64,24 @@ if (hamburger && drawer) {
   }));
 }
 
+// ── Contact tabs (Book a Call / Request an Audit) ────
+const contactTabs = document.querySelectorAll('.contact-tab');
+if (contactTabs.length) {
+  const contactPanels = document.querySelectorAll('.contact-tab-panel');
+  const activateContactTab = (name) => {
+    contactTabs.forEach(t => {
+      const isActive = t.dataset.tab === name;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive);
+    });
+    contactPanels.forEach(p => { p.hidden = p.dataset.panel !== name });
+  };
+  contactTabs.forEach(t => t.addEventListener('click', () => activateContactTab(t.dataset.tab)));
+  const applyContactHash = () => activateContactTab(window.location.hash === '#audit' ? 'audit' : 'call');
+  window.addEventListener('hashchange', applyContactHash);
+  applyContactHash();
+}
+
 // ── Contact form (Web3Forms) ─────────────────────────
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
