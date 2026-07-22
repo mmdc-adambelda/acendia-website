@@ -392,8 +392,8 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .contact-tab:hover { color: var(--white) }
 .contact-tab.active { color: var(--white); border-bottom-color: var(--white) }
 .contact-tab-panel[hidden] { display: none }
-.calendar-embed { border-radius: var(--r-sm); overflow: hidden; background: var(--card); border: 1px solid var(--border) }
-.calendar-embed iframe { display: block; width: 100%; height: 640px; border: 0 }
+.calendar-embed { border-radius: var(--r-sm); overflow: hidden; background: var(--white); border: 1px solid var(--border); color-scheme: light }
+.calendar-embed iframe { display: block; width: 100%; height: 640px; border: 0; background: var(--white); color-scheme: light }
 
 /* ═══════════════════════════════════════════════════════
    ARTICLE / PROSE (blog article pages)

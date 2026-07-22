@@ -105,6 +105,7 @@ if (contactForm) {
       if (data.success) {
         contactForm.reset();
         statusEl.textContent = "Thanks — we've received your message and will follow up within one business day.";
+        gtag('event', 'ads_conversion_SUBMIT_LEAD_FORM_1', {});
       } else {
         throw new Error(data.message || 'Submission failed');
       }
