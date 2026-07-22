@@ -392,8 +392,6 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .contact-tab:hover { color: var(--white) }
 .contact-tab.active { color: var(--white); border-bottom-color: var(--white) }
 .contact-tab-panel[hidden] { display: none }
-.calendar-embed { border-radius: var(--r-sm); overflow: hidden; background: var(--white); border: 1px solid var(--border); color-scheme: light }
-.calendar-embed iframe { display: block; width: 100%; height: 640px; border: 0; background: var(--white); color-scheme: light }
 
 /* ═══════════════════════════════════════════════════════
    ARTICLE / PROSE (blog article pages)
@@ -540,5 +538,4 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   #cookie { left:12px; right:12px; bottom:12px }
   .case-body { padding:36px 28px }
   .team-grid { grid-template-columns:1fr 1fr }
-  .calendar-embed iframe { height:560px }
 }
