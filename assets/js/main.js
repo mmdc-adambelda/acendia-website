@@ -183,21 +183,44 @@ if (auditForm) {
     'Compiling your report…'
   ];
 
+  const roamLobbyUrl = 'https://ro.am/acendia-agency/';
   let roamInitialized = false;
+
+  function showRoamFallback() {
+    const parentElement = document.getElementById('roam-lobby');
+    if (!parentElement || parentElement.dataset.fallbackShown) return;
+    parentElement.dataset.fallbackShown = '1';
+    parentElement.innerHTML = '';
+    const link = document.createElement('a');
+    link.href = roamLobbyUrl;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.className = 'btn btn-white btn-lg btn-block';
+    link.textContent = 'Book Your Free Call →';
+    parentElement.appendChild(link);
+  }
+
   function initRoamLobby() {
-    if (roamInitialized || typeof Roam === 'undefined') return;
+    if (roamInitialized) return;
     roamInitialized = true;
     const parentElement = document.getElementById('roam-lobby');
-    Roam.initLobbyEmbed({
-      url: 'https://ro.am/acendia-agency/',
-      parentElement,
-      lobbyConfiguration: 'default',
-      accentColor: '#8d8d96',
-      theme: 'dark',
-      onSizeChange: (width, height) => {
-        parentElement.style.height = `${height}px`;
-      },
-      onEventScheduled: (booking) => {
+
+    if (typeof Roam === 'undefined') {
+      showRoamFallback();
+      return;
+    }
+
+    try {
+      Roam.initLobbyEmbed({
+        url: roamLobbyUrl,
+        parentElement,
+        lobbyConfiguration: 'default',
+        accentColor: '#8d8d96',
+        theme: 'dark',
+        onSizeChange: (width, height) => {
+          parentElement.style.height = `${height}px`;
+        },
+        onEventScheduled: (booking) => {
         const confirmedMsg = document.getElementById('audit-confirmed-message');
         let formatted = null;
         try {
@@ -209,12 +232,20 @@ if (auditForm) {
             }
           }
         } catch (err) {}
-        confirmedMsg.textContent = formatted
-          ? `Thanks — you're booked for ${formatted}. We'll see you then! Come ready to claim your free SEO audit file.`
-          : "Thanks — we've got your booking. We'll see you at your scheduled call! Come ready to claim your free SEO audit file.";
-        showAuditState('confirmed');
-      }
-    });
+          confirmedMsg.textContent = formatted
+            ? `Thanks — you're booked for ${formatted}. We'll see you then! Come ready to claim your free SEO audit file.`
+            : "Thanks — we've got your booking. We'll see you at your scheduled call! Come ready to claim your free SEO audit file.";
+          showAuditState('confirmed');
+        }
+      });
+    } catch (err) {
+      showRoamFallback();
+      return;
+    }
+
+    setTimeout(() => {
+      if (!parentElement.hasChildNodes()) showRoamFallback();
+    }, 4000);
   }
 
   auditForm.addEventListener('submit', (e) => {
