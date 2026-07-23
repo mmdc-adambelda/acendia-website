@@ -162,5 +162,107 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
+// ── Hero audit widget (URL capture → simulated audit → Roam booking) ─
+const auditForm = document.getElementById('audit-form');
+if (auditForm) {
+  const auditStates = {
+    form: document.getElementById('audit-state-form'),
+    loading: document.getElementById('audit-state-loading'),
+    booking: document.getElementById('audit-state-booking'),
+    confirmed: document.getElementById('audit-state-confirmed')
+  };
+  const showAuditState = (name) => {
+    Object.keys(auditStates).forEach(key => { auditStates[key].hidden = key !== name });
+  };
+
+  const auditLoadingMessages = [
+    'Connecting to your website…',
+    'Checking search visibility…',
+    'Reviewing on-page SEO signals…',
+    'Analyzing local search presence…',
+    'Compiling your report…'
+  ];
+
+  let roamInitialized = false;
+  function initRoamLobby() {
+    if (roamInitialized || typeof Roam === 'undefined') return;
+    roamInitialized = true;
+    const parentElement = document.getElementById('roam-lobby');
+    Roam.initLobbyEmbed({
+      url: 'https://ro.am/acendia-agency/',
+      parentElement,
+      lobbyConfiguration: 'default',
+      accentColor: '#8d8d96',
+      theme: 'dark',
+      onSizeChange: (width, height) => {
+        parentElement.style.height = `${height}px`;
+      },
+      onEventScheduled: (booking) => {
+        const confirmedMsg = document.getElementById('audit-confirmed-message');
+        let formatted = null;
+        try {
+          const raw = booking && (booking.dateTime || booking.startTime || booking.start || booking.date || booking.scheduledAt);
+          if (raw) {
+            const dt = new Date(raw);
+            if (!isNaN(dt.getTime())) {
+              formatted = dt.toLocaleString(undefined, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+            }
+          }
+        } catch (err) {}
+        confirmedMsg.textContent = formatted
+          ? `Thanks — you're booked for ${formatted}. We'll see you then! Come ready to claim your free SEO audit file.`
+          : "Thanks — we've got your booking. We'll see you at your scheduled call! Come ready to claim your free SEO audit file.";
+        showAuditState('confirmed');
+      }
+    });
+  }
+
+  auditForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const url = document.getElementById('audit-url').value.trim();
+    if (!url) return;
+
+    try {
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: '93e0569b-3b4f-43be-9be0-889205d8743f',
+          subject: 'New Free Audit Request — Homepage Widget',
+          from_name: 'Acendia Website — Homepage Audit Widget',
+          website: url
+        })
+      }).catch(() => {});
+    } catch (err) {}
+
+    showAuditState('loading');
+    document.getElementById('audit-loading-domain').textContent = url;
+    const statusEl = document.getElementById('audit-loading-status');
+    const barEl = document.getElementById('audit-progress-bar');
+    statusEl.textContent = auditLoadingMessages[0];
+    barEl.style.width = '0%';
+
+    const durationMs = 24000 + Math.random() * 6000;
+    const startTime = Date.now();
+    let msgIndex = 0;
+
+    const msgInterval = setInterval(() => {
+      msgIndex = (msgIndex + 1) % auditLoadingMessages.length;
+      statusEl.textContent = auditLoadingMessages[msgIndex];
+    }, durationMs / auditLoadingMessages.length);
+
+    const progressInterval = setInterval(() => {
+      const pct = Math.min(100, ((Date.now() - startTime) / durationMs) * 100);
+      barEl.style.width = pct + '%';
+      if (pct >= 100) {
+        clearInterval(progressInterval);
+        clearInterval(msgInterval);
+        showAuditState('booking');
+        initRoamLobby();
+      }
+    }, 200);
+  });
+}
+
 // ── Init ────────────────────────────────────────────
 showCookie();
