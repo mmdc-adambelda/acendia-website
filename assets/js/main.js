@@ -196,7 +196,7 @@ if (auditForm) {
     link.target = '_blank';
     link.rel = 'noopener';
     link.className = 'btn btn-white btn-lg btn-block';
-    link.textContent = 'Book Your Free Call →';
+    link.textContent = 'Claim your Audit Report by Booking a call with us!';
     parentElement.appendChild(link);
   }
 
