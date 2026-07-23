@@ -250,8 +250,9 @@ if (auditForm) {
 
   auditForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const url = document.getElementById('audit-url').value.trim();
+    let url = document.getElementById('audit-url').value.trim();
     if (!url) return;
+    if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
 
     try {
       fetch('https://api.web3forms.com/submit', {
