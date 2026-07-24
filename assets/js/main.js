@@ -82,30 +82,31 @@ if (contactTabs.length) {
   applyContactHash();
 }
 
-// ── Contact form (Web3Forms) ─────────────────────────
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  const statusEl = document.getElementById('form-status');
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
+// ── Web3Forms submission handler (reusable) ──────────
+function initWeb3Form(formId, statusId, successMessage, onSuccess) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+  const statusEl = document.getElementById(statusId);
+  const submitBtn = form.querySelector('button[type="submit"]');
   const originalBtnText = submitBtn.textContent;
 
-  contactForm.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     statusEl.style.display = 'none';
 
     try {
-      const res = await fetch(contactForm.action, {
+      const res = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(contactForm),
+        body: new FormData(form),
         headers: { Accept: 'application/json' }
       });
       const data = await res.json();
       if (data.success) {
-        contactForm.reset();
-        statusEl.textContent = "Thanks — we've received your message and will follow up within one business day.";
-        gtag('event', 'ads_conversion_SUBMIT_LEAD_FORM_1', {});
+        form.reset();
+        statusEl.textContent = successMessage;
+        if (onSuccess) onSuccess();
       } else {
         throw new Error(data.message || 'Submission failed');
       }
@@ -118,6 +119,19 @@ if (contactForm) {
     }
   });
 }
+
+initWeb3Form(
+  'contact-form',
+  'form-status',
+  "Thanks — we've received your message and will follow up within one business day.",
+  () => gtag('event', 'ads_conversion_SUBMIT_LEAD_FORM_1', {})
+);
+
+initWeb3Form(
+  'careers-form',
+  'careers-form-status',
+  "Thanks — your application has been received. We'll review it and follow up if you're a good fit."
+);
 
 // ── Scroll fade-in ──────────────────────────────────
 const io = new IntersectionObserver((entries) => {
