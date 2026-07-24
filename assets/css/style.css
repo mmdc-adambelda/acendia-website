@@ -334,6 +334,15 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .value-card h3 { color: var(--black); margin-bottom: 10px }
 .value-card p { color: var(--gray-4); font-size: 0.9rem; line-height: 1.7 }
 
+.jobs-list { display: flex; flex-direction: column; gap: 16px; max-width: 760px; margin: 0 auto }
+.job-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 32px; background: var(--white); border: 1px solid var(--border-dark); border-radius: var(--r-lg); transition: all 0.3s; text-decoration: none; color: inherit }
+.job-card:not(.disabled):hover { border-color: var(--border-dark-hi); box-shadow: var(--shadow-light); transform: translateY(-2px) }
+.job-card h3 { color: var(--black); font-size: 1.15rem; margin-bottom: 4px }
+.job-card .job-meta { color: var(--gray-4); font-size: 0.85rem }
+.job-status { flex-shrink: 0; font-size: 0.8rem; font-weight: 700; white-space: nowrap; padding: 10px 20px; border-radius: var(--r-sm); background: var(--black); color: var(--white) }
+.job-card.disabled { opacity: 0.55; cursor: default }
+.job-card.disabled .job-status { background: var(--gray-1); color: var(--gray-4) }
+
 /* ═══════════════════════════════════════════════════════
    INDUSTRIES (industries.html)
 ═══════════════════════════════════════════════════════ */
