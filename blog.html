@@ -120,51 +120,7 @@
 <!-- BLOG GRID -->
 <section class="section off-light">
   <div class="container">
-    <div class="blog-grid">
-
-      <article class="blog-card fade">
-        <img class="ph-photo blog-thumb" src="blog/uk/1.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
-        <div class="blog-body">
-          <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">Australia SEO</span>
-          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>12 min read</span></div>
-          <h3>How to Choose an SEO Company in Australia</h3>
-          <p>A practical, no-hype framework for evaluating an SEO company in Australia — what to check, what to ask, and the red flags that should end the conversation.</p>
-          <a href="blog/australia/how-to-choose-seo-company-australia.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-
-      <article class="blog-card fade fade-delay-1">
-        <img class="ph-photo blog-thumb" src="images/blog-07.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
-        <div class="blog-body">
-          <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">Australia SEO</span>
-          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>16 min read</span></div>
-          <h3>How to Rank Number One on Google Australia</h3>
-          <p>No shortcuts, no guarantees — the complete, practical framework we use to move Australian businesses toward the top of Google, step by step.</p>
-          <a href="blog/australia/how-to-rank-number-one-google-australia.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-
-      <article class="blog-card fade fade-delay-2">
-        <img class="ph-photo blog-thumb" src="blog/uk/2.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
-        <div class="blog-body">
-          <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">UK SEO</span>
-          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>12 min read</span></div>
-          <h3>How to Choose an SEO Company in the UK</h3>
-          <p>A practical framework for evaluating an SEO company in the UK — what separates genuine capability from a persuasive sales pitch.</p>
-          <a href="blog/uk/how-to-choose-seo-company-united-kingdom.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-
-      <article class="blog-card fade fade-delay-3">
-        <img class="ph-photo blog-thumb" src="blog/uk/3.png" alt="UK business owner reviewing a strategy to rank higher on Google" style="min-height:190px;border:none;border-radius:0" loading="lazy">
-        <div class="blog-body">
-          <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">UK SEO</span>
-          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>15 min read</span></div>
-          <h3>How to Rank Higher on Google UK</h3>
-          <p>The UK is one of the most competitive search markets in the world. Here's the practical, no-shortcuts framework for actually moving up it.</p>
-          <a href="blog/uk/how-to-rank-higher-google-uk.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
+    <div class="blog-grid" id="blog-grid">
 
       <article class="blog-card fade">
         <img class="ph-photo blog-thumb" src="images/blog-09.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
@@ -276,7 +232,11 @@
         </div>
       </article>
 
-      <article class="blog-card fade fade-delay-2">
+    </div>
+
+    <div class="blog-grid blog-extra" id="blog-grid-more" style="display:none;margin-top:28px">
+
+      <article class="blog-card fade">
         <img class="ph-photo blog-thumb" src="blog/uk/9.png" alt="Australian business owner reviewing Google Maps and local SEO performance" style="min-height:190px;border:none;border-radius:0" loading="lazy">
         <div class="blog-body">
           <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">Australia SEO</span>
@@ -309,7 +269,7 @@
         </div>
       </article>
 
-      <article class="blog-card fade fade-delay-1">
+      <article class="blog-card fade fade-delay-3">
         <img class="ph-photo blog-thumb" src="/images/blog-02.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
         <div class="blog-body">
           <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">UK SEO</span>
@@ -320,7 +280,7 @@
         </div>
       </article>
 
-      <article class="blog-card fade fade-delay-2">
+      <article class="blog-card fade">
         <img class="ph-photo blog-thumb" src="/images/blog-03.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
         <div class="blog-body">
           <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">UK SEO</span>
@@ -328,6 +288,50 @@
           <h3>SEO for UK Small Businesses</h3>
           <p>What actually moves the needle with limited time and budget — prioritised and realistic.</p>
           <a href="blog/uk/seo-for-small-business-uk.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <article class="blog-card fade fade-delay-1">
+        <img class="ph-photo blog-thumb" src="blog/uk/1.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body">
+          <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">Australia SEO</span>
+          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>12 min read</span></div>
+          <h3>How to Choose an SEO Company in Australia</h3>
+          <p>A practical, no-hype framework for evaluating an SEO company in Australia — what to check, what to ask, and the red flags that should end the conversation.</p>
+          <a href="blog/australia/how-to-choose-seo-company-australia.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <article class="blog-card fade fade-delay-2">
+        <img class="ph-photo blog-thumb" src="images/blog-07.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body">
+          <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">Australia SEO</span>
+          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>16 min read</span></div>
+          <h3>How to Rank Number One on Google Australia</h3>
+          <p>No shortcuts, no guarantees — the complete, practical framework we use to move Australian businesses toward the top of Google, step by step.</p>
+          <a href="blog/australia/how-to-rank-number-one-google-australia.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <article class="blog-card fade fade-delay-3">
+        <img class="ph-photo blog-thumb" src="blog/uk/2.png" alt="Blog thumbnail — Acendia International" style="min-height:190px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body">
+          <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">UK SEO</span>
+          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>12 min read</span></div>
+          <h3>How to Choose an SEO Company in the UK</h3>
+          <p>A practical framework for evaluating an SEO company in the UK — what separates genuine capability from a persuasive sales pitch.</p>
+          <a href="blog/uk/how-to-choose-seo-company-united-kingdom.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <article class="blog-card fade">
+        <img class="ph-photo blog-thumb" src="blog/uk/3.png" alt="UK business owner reviewing a strategy to rank higher on Google" style="min-height:190px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body">
+          <span class="blog-cat" style="position:static;display:inline-block;margin-bottom:10px">UK SEO</span>
+          <div class="blog-meta"><span>Acendia Team</span><span class="sep">·</span><span>15 min read</span></div>
+          <h3>How to Rank Higher on Google UK</h3>
+          <p>The UK is one of the most competitive search markets in the world. Here's the practical, no-shortcuts framework for actually moving up it.</p>
+          <a href="blog/uk/how-to-rank-higher-google-uk.html" class="blog-arrow">Read Article <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </article>
 
@@ -442,8 +446,21 @@
       </article>
 
     </div>
+
+    <div class="center fade" id="blog-load-more-wrap" style="margin-top:40px">
+      <button type="button" class="btn btn-black btn-lg" id="blog-load-more-btn" onclick="showAllArticles()">See All Articles</button>
+    </div>
+
   </div>
 </section>
+
+<script>
+function showAllArticles() {
+  var more = document.getElementById('blog-grid-more');
+  more.style.display = 'grid';
+  document.getElementById('blog-load-more-wrap').style.display = 'none';
+}
+</script>
 
 <!-- CTA -->
 <section class="cta-sec">
