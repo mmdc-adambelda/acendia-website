@@ -339,6 +339,13 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .value-card h3 { color: var(--black); margin-bottom: 10px }
 .value-card p { color: var(--gray-4); font-size: 0.9rem; line-height: 1.7 }
 
+.locations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px }
+.location-card { background: var(--white); border: 1px solid var(--border-dark); border-radius: var(--r-lg); padding: 28px; transition: all 0.3s; display: flex; flex-direction: column; height: 100% }
+.location-card:hover { border-color: var(--border-dark-hi); box-shadow: var(--shadow-light); transform: translateY(-4px) }
+.location-card h3 { color: var(--black); margin-bottom: 8px; font-size: 1.1rem }
+.location-card p { color: var(--gray-4); font-size: 0.88rem; line-height: 1.6; margin-bottom: 16px; flex-grow: 1 }
+.location-card .loc-link { font-weight: 700; font-size: 0.85rem; color: var(--black) }
+
 .jobs-list { display: flex; flex-direction: column; gap: 16px; max-width: 760px; margin: 0 auto }
 .job-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 32px; background: var(--white); border: 1px solid var(--border-dark); border-radius: var(--r-lg); transition: all 0.3s; text-decoration: none; color: inherit }
 .job-card:not(.disabled):hover { border-color: var(--border-dark-hi); box-shadow: var(--shadow-light); transform: translateY(-2px) }
@@ -536,7 +543,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
 @media(max-width:1024px){
-  .services-grid, .industries-grid { grid-template-columns:repeat(2,1fr) }
+  .services-grid, .industries-grid, .locations-grid { grid-template-columns:repeat(2,1fr) }
   .blog-grid, .testi-grid, .related-grid { grid-template-columns:repeat(2,1fr) }
   .footer-grid   { grid-template-columns:1fr 1fr; gap:40px }
   .numbers-grid  { grid-template-columns:repeat(2,1fr) }
@@ -556,7 +563,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .page-hero { padding:150px 0 64px }
   .hero-content { grid-template-columns:1fr; gap:0 }
   .hero-visual  { display:none }
-  .services-grid, .industries-grid { grid-template-columns:1fr; gap:20px }
+  .services-grid, .industries-grid, .locations-grid { grid-template-columns:1fr; gap:20px }
   .why-grid     { grid-template-columns:1fr; gap:48px }
   .process-grid { grid-template-columns:1fr; gap:32px }
   .process-grid::after { display:none }
