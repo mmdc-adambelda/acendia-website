@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.min.css?v=min2">
+<link rel="stylesheet" href="assets/css/style.min.css?v=min4">
 
 <script type="application/ld+json">
 {
@@ -106,9 +106,11 @@
 </div>
 
 <!-- PAGE HERO -->
-<section class="hero page-hero">
+<section class="hero page-hero shader-hero">
   <div class="hero-dots"></div>
   <div class="hero-glow1"></div>
+  <canvas class="shader-canvas" id="about-shader-canvas" aria-hidden="true"></canvas>
+  <div class="shader-scrim" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:2">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span>About</nav>
     <div class="hero-badge"><span class="hero-badge-dot"></span>About Acendia</div>
@@ -116,6 +118,101 @@
     <p class="hero-sub" style="max-width:640px">Acendia International is an AI-native digital growth agency dedicated to helping businesses establish a powerful online presence. We combine strategic SEO, high-performance websites, AI automation, and local search optimization to drive measurable growth.</p>
   </div>
 </section>
+
+<script>
+(function () {
+  var canvas = document.getElementById('about-shader-canvas');
+  if (!canvas || !window.WebGLRenderingContext) return;
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+
+  var vsSource =
+    'attribute vec2 aPosition;' +
+    'void main() { gl_Position = vec4(aPosition, 0.0, 1.0); }';
+
+  var fsSource =
+    'precision highp float;' +
+    'uniform vec2 uResolution;' +
+    'uniform float uTime;' +
+    'float hash(vec2 p) {' +
+    '  p = fract(p * vec2(123.34, 456.21));' +
+    '  p += dot(p, p + 45.32);' +
+    '  return fract(p.x * p.y);' +
+    '}' +
+    'float noise(vec2 p) {' +
+    '  vec2 i = floor(p); vec2 f = fract(p);' +
+    '  float a = hash(i), b = hash(i + vec2(1.0, 0.0));' +
+    '  float c = hash(i + vec2(0.0, 1.0)), d = hash(i + vec2(1.0, 1.0));' +
+    '  vec2 u = f * f * (3.0 - 2.0 * f);' +
+    '  return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;' +
+    '}' +
+    'float fbm(vec2 p) {' +
+    '  float v = 0.0; float amp = 0.5;' +
+    '  for (int i = 0; i < 5; i++) { v += amp * noise(p); p *= 2.0; amp *= 0.5; }' +
+    '  return v;' +
+    '}' +
+    'void main() {' +
+    '  vec2 uv = gl_FragCoord.xy / uResolution.xy;' +
+    '  vec2 p = uv * 3.0; p.x *= uResolution.x / uResolution.y;' +
+    '  float t = uTime * 0.045;' +
+    '  vec2 q = vec2(fbm(p + t), fbm(p + vec2(5.2, 1.3) - t));' +
+    '  vec2 r = vec2(fbm(p + 4.0 * q + vec2(1.7, 9.2) + 0.15 * t), fbm(p + 4.0 * q + vec2(8.3, 2.8) + 0.126 * t));' +
+    '  float f = fbm(p + 4.0 * r);' +
+    '  float shade = clamp(f * f * f + 0.55 * f * f + 0.45 * f, 0.0, 1.0);' +
+    '  shade = pow(shade, 1.7) * 0.8;' +
+    '  float vig = smoothstep(1.15, 0.15, length(uv - 0.5));' +
+    '  shade *= vig;' +
+    '  gl_FragColor = vec4(vec3(shade), 1.0);' +
+    '}';
+
+  function compile(type, src) {
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { gl.deleteShader(s); return null; }
+    return s;
+  }
+  var vs = compile(gl.VERTEX_SHADER, vsSource);
+  var fs = compile(gl.FRAGMENT_SHADER, fsSource);
+  if (!vs || !fs) return;
+
+  var program = gl.createProgram();
+  gl.attachShader(program, vs);
+  gl.attachShader(program, fs);
+  gl.linkProgram(program);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+  gl.useProgram(program);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+  var posLoc = gl.getAttribLocation(program, 'aPosition');
+  gl.enableVertexAttribArray(posLoc);
+  gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+  var uResolution = gl.getUniformLocation(program, 'uResolution');
+  var uTime = gl.getUniformLocation(program, 'uTime');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize() {
+    canvas.width = Math.max(1, Math.floor(canvas.clientWidth * dpr));
+    canvas.height = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  var start = performance.now();
+  function render(now) {
+    gl.uniform2f(uResolution, canvas.width, canvas.height);
+    gl.uniform1f(uTime, reduceMotion ? 0 : (now - start) / 1000);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    if (!reduceMotion) requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+})();
+</script>
 
 <!-- MISSION -->
 <section class="section light">
