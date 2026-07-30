@@ -572,6 +572,40 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════
+     LAMP SPOTLIGHT
+═══════════════════════════════════════════════════ -->
+<section class="lamp-section" id="lamp-section">
+  <div class="lamp-stage" aria-hidden="true">
+    <div class="lamp-beam lamp-beam-left"></div>
+    <div class="lamp-beam lamp-beam-right"></div>
+    <div class="lamp-glow-outer"></div>
+    <div class="lamp-glow-inner"></div>
+    <div class="lamp-line"></div>
+    <div class="lamp-mask"></div>
+  </div>
+  <div class="lamp-content">
+    <h2 class="lamp-heading">Get Found.<br>Get Chosen.</h2>
+    <p class="lamp-sub">When your business ranks where customers are already looking, growth stops being a guessing game — it becomes the default outcome.</p>
+    <div class="lamp-cta">
+      <a href="contact.html#audit" class="btn btn-white btn-lg">Get My Free Audit →</a>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var sec = document.getElementById('lamp-section');
+  if (!sec) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { sec.classList.add('lamp-in'); return; }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { sec.classList.add('lamp-in'); obs.unobserve(sec); }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(sec);
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════
      CTA (white section)
 ═══════════════════════════════════════════════════ -->
 <section class="cta-sec">
