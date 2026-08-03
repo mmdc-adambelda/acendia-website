@@ -494,6 +494,22 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .prose .callout { background: var(--off-white); border: 1px solid var(--border-dark); padding: 28px 32px; margin: 32px 0; border-radius: var(--r-lg) }
 .prose .callout p:last-child { margin-bottom: 0 }
 .prose .callout h3 { margin-top: 0 }
+.prose .table-wrap { overflow-x: auto; margin: 8px 0 32px; border: 1px solid var(--border-dark); border-radius: var(--r-lg) }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 640px }
+.prose th, .prose td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border-dark); vertical-align: top }
+.prose th { background: var(--off-white); font-weight: 700; color: var(--black); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em }
+.prose tbody tr:last-child td { border-bottom: none }
+.prose td { color: var(--gray-4); line-height: 1.6 }
+.prose .checklist { list-style: none; margin: 0 0 22px 0 }
+.prose .checklist li { position: relative; padding-left: 32px; margin-bottom: 12px; list-style: none }
+.prose .checklist li::before { content: ''; position: absolute; left: 0; top: 5px; width: 16px; height: 16px; border: 2px solid var(--black); border-radius: 4px }
+.prose .direct-answer { font-size: 1.12rem; line-height: 1.75; color: var(--black); font-weight: 500; margin-bottom: 22px }
+.prose .summary-box { background: var(--black); color: var(--white); padding: 28px 32px; margin: 0 0 40px; border-radius: var(--r-lg) }
+.prose .summary-box h3 { color: var(--white); margin-top: 0 }
+.prose .summary-box ul { margin: 0; padding-left: 20px }
+.prose .summary-box li { color: var(--gray-1); margin-bottom: 8px }
+.byline-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--gray-3); margin-bottom: 8px }
+.byline-row a { color: var(--black); font-weight: 600; text-decoration: underline; text-underline-offset: 2px }
 
 .article-cta { background: var(--black); color: var(--white); padding: 48px; border-radius: var(--r-lg); text-align: center; margin: 56px 0; box-shadow: var(--shadow-light) }
 .article-cta h3 { color: var(--white); margin-bottom: 12px }
