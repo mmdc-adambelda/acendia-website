@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var granted = false;
+    try {
+      var saved = JSON.parse(localStorage.getItem('acendia_consent'));
+      granted = !!(saved && saved.analytics);
+    } catch (e) {}
+    gtag('consent', 'default', { analytics_storage: granted ? 'granted' : 'denied' });
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BB9LLXMDMD"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-BB9LLXMDMD');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../images/acendia-favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build a Local SEO Campaign That Generates Leads | Acendia</title>
+<meta name="description" content="How to plan, run, and report on a local SEO campaign — prerequisites, audits, a 90-day timeline, sample deliverables, and a KPI dashboard.">
+<link rel="canonical" href="https://acendia.uk/blog/local-seo-campaign.html">
+<meta property="og:title" content="How to Build a Local SEO Campaign That Generates Leads">
+<meta property="og:description" content="A practical framework for planning, executing, and reporting on a local SEO campaign, with a 90-day timeline and sample KPI dashboard.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acendia.uk/blog/local-seo-campaign.html">
+<meta property="og:image" content="/assets/images/seo-content/local-seo-campaign-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.min.css?v=min6">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://acendia.uk/"},
+    {"@type":"ListItem","position":2,"name":"Resources","item":"https://acendia.uk/blog.html"},
+    {"@type":"ListItem","position":3,"name":"How to Build a Local SEO Campaign","item":"https://acendia.uk/blog/local-seo-campaign.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Build a Local SEO Campaign That Generates Leads",
+  "description": "How to plan, run, and report on a local SEO campaign — prerequisites, audits, a 90-day timeline, sample deliverables, and a KPI dashboard.",
+  "image": "https://acendia.uk/assets/images/seo-content/local-seo-campaign-hero.png",
+  "author": {"@type":"Organization","name":"Acendia International Editorial Team","url":"https://acendia.uk/about.html#editorial"},
+  "publisher": {"@type":"Organization","name":"Acendia International","url":"https://acendia.uk/"},
+  "datePublished": "2026-08-04",
+  "dateModified": "2026-08-04",
+  "mainEntityOfPage": "https://acendia.uk/blog/local-seo-campaign.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a local SEO campaign?","acceptedAnswer":{"@type":"Answer","text":"A local SEO campaign is the structured, time-bound execution of a local SEO strategy — with defined prerequisites, a research and audit phase, weekly and monthly deliverables, and reporting against agreed KPIs. It's how a strategy gets actually implemented rather than staying a plan on paper."}},
+    {"@type":"Question","name":"How long does a local SEO campaign take?","acceptedAnswer":{"@type":"Answer","text":"Most campaigns are planned in 90-day phases, though local SEO is an ongoing discipline rather than a project with a fixed end date. The 90-day framework below covers research, foundational fixes, and the first wave of content and authority work."}},
+    {"@type":"Question","name":"What's included in a local SEO campaign audit?","acceptedAnswer":{"@type":"Answer","text":"A campaign typically opens with a Google Business Profile audit, a technical and on-page audit, and a citation audit, alongside competitor research for the specific service and location combinations being targeted. This establishes a real starting point before any work begins."}},
+    {"@type":"Question","name":"Can parts of a local SEO campaign be automated?","acceptedAnswer":{"@type":"Answer","text":"Reporting, citation monitoring, and review-request sequencing can be substantially automated. Strategic decisions — content quality review, link-building outreach, and judgement calls on category or keyword targeting — still benefit from human review."}},
+    {"@type":"Question","name":"What causes a local SEO campaign to fail?","acceptedAnswer":{"@type":"Answer","text":"The most common causes are skipping the audit phase and starting content work blind, treating the campaign as a one-off project instead of an ongoing discipline, and measuring only rankings instead of qualified enquiries. The common failures section below covers this in full."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div id="cookie" role="dialog" aria-label="Cookie consent">
+  <div class="ck-hd">
+    <div class="ck-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10"/><path d="M8.5 8.5h.01M12 12h.01M16 9h.01"/><path d="M22 12c-2 0-4-1-4-4 0 1.5-1 3-3 3 1 0 2 1.5 2 3 0-1 1-2 2-2s2 .5 3 1V12z"/></svg></div>
+    <div><h3>We use cookies</h3><p>Acendia uses cookies to enhance your experience, analyse traffic, and personalise content. You choose what we use.</p></div>
+  </div>
+  <div class="ck-panel" id="ck-panel">
+    <div class="ck-row"><div class="ck-info"><h4>Essential</h4><p>Required for core site functionality. Always on.</p></div><label class="toggle"><input type="checkbox" checked disabled><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Analytics</h4><p>Google Analytics 4 — helps us understand site usage.</p></div><label class="toggle"><input type="checkbox" id="tgl-analytics"><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Marketing</h4><p>Ad tracking and campaign performance measurement.</p></div><label class="toggle"><input type="checkbox" id="tgl-marketing"><span class="t-slider"></span></label></div>
+    <div class="ck-save"><button class="btn btn-white" style="width:100%" onclick="savePrefs()">Save Preferences</button></div>
+  </div>
+  <div class="ck-btns">
+    <button class="btn btn-white" onclick="acceptAll()">Accept All</button>
+    <button class="btn btn-ghost-white" onclick="togglePanel()">Customize</button>
+    <button class="btn btn-ghost-white" onclick="rejectAll()">Reject All</button>
+  </div>
+  <p class="ck-note">By continuing you agree to our <a href="../privacy-policy.html">Privacy Policy</a>. We comply with the NZ Privacy Act 2020.</p>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Acendia International — Home">
+      <img src="../images/acendia-logo.png" alt="Acendia International" height="48">
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../services.html">Services</a>
+      <a href="../industries.html">Industries</a>
+      <a href="../case-studies.html">Case Studies</a>
+      <a href="../careers.html">Careers</a>
+      <a href="../blog.html" class="active">Resources</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="../contact.html" class="btn btn-ghost-white btn-sm">Book a Call</a>
+      <a href="../contact.html#audit" class="btn btn-white btn-sm">Get Free Audit →</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="../services.html">Services</a>
+  <a href="../industries.html">Industries</a>
+  <a href="../case-studies.html">Case Studies</a>
+  <a href="../careers.html">Careers</a>
+  <a href="../blog.html">Resources</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../contact.html" class="btn btn-white btn-block">Book a Free Strategy Call</a>
+</div>
+
+<section class="article-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../blog.html">Resources</a><span>/</span>How to Build a Local SEO Campaign</nav>
+    <div class="article-meta-row"><span>Local SEO</span><span class="sep">·</span><span>Acendia International Editorial Team</span><span class="sep">·</span><span>14 min read</span></div>
+    <div class="byline-row">Written by <a href="../about.html#editorial">Acendia International Editorial Team</a><span>·</span>Reviewed internally by Acendia's SEO team<span>·</span>Published 4 Aug 2026<span>·</span>Updated 4 Aug 2026</div>
+    <h1 class="h1 article-title">How to Plan and Run a Local SEO Campaign</h1>
+    <p class="article-excerpt">Your local SEO strategy defines what to build. This is how to actually execute it — audits, timelines, deliverables, and reporting that keep a campaign accountable.</p>
+  </div>
+</section>
+
+<div class="container">
+  <img class="ph-photo wide fade" src="../assets/images/seo-content/local-seo-campaign-hero.png" alt="Team planning a local SEO campaign timeline" width="1600" height="900" style="margin-bottom:8px" loading="eager">
+</div>
+
+<section class="section light">
+  <div class="container">
+    <div class="prose fade">
+
+      <p class="direct-answer">In short: a local SEO campaign is the structured execution of a local SEO strategy — starting with prerequisites and audits (business, competitor, GBP, technical, citation), moving through content and authority production on a defined timeline, and closing every reporting cycle against agreed KPIs. It's the "how," where the strategy is the "what."</p>
+
+      <div class="summary-box">
+        <h3>The Short Version</h3>
+        <ul>
+          <li>Confirm prerequisites before starting — a campaign without a clear scope drifts</li>
+          <li>Audit first: business, competitors, Google Business Profile, technical, citations</li>
+          <li>Sequence work across a 90-day timeline with weekly and monthly deliverables</li>
+          <li>Automate reporting and monitoring; keep judgement calls human</li>
+          <li>Report against a KPI dashboard, not a single ranking number</li>
+        </ul>
+      </div>
+
+      <div class="callout" id="toc">
+        <h3>In This Guide</h3>
+        <ul>
+          <li><a href="#definition">What is a local SEO campaign?</a></li>
+          <li><a href="#prerequisites">Campaign prerequisites</a></li>
+          <li><a href="#research">Initial business and competitor research</a></li>
+          <li><a href="#keyword-mapping">Keyword and location mapping</a></li>
+          <li><a href="#gbp-audit">Google Business Profile audit</a></li>
+          <li><a href="#technical-audit">Technical and on-page audit</a></li>
+          <li><a href="#citation-audit">Citation audit</a></li>
+          <li><a href="#review-workflow">Review-generation workflow</a></li>
+          <li><a href="#content-production">Location and service content production</a></li>
+          <li><a href="#link-building">Local backlink and digital PR work</a></li>
+          <li><a href="#tracking">Conversion tracking</a></li>
+          <li><a href="#reporting">Campaign reporting</a></li>
+          <li><a href="#timeline">90-day campaign timeline</a></li>
+          <li><a href="#deliverables">Weekly and monthly deliverables</a></li>
+          <li><a href="#workflow">Sample campaign workflow</a></li>
+          <li><a href="#dashboard">Sample KPI dashboard</a></li>
+          <li><a href="#budget">Budget considerations</a></li>
+          <li><a href="#automation">What can be automated</a></li>
+          <li><a href="#human">What still needs human review</a></li>
+          <li><a href="#failures">Common campaign failures</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+
+      <h2 id="definition">What Is a Local SEO Campaign?</h2>
+      <p>Where a <a href="local-seo-strategies.html">local SEO strategy</a> defines what a complete system should contain, a local SEO campaign is how that system actually gets built and run — as a structured, time-bound programme of work with prerequisites, phases, deliverables, and reporting. Treating local SEO as a campaign rather than a vague ongoing task is what keeps it accountable: every phase has a clear output, and every output can be checked against a plan.</p>
+
+      <h2 id="prerequisites">Campaign Prerequisites</h2>
+      <p>Before any campaign work starts, confirm: access to Google Business Profile and Search Console, a clear list of the services and locations being targeted, existing analytics and call-tracking setup (or a plan to add it), and internal agreement on what "success" looks like beyond rankings alone. Starting content or citation work before these are in place usually means redoing work once the actual scope becomes clear.</p>
+
+      <h2 id="research">Initial Business and Competitor Research</h2>
+      <p>Establish a genuine starting point: what currently ranks for the target service-location combinations, who the real local competitors are (not just the biggest national brands), and what gaps exist in their Google Business Profiles, content, and review profiles. This research shapes every phase that follows — a campaign built without it is really just guessing at priorities.</p>
+
+      <h2 id="keyword-mapping">Keyword and Location Mapping</h2>
+      <p>Build the service-location keyword map described in the <a href="local-seo-strategies.html#keyword-mapping">strategy guide</a> as a campaign deliverable, not an afterthought — it becomes the reference document every later content and page decision checks against.</p>
+
+      <h2 id="gbp-audit">Google Business Profile Audit</h2>
+      <p>Check category accuracy, completeness of services and attributes, photo and post recency, Q&A activity, and review response rate. Compare this against the top-ranking local competitors identified in the research phase to see exactly where the gap is.</p>
+
+      <h2 id="technical-audit">Technical and On-Page Audit</h2>
+      <p>Confirm crawlability and indexation of location pages, mobile usability, page speed, and whether existing location pages actually target distinct service-location combinations or overlap and compete with each other. This mirrors a standard technical SEO audit but weighted specifically toward location-page health.</p>
+
+      <h2 id="citation-audit">Citation Audit</h2>
+      <p>Pull current NAP data across major directories and data aggregators and flag every inconsistency — old addresses, disconnected numbers, duplicate or abandoned listings. This becomes the fix list for the foundation phase of the timeline below.</p>
+
+      <h2 id="review-workflow">Review-Generation Workflow</h2>
+      <p>Set up an automated review-request sequence triggered after every completed job or appointment, paired with a response process for every review that comes in. This should be running by the end of the campaign's first month, since review velocity compounds — the earlier it starts, the more it's contributed to by the time the campaign is reviewed at 90 days.</p>
+
+      <h2 id="content-production">Location and Service Content Production</h2>
+      <p>Produce location and service pages against the keyword map, prioritising the combinations with the clearest demand and weakest current competition first. Pair each page with the local content ideas — area guides, locally relevant FAQs — described in the strategy guide, rather than shipping bare location pages alone.</p>
+
+      <h2 id="link-building">Local Backlink and Digital PR Work</h2>
+      <p>Begin outreach for local sponsorships, press coverage, and directory or association listings once the foundation and initial content phases are solid — link-building outreach lands better once there's a genuinely strong page to point it at.</p>
+
+      <h2 id="tracking">Conversion Tracking</h2>
+      <p>Confirm call tracking and form tracking are live and correctly attributing enquiries by campaign, channel, and page before reporting begins — a campaign that can't attribute its own results can't be evaluated honestly.</p>
+
+      <h2 id="reporting">Campaign Reporting</h2>
+      <p>Report on a consistent monthly cadence against the KPI dashboard below, alongside a short narrative explaining what changed and why — a table of numbers without context makes it hard to separate genuine trend from noise.</p>
+
+      <h2 id="timeline">90-Day Campaign Timeline</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Phase</th><th>Weeks</th><th>Focus</th></tr></thead>
+          <tbody>
+            <tr><td>Research and audit</td><td>1–2</td><td>Business and competitor research, GBP audit, technical audit, citation audit</td></tr>
+            <tr><td>Foundation fixes</td><td>3–4</td><td>Category corrections, citation fixes, technical fixes, review-request system live</td></tr>
+            <tr><td>Content build</td><td>5–8</td><td>Location and service pages built against the keyword map, first local content pieces published</td></tr>
+            <tr><td>Authority and outreach</td><td>9–11</td><td>Local link-building and digital PR outreach begins</td></tr>
+            <tr><td>Review and reset</td><td>12–13</td><td>Full performance review, KPI dashboard update, priorities reset for the next phase</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <img class="ph-photo wide" src="../assets/images/seo-content/local-seo-campaign-90-day-timeline.png" alt="Diagram of the 90-day local SEO campaign timeline across five phases" width="1200" height="800" style="margin:8px 0 24px" loading="lazy">
+
+      <h2 id="deliverables">Weekly and Monthly Deliverables</h2>
+      <p>Weekly: review-request follow-up, Google Business Profile posts, citation fix tracking. Monthly: new or updated location/content pages against the plan, link-building outreach summary, and the full KPI report described below.</p>
+
+      <h2 id="workflow">Sample Local SEO Campaign Workflow</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Step</th><th>Owner</th><th>Output</th></tr></thead>
+          <tbody>
+            <tr><td>1. Audit and research</td><td>SEO strategist</td><td>Findings document, prioritised fix list</td></tr>
+            <tr><td>2. Keyword and location mapping</td><td>SEO strategist</td><td>Service-location keyword map</td></tr>
+            <tr><td>3. Foundation fixes</td><td>Technical + GBP specialist</td><td>Corrected categories, citations, technical issues</td></tr>
+            <tr><td>4. Content production</td><td>Content team</td><td>Published location and service pages</td></tr>
+            <tr><td>5. Review system launch</td><td>Automation / ops</td><td>Live review-request sequence</td></tr>
+            <tr><td>6. Outreach</td><td>Digital PR / link building</td><td>New local citations and backlinks</td></tr>
+            <tr><td>7. Reporting</td><td>Account manager</td><td>Monthly KPI dashboard and narrative</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="dashboard">Sample KPI Dashboard</h2>
+      <ul class="checklist">
+        <li>Local Pack visibility by target service-location combination</li>
+        <li>Organic ranking by the same combinations, tracked separately</li>
+        <li>Google Business Profile calls, direction requests, and website clicks (from GBP Insights)</li>
+        <li>New reviews and average rating trend, month over month</li>
+        <li>Citation accuracy percentage across tracked directories</li>
+        <li>New or referring local backlinks</li>
+        <li>Qualified enquiries and bookings attributed to local search</li>
+      </ul>
+
+      <h2 id="budget">Budget Considerations for UK and Australian Businesses</h2>
+      <p>Budget genuinely depends on the number of locations or service areas, the scale of the technical and citation cleanup needed, and how competitive the target market is — we won't invent a fixed market price here. See our <a href="uk/seo-costs-uk.html">SEO costs guide</a> for the real factors that drive pricing, and think of a local SEO campaign's budget as scaling with the number of distinct location or service combinations being targeted, not as a flat fee regardless of scope.</p>
+
+      <h2 id="automation">What Can Be Automated</h2>
+      <ul>
+        <li>Review-request sequencing after job or appointment completion</li>
+        <li>Citation monitoring for drift and inconsistency alerts</li>
+        <li>Ranking and visibility tracking across target combinations</li>
+        <li>Routine reporting and dashboard updates</li>
+      </ul>
+
+      <h2 id="human">What Still Requires Human Review</h2>
+      <ul>
+        <li>Content quality — automation can draft, but a human should confirm it's genuinely locally accurate and useful</li>
+        <li>Link-building and digital PR outreach and relationship management</li>
+        <li>Judgement calls on category selection, keyword priority, and page consolidation</li>
+        <li>Interpreting KPI trends and deciding what to prioritise next</li>
+      </ul>
+
+      <h2 id="failures">Common Campaign Failures</h2>
+      <ul>
+        <li><strong>Skipping the audit phase</strong> — starting content work without a genuine understanding of the competitive gap wastes the campaign's most valuable early weeks.</li>
+        <li><strong>Treating the 90-day timeline as a finish line</strong> — local SEO is an ongoing discipline; a campaign that stops after one cycle usually loses the ground it gained.</li>
+        <li><strong>Measuring only rankings</strong> — a campaign can move rankings and still fail if enquiries and conversions aren't tracked and reviewed alongside them.</li>
+        <li><strong>Publishing content before the keyword map is finished</strong> — pages end up competing with each other instead of covering distinct intent.</li>
+      </ul>
+
+      <h2 id="faq">FAQs</h2>
+      <h3>What is a local SEO campaign?</h3>
+      <p>A local SEO campaign is the structured, time-bound execution of a local SEO strategy — with defined prerequisites, a research and audit phase, weekly and monthly deliverables, and reporting against agreed KPIs. It's how a strategy gets actually implemented rather than staying a plan on paper.</p>
+      <h3>How long does a local SEO campaign take?</h3>
+      <p>Most campaigns are planned in 90-day phases, though local SEO is an ongoing discipline rather than a project with a fixed end date. The 90-day framework above covers research, foundational fixes, and the first wave of content and authority work.</p>
+      <h3>What's included in a local SEO campaign audit?</h3>
+      <p>A campaign typically opens with a Google Business Profile audit, a technical and on-page audit, and a citation audit, alongside competitor research for the specific service and location combinations being targeted. This establishes a real starting point before any work begins.</p>
+      <h3>Can parts of a local SEO campaign be automated?</h3>
+      <p>Reporting, citation monitoring, and review-request sequencing can be substantially automated. Strategic decisions — content quality review, link-building outreach, and judgement calls on category or keyword targeting — still benefit from human review.</p>
+      <h3>What causes a local SEO campaign to fail?</h3>
+      <p>The most common causes are skipping the audit phase and starting content work blind, treating the campaign as a one-off project instead of an ongoing discipline, and measuring only rankings instead of qualified enquiries. See the <a href="#failures">common campaign failures</a> section above.</p>
+
+    </div>
+
+    <div class="article-cta fade">
+      <h3>Want This Campaign Run for You?</h3>
+      <p>Get a free local SEO audit and a campaign plan scoped to your actual locations and services.</p>
+      <a href="../contact.html#audit" class="btn btn-white btn-lg">Request a Free Local SEO Audit →</a>
+    </div>
+
+    <h3 class="h3" style="margin-bottom:24px">Related Articles</h3>
+    <div class="related-grid fade">
+      <a href="local-seo-strategies.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../assets/images/seo-content/local-seo-strategy-uk-au-hero.png" alt="Local SEO strategy pillar guide" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>Local SEO Strategy for UK and Australian Businesses</h3><p>The complete framework this campaign executes.</p></div>
+      </a>
+      <a href="local-seo-analysis.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../assets/images/seo-content/local-seo-analysis-hero.png" alt="Local SEO analysis and audit scorecard guide" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>Local SEO Analysis</h3><p>The audit framework behind every campaign's starting point.</p></div>
+      </a>
+      <a href="local-search-marketing-strategy.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../assets/images/seo-content/local-search-marketing-strategy-hero.png" alt="Local search marketing strategy ecosystem guide" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>Local Search Marketing Strategy</h3><p>How local SEO fits the wider acquisition picture.</p></div>
+      </a>
+      <a href="google-business-profile-guide.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../images/blog-02.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>How to Rank Your Google Business Profile Higher</h3><p>Exact tactics that push your listing up the Local Pack.</p></div>
+      </a>
+    </div>
+
+    <div class="callout" style="margin-top:40px">
+      <h3>About This Guide</h3>
+      <p>Written and reviewed by the <a href="../about.html#editorial">Acendia International Editorial Team</a>, part of <a href="../index.html">Acendia International</a>, an SEO agency working with businesses across the United Kingdom and Australia. See our <a href="../about.html#editorial">editorial approach</a> for how we research, write, and review our guides. Published 4 August 2026. Last updated 4 August 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-inner fade">
+    <h2>Ready to Launch Your <span class="grad-light">Local SEO Campaign?</span></h2>
+    <p>Book a free strategy call and get a 90-day campaign plan scoped to your business.</p>
+    <div class="cta-actions">
+      <a href="../contact.html" class="btn btn-black btn-lg">Book Your Strategy Call</a>
+      <a href="../services.html#local-seo" class="btn btn-ghost-black btn-lg">Explore Local SEO</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" aria-label="Acendia International — Home">
+          <img src="../images/acendia-logo.png" alt="Acendia International" height="40">
+        </a>
+        <p>AI-native digital growth agency helping businesses dominate Google Search through websites, SEO, and automation.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/acendia.international" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/acendia.international" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.linkedin.com/company/acendia-international/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.66 4.78 6.12V23h-4v-6.85c0-1.63-.03-3.73-2.27-3.73-2.27 0-2.62 1.77-2.62 3.6V23h-4V8z"/></svg></a>
+        </div>
+        <form class="footer-newsletter" onsubmit="return false" aria-label="Newsletter signup">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-white btn-sm">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../services.html#website-development">Website Development</a></li>
+          <li><a href="../services.html#seo">SEO</a></li>
+          <li><a href="../services.html#local-seo">Local SEO</a></li>
+          <li><a href="../services.html#google-business-profile">Google Business Profile</a></li>
+          <li><a href="../services.html#ai-automation">AI Automation</a></li>
+          <li><a href="../services.html#lead-generation">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="../seo-services-australia.html">SEO in Australia</a></li>
+          <li><a href="../seo-services-uk.html">SEO in the UK</a></li>
+          <li><a href="../seo-agency-sydney.html">SEO Agency Sydney</a></li>
+          <li><a href="../seo-agency-melbourne.html">SEO Agency Melbourne</a></li>
+          <li><a href="../seo-agency-london.html">SEO Agency London</a></li>
+          <li><a href="../seo-agency-manchester.html">SEO Agency Manchester</a></li>
+          <li><a href="../seo-agency-birmingham.html">SEO Agency Birmingham</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../industries.html">Industries</a></li>
+            <li><a href="../case-studies.html">Case Studies</a></li>
+            <li><a href="../careers.html">Careers</a></li>
+            <li><a href="../blog.html">Resources / Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="return openCookieSettings()">Cookie Settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Acendia International. All rights reserved.</p>
+      <div class="footer-btm-links">
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="#" onclick="return openCookieSettings()">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.min.js?v=min1"></script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var granted = false;
+    try {
+      var saved = JSON.parse(localStorage.getItem('acendia_consent'));
+      granted = !!(saved && saved.analytics);
+    } catch (e) {}
+    gtag('consent', 'default', { analytics_storage: granted ? 'granted' : 'denied' });
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BB9LLXMDMD"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-BB9LLXMDMD');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../images/acendia-favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local SEO Analysis: A Complete Audit and Scoring Framework | Acendia</title>
+<meta name="description" content="How to perform a complete local SEO analysis — technical, Google Business Profile, citations, reviews, and a weighted scorecard to prioritise fixes.">
+<link rel="canonical" href="https://acendia.uk/blog/local-seo-analysis.html">
+<meta property="og:title" content="Local SEO Analysis: A Complete Audit and Scoring Framework">
+<meta property="og:description" content="A structured local SEO analysis framework with a weighted scorecard, covering technical, GBP, citations, reviews, and competitor gaps.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acendia.uk/blog/local-seo-analysis.html">
+<meta property="og:image" content="/assets/images/seo-content/local-seo-analysis-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.min.css?v=min6">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://acendia.uk/"},
+    {"@type":"ListItem","position":2,"name":"Resources","item":"https://acendia.uk/blog.html"},
+    {"@type":"ListItem","position":3,"name":"Local SEO Analysis","item":"https://acendia.uk/blog/local-seo-analysis.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Local SEO Analysis: A Complete Audit and Scoring Framework",
+  "description": "How to perform a complete local SEO analysis — technical, Google Business Profile, citations, reviews, and a weighted scorecard to prioritise fixes.",
+  "image": "https://acendia.uk/assets/images/seo-content/local-seo-analysis-hero.png",
+  "author": {"@type":"Organization","name":"Acendia International Editorial Team","url":"https://acendia.uk/about.html#editorial"},
+  "publisher": {"@type":"Organization","name":"Acendia International","url":"https://acendia.uk/"},
+  "datePublished": "2026-08-04",
+  "dateModified": "2026-08-04",
+  "mainEntityOfPage": "https://acendia.uk/blog/local-seo-analysis.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a local SEO analysis?","acceptedAnswer":{"@type":"Answer","text":"A local SEO analysis is a structured audit of every factor influencing a business's local search visibility — technical site health, Google Business Profile completeness, citation consistency, review profile, and competitor comparison — scored against a weighted framework so fixes can be prioritised by real impact."}},
+    {"@type":"Question","name":"When should a business perform a local SEO analysis?","acceptedAnswer":{"@type":"Answer","text":"Before starting any local SEO campaign, after a significant ranking drop, when expanding into a new location or service area, or on a routine cadence (roughly every six to twelve months) to catch drift in citations, categories, or technical health before it compounds."}},
+    {"@type":"Question","name":"What's the difference between the Local Pack and organic rankings in an analysis?","acceptedAnswer":{"@type":"Answer","text":"They're driven by different signal weightings and should be scored separately in an analysis. A business can score well on Local Pack factors like Google Business Profile and proximity while scoring poorly on organic factors like content depth and backlinks, or the reverse — a combined score would hide which one actually needs attention."}},
+    {"@type":"Question","name":"What should be prioritised first after a local SEO analysis?","acceptedAnswer":{"@type":"Answer","text":"Critical issues that block visibility entirely — like an unverified or suspended Google Business Profile, or pages blocked from indexing — come first, regardless of scorecard weighting. After that, prioritise by the combination of scorecard weight and how quickly the fix can realistically be made."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div id="cookie" role="dialog" aria-label="Cookie consent">
+  <div class="ck-hd">
+    <div class="ck-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10"/><path d="M8.5 8.5h.01M12 12h.01M16 9h.01"/><path d="M22 12c-2 0-4-1-4-4 0 1.5-1 3-3 3 1 0 2 1.5 2 3 0-1 1-2 2-2s2 .5 3 1V12z"/></svg></div>
+    <div><h3>We use cookies</h3><p>Acendia uses cookies to enhance your experience, analyse traffic, and personalise content. You choose what we use.</p></div>
+  </div>
+  <div class="ck-panel" id="ck-panel">
+    <div class="ck-row"><div class="ck-info"><h4>Essential</h4><p>Required for core site functionality. Always on.</p></div><label class="toggle"><input type="checkbox" checked disabled><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Analytics</h4><p>Google Analytics 4 — helps us understand site usage.</p></div><label class="toggle"><input type="checkbox" id="tgl-analytics"><span class="t-slider"></span></label></div>
+    <div class="ck-row"><div class="ck-info"><h4>Marketing</h4><p>Ad tracking and campaign performance measurement.</p></div><label class="toggle"><input type="checkbox" id="tgl-marketing"><span class="t-slider"></span></label></div>
+    <div class="ck-save"><button class="btn btn-white" style="width:100%" onclick="savePrefs()">Save Preferences</button></div>
+  </div>
+  <div class="ck-btns">
+    <button class="btn btn-white" onclick="acceptAll()">Accept All</button>
+    <button class="btn btn-ghost-white" onclick="togglePanel()">Customize</button>
+    <button class="btn btn-ghost-white" onclick="rejectAll()">Reject All</button>
+  </div>
+  <p class="ck-note">By continuing you agree to our <a href="../privacy-policy.html">Privacy Policy</a>. We comply with the NZ Privacy Act 2020.</p>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Acendia International — Home">
+      <img src="../images/acendia-logo.png" alt="Acendia International" height="48">
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../services.html">Services</a>
+      <a href="../industries.html">Industries</a>
+      <a href="../case-studies.html">Case Studies</a>
+      <a href="../careers.html">Careers</a>
+      <a href="../blog.html" class="active">Resources</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="../contact.html" class="btn btn-ghost-white btn-sm">Book a Call</a>
+      <a href="../contact.html#audit" class="btn btn-white btn-sm">Get Free Audit →</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="../services.html">Services</a>
+  <a href="../industries.html">Industries</a>
+  <a href="../case-studies.html">Case Studies</a>
+  <a href="../careers.html">Careers</a>
+  <a href="../blog.html">Resources</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../contact.html" class="btn btn-white btn-block">Book a Free Strategy Call</a>
+</div>
+
+<section class="article-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../blog.html">Resources</a><span>/</span>Local SEO Analysis</nav>
+    <div class="article-meta-row"><span>Local SEO</span><span class="sep">·</span><span>Acendia International Editorial Team</span><span class="sep">·</span><span>13 min read</span></div>
+    <div class="byline-row">Written by <a href="../about.html#editorial">Acendia International Editorial Team</a><span>·</span>Reviewed internally by Acendia's SEO team<span>·</span>Published 4 Aug 2026<span>·</span>Updated 4 Aug 2026</div>
+    <h1 class="h1 article-title">How to Perform a Complete Local SEO Analysis</h1>
+    <p class="article-excerpt">A weighted scorecard for auditing every factor that shapes local visibility — so fixes get prioritised by real impact, not guesswork.</p>
+  </div>
+</section>
+
+<div class="container">
+  <img class="ph-photo wide fade" src="../assets/images/seo-content/local-seo-analysis-hero.png" alt="Local SEO analysis and audit scoring framework" width="1600" height="900" style="margin-bottom:8px" loading="eager">
+</div>
+
+<section class="section light">
+  <div class="container">
+    <div class="prose fade">
+
+      <p class="direct-answer">In short: a local SEO analysis audits technical site health, local keyword visibility, Google Business Profile completeness, citation and NAP consistency, review profile, and competitor positioning — then scores each area on a weighted scorecard so fixes can be prioritised by real impact rather than by whichever issue is most visible.</p>
+
+      <div class="summary-box">
+        <h3>The Short Version</h3>
+        <ul>
+          <li>Separate Local Pack and organic ranking factors — they need different fixes</li>
+          <li>Google Business Profile completeness and category accuracy carry heavy weight</li>
+          <li>Citation and NAP consistency is checked, not assumed</li>
+          <li>Score every area, then prioritise by weight and effort — not by instinct</li>
+          <li>Critical, blocking issues always come first, regardless of score</li>
+        </ul>
+      </div>
+
+      <div class="callout" id="toc">
+        <h3>In This Guide</h3>
+        <ul>
+          <li><a href="#definition">What is a local SEO analysis?</a></li>
+          <li><a href="#when">When to perform one</a></li>
+          <li><a href="#technical">Website technical assessment</a></li>
+          <li><a href="#keyword-visibility">Local keyword visibility assessment</a></li>
+          <li><a href="#pack-vs-organic">Local Pack and organic ranking separation</a></li>
+          <li><a href="#gbp-completeness">Google Business Profile completeness</a></li>
+          <li><a href="#category">GBP category and service review</a></li>
+          <li><a href="#nap">NAP and citation consistency</a></li>
+          <li><a href="#reviews">Review volume, recency, quality, and response</a></li>
+          <li><a href="#competitor-gap">Competitor gap analysis</a></li>
+          <li><a href="#location-pages">Location-page assessment</a></li>
+          <li><a href="#internal-linking">Internal-linking analysis</a></li>
+          <li><a href="#backlinks">Local backlink analysis</a></li>
+          <li><a href="#conversion">Conversion and tracking review</a></li>
+          <li><a href="#mobile">Mobile and page-experience review</a></li>
+          <li><a href="#schema">Local structured data review</a></li>
+          <li><a href="#scorecard">Weighted local SEO scorecard</a></li>
+          <li><a href="#priorities">Critical, high, medium, and low priorities</a></li>
+          <li><a href="#sample-findings">Sample audit findings</a></li>
+          <li><a href="#implementation-order">Recommended implementation order</a></li>
+          <li><a href="#uk-au">UK and Australian considerations</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+
+      <h2 id="definition">What Is a Local SEO Analysis?</h2>
+      <p>A local SEO analysis is a structured audit of every signal that influences local search visibility, scored consistently so results are comparable across locations, over time, or against competitors. It's the diagnostic step behind both our <a href="local-seo-strategies.html">local SEO strategy</a> framework and our <a href="local-seo-campaign.html">local SEO campaign</a> methodology — establishing a real starting point before deciding what to prioritise.</p>
+
+      <h2 id="when">When to Perform a Local SEO Analysis</h2>
+      <p>Before starting a local SEO campaign, after a meaningful ranking drop, when expanding into a new location or service area, or on a routine six-to-twelve-month cadence to catch drift — a category that quietly changed, citations that fell out of sync, technical issues introduced by a site update — before it compounds into a bigger problem.</p>
+
+      <h2 id="technical">Website Technical Assessment</h2>
+      <p>Confirm crawlability and indexation of key pages, mobile usability, page speed, and whether location or service pages are structured cleanly enough for Google to understand which page should rank for which combination.</p>
+
+      <h2 id="keyword-visibility">Local Keyword Visibility Assessment</h2>
+      <p>Check current visibility for the actual service-location combinations that matter, using a mix of rank tracking and manual spot-checks from different simulated locations if the service area is wide — a single average position can hide pockets of weak visibility within a broader territory.</p>
+
+      <h2 id="pack-vs-organic">Local Pack and Organic Ranking Separation</h2>
+      <p>Score these separately. A business can perform well in one and poorly in the other, and conflating them into a single number hides which lever — Google Business Profile and proximity signals, or website content and backlinks — actually needs attention.</p>
+
+      <h2 id="gbp-completeness">Google Business Profile Completeness</h2>
+      <p>Check photo recency, post activity, Q&A engagement, attribute completeness, and whether services and products listed match what the website says. An abandoned profile — claimed once, never touched again — consistently underperforms an actively maintained one, even with otherwise similar fundamentals.</p>
+
+      <h2 id="category">GBP Category and Service Review</h2>
+      <p>Confirm the primary category is the single most accurate description of the core business, and that secondary categories are genuinely applicable rather than an aspirational wish list. An overly broad category selection dilutes relevance for the category that actually matters most.</p>
+
+      <h2 id="nap">NAP and Citation Consistency</h2>
+      <p>Pull current name, address, and phone data across major directories and data aggregators and flag every inconsistency — this is usually one of the highest-yield fixes in an analysis, since it's both common and straightforward to correct once identified.</p>
+
+      <h2 id="reviews">Review Volume, Recency, Quality, and Response</h2>
+      <p>Score review count relative to genuine local competitors, how recently reviews have arrived (a steady trickle versus a stale profile with nothing in months), overall rating, and — critically — what share of reviews have a business response. Response rate is one of the more overlooked factors and one of the easiest to fix quickly.</p>
+
+      <h2 id="competitor-gap">Competitor Gap Analysis</h2>
+      <p>Compare the business against two or three genuine local competitors — not the biggest national brand, but who actually appears alongside it in the Local Pack — across every category above. This turns abstract scores into a concrete, comparative picture of where the real gap is.</p>
+
+      <h2 id="location-pages">Location-Page Assessment</h2>
+      <p>Check whether existing location pages are genuinely distinct and locally relevant, or thin and templated with only the place name changed. Thin location pages are one of the more common findings in a local SEO analysis and a frequent source of pages competing against each other instead of covering distinct intent.</p>
+
+      <h2 id="internal-linking">Internal-Linking Analysis</h2>
+      <p>Confirm location and service pages are reachable within a few clicks of the homepage and link to each other and up to a central hub, rather than existing as orphaned pages with no supporting internal links.</p>
+
+      <h2 id="backlinks">Local Backlink Analysis</h2>
+      <p>Review the quality and local relevance of the existing backlink profile, not just volume — a handful of genuinely local, relevant links typically outweighs a larger number of generic, low-relevance ones.</p>
+
+      <h2 id="conversion">Conversion and Tracking Review</h2>
+      <p>Confirm form submissions, calls, and bookings are actually being tracked and correctly attributed — an analysis that skips this step can't tell whether existing visibility is converting into real enquiries.</p>
+
+      <h2 id="mobile">Mobile and Page-Experience Review</h2>
+      <p>Test on a real mobile device, not just a resized browser window — check load speed, tap-target sizing, and whether the primary call-to-action is genuinely easy to find and use on a phone, since most local searches happen on mobile.</p>
+
+      <h2 id="schema">Local Structured Data Review</h2>
+      <p>Confirm LocalBusiness and Organisation schema is present, accurate, and matches visible page content exactly — mismatched or fabricated structured data (a fake address, an invented rating) creates trust problems rather than ranking benefit.</p>
+
+      <h2 id="scorecard">Weighted Local SEO Scorecard</h2>
+      <p>A sample scoring structure — adjust weights based on how much a given business's visibility genuinely depends on the Local Pack versus organic results:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Weight</th><th>What's scored</th></tr></thead>
+          <tbody>
+            <tr><td>Google Business Profile completeness &amp; category accuracy</td><td>25%</td><td>Category, attributes, photos, posts, Q&amp;A, services listed</td></tr>
+            <tr><td>Citation &amp; NAP consistency</td><td>15%</td><td>Accuracy across major directories and aggregators</td></tr>
+            <tr><td>Review profile</td><td>15%</td><td>Volume, recency, rating, response rate</td></tr>
+            <tr><td>Location-page quality &amp; internal linking</td><td>15%</td><td>Distinctiveness, local relevance, linking structure</td></tr>
+            <tr><td>Technical &amp; mobile health</td><td>10%</td><td>Crawlability, indexation, speed, mobile usability</td></tr>
+            <tr><td>Local backlink profile</td><td>10%</td><td>Relevance and quality of local links</td></tr>
+            <tr><td>Structured data accuracy</td><td>10%</td><td>Presence and accuracy of LocalBusiness/Organisation schema</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <img class="ph-photo wide" src="../assets/images/seo-content/local-seo-analysis-scorecard.png" alt="Diagram of the weighted local SEO scorecard categories and weights" width="1200" height="800" style="margin:8px 0 24px" loading="lazy">
+
+      <h2 id="priorities">Critical, High, Medium, and Low Priorities</h2>
+      <ul class="checklist">
+        <li><strong>Critical:</strong> Unverified, suspended, or duplicate Google Business Profile listings; pages blocked from indexing</li>
+        <li><strong>High:</strong> Inaccurate primary category, major NAP inconsistency, thin or missing location pages for high-demand areas</li>
+        <li><strong>Medium:</strong> Incomplete GBP attributes, low review response rate, weak internal linking between location pages</li>
+        <li><strong>Low:</strong> Minor citation drift on low-traffic directories, cosmetic content refinements</li>
+      </ul>
+
+      <h2 id="sample-findings">Sample Audit Findings</h2>
+      <p><strong>Illustrative example</strong> — not a real client audit. A hypothetical single-location trades business might show: primary GBP category accurate, but only 40% of attributes completed; two abandoned duplicate listings competing with the active profile; NAP inconsistent across three of eight checked directories; strong review rating but a 90-day gap since the last new review; a single generic location page reused for two distinct service areas. This kind of pattern — strong on one dimension, weak on several others — is typical of a business that set up local SEO once and never revisited it.</p>
+
+      <h2 id="implementation-order">Recommended Implementation Order</h2>
+      <p>Fix critical, blocking issues first regardless of scorecard weight, then work down by weight-adjusted impact: usually Google Business Profile completeness and category accuracy, then citation consistency and review response, then location-page quality, then technical and backlink work. This mirrors the sequencing in our <a href="local-seo-strategies.html#framework">Local Growth Framework</a>.</p>
+
+      <h2 id="uk-au">UK and Australian Considerations</h2>
+      <p>Citation sources and directory relevance differ between markets — check UK-specific directories for UK businesses and Australian directories for Australian businesses rather than applying a single generic citation list to both. Competitive density also varies by city and region in both markets, which affects how aggressively backlink and content work should be weighted relative to foundational fixes.</p>
+
+      <h2 id="faq">FAQs</h2>
+      <h3>What is a local SEO analysis?</h3>
+      <p>A local SEO analysis is a structured audit of every factor influencing a business's local search visibility — technical site health, Google Business Profile completeness, citation consistency, review profile, and competitor comparison — scored against a weighted framework so fixes can be prioritised by real impact.</p>
+      <h3>When should a business perform a local SEO analysis?</h3>
+      <p>Before starting any local SEO campaign, after a significant ranking drop, when expanding into a new location or service area, or on a routine cadence (roughly every six to twelve months) to catch drift in citations, categories, or technical health before it compounds.</p>
+      <h3>What's the difference between the Local Pack and organic rankings in an analysis?</h3>
+      <p>They're driven by different signal weightings and should be scored separately in an analysis. A business can score well on Local Pack factors like Google Business Profile and proximity while scoring poorly on organic factors like content depth and backlinks, or the reverse — a combined score would hide which one actually needs attention.</p>
+      <h3>What should be prioritised first after a local SEO analysis?</h3>
+      <p>Critical issues that block visibility entirely — like an unverified or suspended Google Business Profile, or pages blocked from indexing — come first, regardless of scorecard weighting. After that, prioritise by the combination of scorecard weight and how quickly the fix can realistically be made.</p>
+
+    </div>
+
+    <div class="article-cta fade">
+      <h3>Want This Analysis Run on Your Business?</h3>
+      <p>Get a free local SEO audit scored against this exact framework.</p>
+      <a href="../contact.html#audit" class="btn btn-white btn-lg">Request a Free Local SEO Audit →</a>
+    </div>
+
+    <h3 class="h3" style="margin-bottom:24px">Related Articles</h3>
+    <div class="related-grid fade">
+      <a href="local-seo-strategies.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../assets/images/seo-content/local-seo-strategy-uk-au-hero.png" alt="Local SEO strategy pillar guide" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>Local SEO Strategy for UK and Australian Businesses</h3><p>What this analysis is diagnosing you against.</p></div>
+      </a>
+      <a href="local-seo-campaign.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../assets/images/seo-content/local-seo-campaign-hero.png" alt="Local SEO campaign planning guide" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>How to Build a Local SEO Campaign</h3><p>Turning analysis findings into an executable plan.</p></div>
+      </a>
+      <a href="local-seo-examples.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../assets/images/seo-content/local-seo-examples-hero.png" alt="Local SEO examples for UK and Australian businesses" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>Local SEO Examples</h3><p>How the scorecard applies across ten business types.</p></div>
+      </a>
+      <a href="australia/seo-audit-checklist-australia.html" class="blog-card">
+        <img class="ph-photo blog-thumb" src="../images/blog-04.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
+        <div class="blog-body"><h3>SEO Audit Checklist for Australian Websites</h3><p>The broader technical audit this analysis complements.</p></div>
+      </a>
+    </div>
+
+    <div class="callout" style="margin-top:40px">
+      <h3>About This Guide</h3>
+      <p>Written and reviewed by the <a href="../about.html#editorial">Acendia International Editorial Team</a>, part of <a href="../index.html">Acendia International</a>, an SEO agency working with businesses across the United Kingdom and Australia. See our <a href="../about.html#editorial">editorial approach</a> for how we research, write, and review our guides. Published 4 August 2026. Last updated 4 August 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-inner fade">
+    <h2>Know Exactly Where You <span class="grad-light">Stand Locally?</span></h2>
+    <p>Book a free strategy call and get a scored breakdown of what's holding your local visibility back.</p>
+    <div class="cta-actions">
+      <a href="../contact.html" class="btn btn-black btn-lg">Book Your Strategy Call</a>
+      <a href="../services.html#local-seo" class="btn btn-ghost-black btn-lg">Explore Local SEO</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" aria-label="Acendia International — Home">
+          <img src="../images/acendia-logo.png" alt="Acendia International" height="40">
+        </a>
+        <p>AI-native digital growth agency helping businesses dominate Google Search through websites, SEO, and automation.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/acendia.international" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/acendia.international" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.linkedin.com/company/acendia-international/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.66 4.78 6.12V23h-4v-6.85c0-1.63-.03-3.73-2.27-3.73-2.27 0-2.62 1.77-2.62 3.6V23h-4V8z"/></svg></a>
+        </div>
+        <form class="footer-newsletter" onsubmit="return false" aria-label="Newsletter signup">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-white btn-sm">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../services.html#website-development">Website Development</a></li>
+          <li><a href="../services.html#seo">SEO</a></li>
+          <li><a href="../services.html#local-seo">Local SEO</a></li>
+          <li><a href="../services.html#google-business-profile">Google Business Profile</a></li>
+          <li><a href="../services.html#ai-automation">AI Automation</a></li>
+          <li><a href="../services.html#lead-generation">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="../seo-services-australia.html">SEO in Australia</a></li>
+          <li><a href="../seo-services-uk.html">SEO in the UK</a></li>
+          <li><a href="../seo-agency-sydney.html">SEO Agency Sydney</a></li>
+          <li><a href="../seo-agency-melbourne.html">SEO Agency Melbourne</a></li>
+          <li><a href="../seo-agency-london.html">SEO Agency London</a></li>
+          <li><a href="../seo-agency-manchester.html">SEO Agency Manchester</a></li>
+          <li><a href="../seo-agency-birmingham.html">SEO Agency Birmingham</a></li>
+        </ul>
+        <div style="margin-top:28px">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../industries.html">Industries</a></li>
+            <li><a href="../case-studies.html">Case Studies</a></li>
+            <li><a href="../careers.html">Careers</a></li>
+            <li><a href="../blog.html">Resources / Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="return openCookieSettings()">Cookie Settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Acendia International. All rights reserved.</p>
+      <div class="footer-btm-links">
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="#" onclick="return openCookieSettings()">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.min.js?v=min1"></script>
+</body>
+</html>
