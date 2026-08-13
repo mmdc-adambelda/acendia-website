@@ -167,7 +167,7 @@
       <p>Redirects are a normal part of running a website, but they compound quietly. A redirect chain — URL A redirecting to B, which redirects to C — adds latency to every hop and dilutes the ranking signals passed along the way; Google generally recommends collapsing chains down to a single hop wherever possible. 301 redirects should be used for permanent moves, since they pass ranking signal to the destination, while 302s signal a temporary move and are treated more cautiously. Inconsistent trailing slashes, mixed http/https internal links, and unnecessary URL parameters all create duplicate paths to the same content, which is exactly the kind of ambiguity a canonical tag is meant to resolve — but resolving it at the source, with clean internal links, is more reliable than depending on canonicalization to clean up after the fact.</p>
 
       <h2>9. Multi-Region Technical SEO</h2>
-      <p>For a business actively targeting more than one country — Australia and the United Kingdom, for example — technical SEO has an extra layer: making sure Google understands which page is meant for which market. Hreflang tags are the formal mechanism for this, telling Google "this page is the Australian version, this other page is the UK version, and they're deliberate alternates of each other," rather than duplicate content competing against one another. For a site with dedicated market pages under one domain rather than separate country-code domains, consistent internal linking, country-specific schema (<code>areaServed</code> set precisely, not just inherited from a global default), and locale-appropriate spelling and currency all reinforce the same signal without requiring a full hreflang implementation on day one — though it becomes worth adding as country-specific content volume grows.</p>
+      <p>For a business serving multiple distinct regions within the UK — different cities or service areas with genuinely different competitors and search behaviour — technical SEO has an extra layer: making sure Google understands which page is meant for which area. Consistent internal linking between location pages, accurate local schema (<code>areaServed</code> set precisely for each page, not just inherited from a global default), and genuinely distinct content per location all reinforce the same signal, so Google treats each page as a deliberate, relevant alternate rather than duplicate content competing against itself.</p>
 
       <div class="callout">
         <h3>Where to Start</h3>
@@ -203,9 +203,9 @@
         <img class="ph-photo blog-thumb" src="../images/blog-01.png" alt="Blog 01 — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
         <div class="blog-body"><h3>How SEO Improves Businesses</h3><p>Traffic, leads, trust, and long-term growth — the practical case for SEO.</p></div>
       </a>
-      <a href="australia/how-to-rank-number-one-google-australia.html" class="blog-card">
+      <a href="uk/how-to-rank-higher-google-uk.html" class="blog-card">
         <img class="ph-photo blog-thumb" src="../images/blog-07.png" alt="Blog thumbnail — Acendia International" style="min-height:150px;border:none;border-radius:0" loading="lazy">
-        <div class="blog-body"><h3>How to Rank Number One on Google Australia</h3><p>The complete practical framework, step by step.</p></div>
+        <div class="blog-body"><h3>How to Rank Higher on Google UK</h3><p>The complete practical framework, step by step.</p></div>
       </a>
     </div>
   </div>
@@ -253,10 +253,7 @@
       <div class="footer-col">
         <h4>Locations</h4>
         <ul>
-          <li><a href="../seo-services-australia.html">SEO in Australia</a></li>
           <li><a href="../seo-services-uk.html">SEO in the UK</a></li>
-          <li><a href="../seo-agency-sydney.html">SEO Agency Sydney</a></li>
-          <li><a href="../seo-agency-melbourne.html">SEO Agency Melbourne</a></li>
           <li><a href="../seo-agency-london.html">SEO Agency London</a></li>
           <li><a href="../seo-agency-manchester.html">SEO Agency Manchester</a></li>
           <li><a href="../seo-agency-birmingham.html">SEO Agency Birmingham</a></li>
