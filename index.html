@@ -41,7 +41,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.min.css?v=min6">
+<link rel="stylesheet" href="assets/css/style.min.css?v=min7">
 
 <!-- Organization schema -->
 <script type="application/ld+json">
@@ -261,6 +261,75 @@
     <div class="tick"><span class="tick-dot"></span>No Lock-In Contracts</div>
   </div>
 </div>
+
+<!-- ═══════════════════════════════════════════════════
+     PRICING PREVIEW
+═══════════════════════════════════════════════════ -->
+<section class="section dark" id="pricing-preview">
+  <div class="container" style="max-width:640px">
+    <div class="sec-head center fade">
+      <div class="sec-label-dark">Pricing</div>
+      <h2 class="h1 sec-title">Simple, <span class="grad-dark">Transparent Pricing.</span></h2>
+      <p class="body-lg muted-dark" style="max-width:520px;margin:16px auto 0">No hidden fees, no bundled first-month surprise. You pay setup today — monthly billing only starts once your site is actually live.</p>
+    </div>
+
+    <div class="pricing-card fade" id="pricing-card">
+      <div class="pricing-card-head">
+        <div class="pricing-card-id">
+          <span class="pricing-avatar">A</span>
+          <span class="pricing-card-title">SEO Package</span>
+        </div>
+        <span class="pricing-badge">Most Clients Start Here</span>
+      </div>
+
+      <div class="pricing-body">
+        <div class="pricing-plan-label">Choose Your Plan</div>
+
+        <div class="pricing-plan-row is-selected" id="pricing-plan-core" aria-disabled="true">
+          <span>SEO Package</span>
+          <span>$499<span class="pricing-per">/mo</span></span>
+        </div>
+        <button type="button" class="pricing-plan-row pricing-addon-toggle" id="pricing-plan-addon" aria-pressed="false">
+          <span>+ Social Media Add-On</span>
+          <span>+$299<span class="pricing-per">/mo</span></span>
+        </button>
+
+        <ul class="pricing-checklist">
+          <li>One-time setup and onboarding</li>
+          <li>Ongoing SEO strategy and execution</li>
+          <li>Local search and Google Business Profile optimisation</li>
+          <li>Monthly progress reporting</li>
+        </ul>
+
+        <div class="pricing-due-row">
+          <div>
+            <div class="pricing-due-label">Due Today (Setup Only)</div>
+            <p class="pricing-due-sub">Then <span id="pricing-monthly-figure">$499</span>/month, starting 14 days after your site goes live — not before.</p>
+          </div>
+          <span class="pricing-due-amount">$199</span>
+        </div>
+
+        <a href="https://acendia.us" class="btn btn-white btn-lg pricing-cta" target="_blank" rel="noopener">Start Growing →</a>
+        <a href="contact.html" class="pricing-secondary-link">See full pricing details</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var toggle = document.getElementById('pricing-plan-addon');
+  var monthlyFigure = document.getElementById('pricing-monthly-figure');
+  if (!toggle || !monthlyFigure) return;
+  var CORE_PRICE = 499, ADDON_PRICE = 299;
+  toggle.addEventListener('click', function () {
+    var active = toggle.getAttribute('aria-pressed') === 'true';
+    toggle.setAttribute('aria-pressed', String(!active));
+    toggle.classList.toggle('is-selected', !active);
+    monthlyFigure.textContent = '$' + (active ? CORE_PRICE : CORE_PRICE + ADDON_PRICE);
+  });
+})();
+</script>
 
 <!-- ═══════════════════════════════════════════════════
      SERVICES
