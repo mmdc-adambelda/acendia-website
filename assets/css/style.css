@@ -199,17 +199,7 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .hero-sub { color: var(--gray-3); font-size: 1.12rem; line-height: 1.8; margin-bottom: 40px; max-width: 500px }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px }
 .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid var(--border) }
-.hero-audit-panel { background: var(--card); border: 1px solid var(--border-hi); border-radius: var(--r-lg); padding: 40px; position: relative }
-.audit-state[hidden] { display: none }
-.audit-widget-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gray-3); text-transform: uppercase; margin-bottom: 14px }
-.audit-widget-title { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 10px }
-.audit-widget-sub { color: var(--gray-3); font-size: 0.95rem; line-height: 1.55; margin-bottom: 28px }
-.audit-form-row { display: flex; flex-direction: column; gap: 14px }
-.audit-form-row input { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--white); padding: 15px 18px; border-radius: var(--r-sm); font-family: var(--font); font-size: 0.95rem; transition: border-color 0.2s }
-.audit-form-row input:focus { outline: none; border-color: var(--white) }
-.audit-widget-note { color: var(--gray-4); font-size: 0.78rem; text-align: center; margin-top: 18px }
-
-/* PRICING PREVIEW CARD */
+/* PRICING CARD (reused as the homepage hero's primary conversion element) */
 .pricing-card { background: var(--card); border: 1px solid var(--border-hi); border-radius: var(--r-lg); overflow: hidden; margin: 0 auto; max-width: 460px }
 .pricing-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 24px 28px; border-bottom: 1px solid var(--border); flex-wrap: wrap }
 .pricing-card-id { display: flex; align-items: center; gap: 12px }
@@ -217,30 +207,51 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .pricing-card-title { font-weight: 700; font-size: 1.02rem }
 .pricing-badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gray-2); border: 1px solid var(--border-hi); border-radius: 999px; padding: 6px 12px; white-space: nowrap }
 .pricing-body { padding: 28px }
-.pricing-plan-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gray-3); text-transform: uppercase; margin-bottom: 14px }
-.pricing-plan-row { display: flex; align-items: center; justify-content: space-between; width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px 18px; font-family: var(--font); font-size: 0.95rem; color: var(--white); margin-bottom: 10px; cursor: default; text-align: left }
-.pricing-plan-row.is-selected { background: rgba(91,80,255,0.14); border-color: var(--border-accent) }
-button.pricing-plan-row { cursor: pointer; transition: background 0.15s, border-color 0.15s }
-button.pricing-plan-row:hover { background: rgba(91,80,255,0.08) }
-.pricing-per { color: var(--gray-3); font-size: 0.85rem; font-weight: 400 }
 .pricing-checklist { list-style: none; margin: 20px 0; padding-top: 20px; border-top: 1px solid var(--border-dim) }
 .pricing-checklist li { color: var(--gray-2); font-size: 0.9rem; line-height: 1.9; padding-left: 26px; position: relative }
 .pricing-checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--gray-3); font-size: 0.85rem }
 .pricing-due-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid var(--border-dim); margin-bottom: 24px }
+.pricing-due-row > div { min-width: 0 }
 .pricing-due-label { font-weight: 700; font-size: 0.92rem; margin-bottom: 6px }
 .pricing-due-sub { color: var(--gray-3); font-size: 0.78rem; line-height: 1.5 }
 .pricing-due-amount { font-weight: 800; font-size: 1.3rem; white-space: nowrap }
 .pricing-cta { width: 100%; text-align: center; display: block; margin-bottom: 12px }
 .pricing-secondary-link { display: block; text-align: center; color: var(--gray-3); font-size: 0.85rem; text-decoration: none }
 .pricing-secondary-link:hover { color: var(--white) }
-.audit-loading { text-align: center; padding: 24px 0 }
-.audit-spinner { width: 44px; height: 44px; margin: 0 auto 24px; border: 3px solid var(--border); border-top-color: var(--white); border-radius: 50%; animation: audit-spin 0.9s linear infinite }
-@keyframes audit-spin { to { transform: rotate(360deg) } }
-.audit-loading-domain { font-weight: 700; margin-bottom: 6px; word-break: break-all }
-.audit-loading-status { color: var(--gray-3); font-size: 0.9rem; margin-bottom: 24px; min-height: 1.3em }
-.audit-progress { height: 6px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; max-width: 320px; margin: 0 auto }
-.audit-progress-bar { height: 100%; width: 0%; background: var(--white); border-radius: 4px; transition: width 0.4s linear }
-.audit-confirmed { text-align: center; padding: 24px 0 }
+
+/* SEO PACKAGE — hero promotional panel (purple, glossy) */
+.seo-promo-panel { position: relative; overflow: hidden; border-radius: var(--r-md); padding: 30px 24px 26px; margin-bottom: 24px; text-align: center; background: linear-gradient(155deg, #6f64ff 0%, var(--accent) 45%, #4638d1 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 0 18px 0 rgba(91,80,255,0.3); animation: seo-promo-glow 6s ease-in-out infinite }
+.seo-promo-panel::before { content: ''; position: absolute; top: -55%; left: -35%; width: 42%; height: 210%; background: linear-gradient(78deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%); filter: blur(4px); transform: translateX(-160%) rotate(10deg); animation: seo-promo-shimmer 5.5s ease-in-out infinite; pointer-events: none }
+.seo-promo-label { display: block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.72); margin-bottom: 14px; position: relative }
+.seo-promo-lead { display: block; font-size: 1.05rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 2px; position: relative }
+.seo-promo-amount { font-size: 3.2rem; font-weight: 900; letter-spacing: -0.02em; color: var(--white); line-height: 1; position: relative }
+.seo-promo-per { font-size: 1.05rem; font-weight: 600; color: rgba(255,255,255,0.75); margin-left: 4px }
+@keyframes seo-promo-glow {
+  0%, 100% { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 0 16px 0 rgba(91,80,255,0.28) }
+  50%      { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18), 0 0 26px 2px rgba(91,80,255,0.48) }
+}
+@keyframes seo-promo-shimmer {
+  0%, 42% { transform: translateX(-160%) rotate(10deg) }
+  62%     { transform: translateX(260%) rotate(10deg) }
+  100%    { transform: translateX(260%) rotate(10deg) }
+}
+
+/* Hero card wrapper — heartbeat pulse + scale-up entrance */
+.hero-seo-card { position: relative }
+.hero-seo-card .pricing-card { animation: seo-card-heartbeat 4.5s ease-in-out infinite }
+@keyframes seo-card-heartbeat {
+  0%, 100% { transform: scale(1) }
+  50%      { transform: scale(1.015) }
+}
+.hero-seo-card.fade { transform: translateY(12px) scale(0.96) }
+.hero-seo-card.fade.in { transform: none }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-seo-card .pricing-card { animation: none }
+  .seo-promo-panel { animation: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14), 0 0 20px 0 rgba(91,80,255,0.38) }
+  .seo-promo-panel::before { animation: none; display: none }
+}
+
 .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--white) }
 .stat-label { font-size: 0.78rem; color: var(--gray-4); margin-top: 2px; font-weight: 500 }
 
@@ -651,6 +662,9 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .page-hero { padding:150px 0 64px }
   .hero-content { grid-template-columns:1fr; gap:0 }
   .hero-visual  { display:none }
+  .hero-seo-card { margin-top:40px }
+  .hero-seo-card .pricing-card { max-width:520px; width:100% }
+  .seo-promo-amount { font-size:2.7rem }
   .services-grid, .industries-grid, .locations-grid { grid-template-columns:1fr; gap:20px }
   .why-grid     { grid-template-columns:1fr; gap:48px }
   .process-grid { grid-template-columns:1fr; gap:32px }

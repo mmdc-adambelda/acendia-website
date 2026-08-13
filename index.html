@@ -41,7 +41,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.min.css?v=min8">
+<link rel="stylesheet" href="assets/css/style.min.css?v=min9">
 
 <!-- Organization schema -->
 <script type="application/ld+json">
@@ -198,42 +198,43 @@
       </div>
     </div>
 
-    <!-- Hero lead-capture widget: URL → simulated audit → Roam booking → confirmation -->
-    <div class="hero-audit-panel" id="audit-widget">
-
-      <div class="audit-state" id="audit-state-form" data-state="form">
-        <div class="audit-widget-label">Free Instant Audit</div>
-        <h3 class="audit-widget-title">See Exactly Where You Rank.</h3>
-        <p class="audit-widget-sub">Enter your business URL and we'll prepare a free, in-depth audit of your Google visibility.</p>
-        <form id="audit-form">
-          <div class="audit-form-row">
-            <input type="text" inputmode="url" id="audit-url" name="audit-url" placeholder="yourbusiness.com" required autocomplete="url">
-            <button type="submit" class="btn btn-white btn-lg btn-block">Get My Free Audit →</button>
+    <!-- Hero SEO Package pricing card — primary commercial offer -->
+    <div class="hero-seo-card fade" id="seo-hero-card">
+      <div class="pricing-card" id="pricing-card">
+        <div class="pricing-card-head">
+          <div class="pricing-card-id">
+            <span class="pricing-avatar">A</span>
+            <span class="pricing-card-title">SEO Package</span>
           </div>
-        </form>
-      </div>
+          <span class="pricing-badge">Most Clients Start Here</span>
+        </div>
 
-      <div class="audit-state audit-loading" id="audit-state-loading" data-state="loading" hidden>
-        <div class="audit-spinner"></div>
-        <p class="audit-loading-domain" id="audit-loading-domain"></p>
-        <p class="audit-loading-status" id="audit-loading-status">Connecting to your website…</p>
-        <div class="audit-progress"><div class="audit-progress-bar" id="audit-progress-bar"></div></div>
-      </div>
+        <div class="pricing-body">
+          <div class="seo-promo-panel">
+            <span class="seo-promo-label">SEO Package</span>
+            <span class="seo-promo-lead">SEO for</span>
+            <div class="seo-promo-amount">$499<span class="seo-promo-per">/month</span></div>
+          </div>
 
-      <div class="audit-state" id="audit-state-booking" data-state="booking" hidden>
-        <div class="audit-widget-label">Audit Ready</div>
-        <h3 class="audit-widget-title">Your Audit Is Ready.</h3>
-        <p class="audit-widget-sub">Book a quick call and we'll walk you through exactly what's holding your rankings back.</p>
-        <!-- Roam inline widget begin -->
-        <div id="roam-lobby" style="min-width: 320px;"></div>
-        <!-- Roam inline widget end -->
-      </div>
+          <ul class="pricing-checklist">
+            <li>One-time setup and onboarding</li>
+            <li>Ongoing SEO strategy and execution</li>
+            <li>Local search and Google Business Profile optimisation</li>
+            <li>Monthly progress reporting</li>
+          </ul>
 
-      <div class="audit-state audit-confirmed" id="audit-state-confirmed" data-state="confirmed" hidden>
-        <h3 class="audit-widget-title">You're Booked.</h3>
-        <p class="audit-widget-sub" id="audit-confirmed-message">Thanks — we'll see you at your scheduled call. Come ready to claim your free SEO audit file.</p>
-      </div>
+          <div class="pricing-due-row">
+            <div>
+              <div class="pricing-due-label">Due Today (Setup Only)</div>
+              <p class="pricing-due-sub">Then $499/month, starting 14 days after your site goes live — not before.</p>
+            </div>
+            <span class="pricing-due-amount">$199</span>
+          </div>
 
+          <a href="https://acendia.us" class="btn btn-white btn-lg pricing-cta" target="_blank" rel="noopener">Join Now!</a>
+          <a href="contact.html" class="pricing-secondary-link">See full pricing details</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -261,75 +262,6 @@
     <div class="tick"><span class="tick-dot"></span>No Lock-In Contracts</div>
   </div>
 </div>
-
-<!-- ═══════════════════════════════════════════════════
-     PRICING PREVIEW
-═══════════════════════════════════════════════════ -->
-<section class="section dark" id="pricing-preview">
-  <div class="container" style="max-width:640px">
-    <div class="sec-head center fade">
-      <div class="sec-label-dark">Pricing</div>
-      <h2 class="h1 sec-title">Simple, <span class="grad-dark">Transparent Pricing.</span></h2>
-      <p class="body-lg muted-dark" style="max-width:520px;margin:16px auto 0">No hidden fees, no bundled first-month surprise. You pay setup today — monthly billing only starts once your site is actually live.</p>
-    </div>
-
-    <div class="pricing-card fade" id="pricing-card">
-      <div class="pricing-card-head">
-        <div class="pricing-card-id">
-          <span class="pricing-avatar">A</span>
-          <span class="pricing-card-title">SEO Package</span>
-        </div>
-        <span class="pricing-badge">Most Clients Start Here</span>
-      </div>
-
-      <div class="pricing-body">
-        <div class="pricing-plan-label">Choose Your Plan</div>
-
-        <div class="pricing-plan-row is-selected" id="pricing-plan-core" aria-disabled="true">
-          <span>SEO Package</span>
-          <span>$499<span class="pricing-per">/mo</span></span>
-        </div>
-        <button type="button" class="pricing-plan-row pricing-addon-toggle" id="pricing-plan-addon" aria-pressed="false">
-          <span>+ Social Media Add-On</span>
-          <span>+$299<span class="pricing-per">/mo</span></span>
-        </button>
-
-        <ul class="pricing-checklist">
-          <li>One-time setup and onboarding</li>
-          <li>Ongoing SEO strategy and execution</li>
-          <li>Local search and Google Business Profile optimisation</li>
-          <li>Monthly progress reporting</li>
-        </ul>
-
-        <div class="pricing-due-row">
-          <div>
-            <div class="pricing-due-label">Due Today (Setup Only)</div>
-            <p class="pricing-due-sub">Then <span id="pricing-monthly-figure">$499</span>/month, starting 14 days after your site goes live — not before.</p>
-          </div>
-          <span class="pricing-due-amount">$199</span>
-        </div>
-
-        <a href="https://acendia.us" class="btn btn-white btn-lg pricing-cta" target="_blank" rel="noopener">Start Growing →</a>
-        <a href="contact.html" class="pricing-secondary-link">See full pricing details</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-(function () {
-  var toggle = document.getElementById('pricing-plan-addon');
-  var monthlyFigure = document.getElementById('pricing-monthly-figure');
-  if (!toggle || !monthlyFigure) return;
-  var CORE_PRICE = 499, ADDON_PRICE = 299;
-  toggle.addEventListener('click', function () {
-    var active = toggle.getAttribute('aria-pressed') === 'true';
-    toggle.setAttribute('aria-pressed', String(!active));
-    toggle.classList.toggle('is-selected', !active);
-    monthlyFigure.textContent = '$' + (active ? CORE_PRICE : CORE_PRICE + ADDON_PRICE);
-  });
-})();
-</script>
 
 <!-- ═══════════════════════════════════════════════════
      SERVICES
@@ -752,7 +684,7 @@
   </div>
 </footer>
 
-<script src="assets/js/main.min.js?v=min1"></script>
+<script src="assets/js/main.min.js?v=min2"></script>
 <script src="https://ro.am/lobbylinks/embed.js"></script>
 </body>
 </html>
