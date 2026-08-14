@@ -230,8 +230,7 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 /* SEO PACKAGE — hero promotional panel (purple, glossy) */
 .seo-promo-panel { position: relative; overflow: hidden; border-radius: var(--r-md); padding: 30px 24px 26px; margin-bottom: 24px; text-align: center; background: linear-gradient(155deg, #6f64ff 0%, var(--accent) 45%, #4638d1 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 0 18px 0 rgba(91,80,255,0.3); animation: seo-promo-glow 6s ease-in-out infinite }
 .seo-promo-panel::before { content: ''; position: absolute; top: -55%; left: -35%; width: 42%; height: 210%; background: linear-gradient(78deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%); filter: blur(4px); transform: translateX(-160%) rotate(10deg); animation: seo-promo-shimmer 5.5s ease-in-out infinite; pointer-events: none }
-.seo-promo-label { display: block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.72); margin-bottom: 14px; position: relative }
-.seo-promo-lead { display: block; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.04em; color: rgba(255,255,255,0.9); margin-bottom: 4px; position: relative }
+.seo-promo-label { display: block; font-size: 1.6rem; font-weight: 900; letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; position: relative; text-shadow: 0 2px 16px rgba(0,0,0,0.3) }
 .seo-promo-amount { font-size: 3.2rem; font-weight: 900; letter-spacing: -0.02em; color: var(--white); line-height: 1; position: relative }
 .seo-promo-only { display: inline-block; font-size: 1.15rem; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; vertical-align: middle; margin-right: 8px; color: rgba(255,255,255,0.92) }
 .seo-promo-per { font-size: 1.05rem; font-weight: 600; color: rgba(255,255,255,0.75); margin-left: 4px }
@@ -673,6 +672,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .hero-visual  { display:none }
   .hero-seo-card { margin-top:40px }
   .hero-seo-card .pricing-card { max-width:520px; width:100% }
+  .seo-promo-label { font-size:1.3rem }
   .seo-promo-amount { font-size:2.7rem }
   .services-grid, .industries-grid, .locations-grid { grid-template-columns:1fr; gap:20px }
   .why-grid     { grid-template-columns:1fr; gap:48px }
