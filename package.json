@@ -1,0 +1,8 @@
+{
+  "name": "acendia-uk",
+  "private": true,
+  "description": "acendia.uk static marketing site + Vercel serverless API routes (checkout flow).",
+  "dependencies": {
+    "stripe": "^17.4.0"
+  }
+}
