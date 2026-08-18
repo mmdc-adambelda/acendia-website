@@ -3,76 +3,107 @@
 Tracks progress against the full flow specified for acendia.uk (mirroring
 the pay-first-then-onboard pattern already live on acendia.us).
 
-## Live now
+## Live now — full flow built end-to-end
 
-- **`/api/get-started/checkout.js`** — Vercel Node.js serverless function.
-  Handles the homepage "Join Now!" form's `POST`. Creates a Stripe Checkout
-  Session (`mode: "payment"`, `currency: "gbp"`) for the **£199 setup fee
-  only** — no account/org exists yet. Sets `payment_intent_data.setup_future_usage:
-  "off_session"` so the card can be charged again later for the £499/mo
-  plan without re-asking the customer. Explicitly disables Stripe Managed
-  Payments (`managed_payments: { enabled: false }`), which is incompatible
-  with `setup_future_usage` on newer accounts. Redirects (303) straight to
-  the real Stripe-hosted checkout URL.
-- **`/api/get-started/thank-you.js`** (served at the clean path
-  `/get-started/thank-you/` via `vercel.json` rewrite) — re-fetches the
-  Checkout Session from Stripe's own API and only shows a confirmed state
-  if `payment_status === "paid"`. Never trusts the `session_id` in the URL
-  on its own.
-- Homepage "Join Now!" button (`index.html`) is a real
-  `<form method="POST" action="/api/get-started/checkout">`, not a
-  `fetch()` call — matches the spec's explicit requirement (a `fetch()`
-  submission silently dropped the session cookie for at least one real
-  user's browser on acendia.us; a genuine browser-level form POST doesn't
-  have that failure mode).
-- Basic (best-effort, single-instance, non-distributed) rate limiting on
-  the checkout endpoint. **Known gap**: this does not persist or share
-  state across serverless instances/regions. Swap for a real distributed
-  limiter (e.g. Upstash Redis) before this sees meaningful traffic.
+1. **`/api/get-started/checkout.js`** — homepage "Join Now!" form POSTs
+   here. Creates a Stripe Checkout Session (`mode: "payment"`,
+   `currency: "gbp"`) for the **£199 setup fee only**. Saves the card
+   (`setup_future_usage: "off_session"`) for later, disables Managed
+   Payments, redirects (303) to Stripe's hosted checkout.
+2. **`/get-started/thank-you/`** (`api/get-started/thank-you.js`, rewritten
+   via `vercel.json`) — re-fetches the Checkout Session from Stripe's own
+   API and only proceeds if `payment_status === "paid"`. On success,
+   renders the full onboarding form (business name, contact, email —
+   prefilled from Stripe, phone, website URL, address, industry, keywords,
+   competitors, notes) as a real `<form method="POST">` with a hidden
+   `sessionId` field.
+3. **`/api/get-started/complete.js`** — the onboarding form POSTs here.
+   Validates input with Zod (`lib/validation.js` — phone has no format
+   check, per spec). **Re-verifies the Stripe session again** (a hidden
+   form field is not proof of payment). Checks `payments` for an existing
+   row matching this `stripe_payment_intent_id` first — **idempotent**: a
+   duplicate submit (refresh/double-click) redirects straight to success
+   without creating a second account. Then:
+   - Creates the Supabase auth user (`admin.auth.admin.createUser`, random
+     discarded password, `email_confirm: true`)
+   - Generates a recovery link (`admin.auth.admin.generateLink`) and
+     emails it via Resend (`lib/email.js`) as the password-set flow
+   - Upserts `profiles`, inserts `organizations` +
+     `organization_members` (role `owner`), `websites`, `activity_logs`
+     (keywords/competitors/notes/plan as `metadata` jsonb), and `payments`
+   - Schedules the delayed £499/mo subscription
+     (`stripe.subscriptions.create` with inline `price_data`, no
+     pre-created Stripe Price needed, `trial_end` from `lib/billing.js`),
+     reusing the payment method saved from the setup-fee payment
+   - Sends the admin new-signup notification email
+   - Redirects (303) to `/get-started/success/`
+4. **`/get-started/success/`** (`api/get-started/success.js`) — simple
+   confirmation page.
 
-## Not yet built — blocked on inputs, not effort
+Each Supabase write in `complete.js` is wrapped in its own try/catch and
+logged independently — a failure on one table (e.g. a schema mismatch,
+see below) doesn't block or corrupt the others, and never blocks the
+customer from reaching the success page after a real payment.
 
-The thank-you page currently only confirms payment. It does **not** yet:
+## ⚠️ Schema assumptions — verify before relying on this in production
 
-1. Show the onboarding form (business name, contact, address, keywords,
-   competitors, notes, etc.)
-2. Create the Supabase auth user via
-   `admin.auth.admin.createUser(...)` + send a "set your password" email
-   via Resend
-3. Create `profiles` / `organizations` / `organization_members` /
-   `websites` rows, log keywords/notes to `activity_logs`
-4. Insert the `payments` row with idempotency keyed on
-   `stripe_payment_intent_id`
-5. Schedule the delayed £499/mo subscription (`stripe.subscriptions.create`
-   with `trial_end` set via the go-live-plus-delay logic — mirrors
-   acendia.us's `lib/billing.ts` `POST_GOLIVE_BILLING_DELAY_DAYS` /
-   `estimateDefaultBillingStart()`, not yet ported here)
-6. Send the admin new-signup notification email
+**This session does not have access to acendia.us's actual codebase or
+Supabase schema.** The table/column names used in `complete.js`
+(`profiles.id/email/full_name`, `organizations.name`,
+`organization_members.organization_id/user_id/role`,
+`websites.organization_id/url/street_address/city/region/postcode/industry`,
+`activity_logs.organization_id/type/metadata`,
+`payments.organization_id/stripe_payment_intent_id/stripe_checkout_session_id/amount/currency/status`)
+are this session's best-effort guess at reasonable conventions, not a port
+of the real schema.
 
-**Why these are paused rather than guessed at**: the spec is explicit that
-this should reuse acendia.us's existing Supabase schema and billing helper
-logic rather than being rebuilt from scratch. That requires either read
-access to the acendia.us repository, or the relevant file contents
-(`lib/payments/stripe.ts`, `lib/billing.ts`, table definitions for
-`profiles`/`organizations`/`organization_members`/`websites`/`payments`/
-`activity_logs`) — not yet available in this session. Building steps 2–6
-without that reference risks inventing table/column names and billing math
-that don't match the real system, which would need to be redone anyway.
+**Before trusting a real customer's data to this**: open the Supabase
+table editor and confirm these tables/columns actually exist with these
+names. Mismatches will show up as errors in the Vercel function logs for
+`complete.js` (each write logs its own failure independently) — check
+those logs after your first real test run, don't just trust the "success"
+redirect, since a failed write is deliberately non-fatal to the request.
+
+`lib/billing.js`'s `estimateDefaultBillingStart()` (14-day post-go-live
+delay + a 5-day estimate-to-go-live, ~19 days total) is similarly a
+re-implementation from the spec's own description, not a port of the real
+`lib/billing.ts`. If/when that real file becomes available, it's a
+mechanical swap — `complete.js` only depends on the one exported function.
 
 ## Environment variables this flow depends on
 
-- `STRIPE_SECRET_KEY` — set in Vercel (confirmed present).
-- `NEXT_PUBLIC_APP_URL` — optional; falls back to `https://acendia.uk` if
-  unset. Used to build the Checkout Session's `success_url`/`cancel_url`.
-- Needed for the next phase, not yet used: `SUPABASE_URL` /
-  `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`.
+Confirmed set:
+- `STRIPE_SECRET_KEY`
+
+Assumed names — confirm these match what's actually in Vercel, or rename
+in Vercel to match:
+- `NEXT_PUBLIC_APP_URL` (optional, falls back to `https://acendia.uk`)
+- `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`
+- `RESEND_API_KEY`, `RESEND_FROM_EMAIL` (optional, falls back to a
+  hardcoded acendia.uk address), `ADMIN_NOTIFICATION_EMAIL` (optional —
+  admin email is skipped with a log line if unset, not fatal)
 
 ## Testing this far
 
-With Vercel's real deployment (test-mode Stripe key), clicking "Join Now!"
-should land on Stripe's own hosted checkout page for **£199.00**. Card
-`4242 4242 4242 4242`, any future expiry, any CVC completes the test
-payment and redirects to `/get-started/thank-you/?session_id=...`, which
-should show the "Payment Received" confirmation. This cannot be verified
-from this session — it has no Vercel/Stripe test-mode credentials — please
-test on the live deployment and report back what you see.
+Verified locally (mocked Stripe/Supabase/Resend modules, see git history
+for the exact test scripts): the happy path creates all six records with
+correct field values, schedules a subscription with the correct £499.00
+GBP monthly price and ~19-day `trial_end`, and redirects to success:
+resubmitting the same `sessionId` short-circuits to success without
+re-creating anything; missing required fields render a validation error
+instead of proceeding. All three confirmed via direct handler invocation
+with fake credentials that reached real Stripe servers where applicable.
+
+**Not yet verified**: an actual real Stripe test-mode payment end-to-end
+against your real Supabase project — this session has no live credentials
+for either. Please test on the real deployment:
+
+1. Click "Join Now!" → real Stripe checkout for £199.00 → card
+   `4242 4242 4242 4242`
+2. Lands on `/get-started/thank-you/` with the onboarding form, email
+   prefilled
+3. Submit the form → should redirect to `/get-started/success/`
+4. Check: a new row in `auth.users` for the email used; a "set your
+   password" email arrives; the Vercel function logs for `complete.js`
+   show no unexpected write failures; the new Subscription shows as
+   `trialing` in the Stripe dashboard (not `active`, not billing yet)

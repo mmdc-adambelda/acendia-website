@@ -1,51 +1,14 @@
 // GET /get-started/thank-you/?session_id=cs_test_...  (rewritten from
 // /api/get-started/thank-you — see vercel.json)
 //
-// Re-fetches the Checkout Session from Stripe's own API and only shows a
-// confirmed state if payment_status === "paid". The URL's session_id is
-// never trusted on its own — anyone could type a fake one.
-//
-// NOTE — scope of what's built so far: this page currently only confirms
-// payment. It does NOT yet collect business details, create the Supabase
-// account/org, or schedule the delayed £499/mo subscription — that needs
-// the acendia.us reference schema/helpers before it can be built to match
-// existing conventions rather than guessing at them. Until then this page
-// tells the customer we'll follow up by email, which is true (Stripe's
-// own receipt goes out automatically; a manual admin follow-up is still
-// needed for now).
+// Re-fetches the Checkout Session from Stripe's own API and only renders
+// the onboarding form if payment_status === "paid". The URL's session_id
+// is never trusted on its own — anyone could type a fake one. The
+// onboarding form below is a real <form method="POST">, not fetch() — see
+// docs/get-started-checkout-flow.md for why that matters.
 
 const Stripe = require('stripe');
-
-const SITE_CHROME_HEAD = `
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>Payment Received | Acendia International</title>
-<link rel="icon" type="image/png" href="/images/acendia-favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Yeseva+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.min.css?v=min17">
-`;
-
-function renderPage({ title, body }) {
-  return `<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-${SITE_CHROME_HEAD}
-</head>
-<body>
-<section class="hero page-hero">
-  <div class="hero-dots"></div>
-  <div class="hero-glow1"></div>
-  <div class="container" style="position:relative;z-index:2;max-width:640px">
-    <h1 class="display" style="margin-bottom:20px">${title}</h1>
-    ${body}
-  </div>
-</section>
-</body>
-</html>`;
-}
+const { renderPage, escapeHtml } = require('../../lib/pageChrome');
 
 module.exports = async function handler(req, res) {
   const sessionId = req.query?.session_id;
@@ -96,16 +59,7 @@ module.exports = async function handler(req, res) {
     const email = session.customer_details?.email || '';
 
     res.status(200).setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.end(
-      renderPage({
-        title: 'You’re In — Payment Received.',
-        body: `
-          <p class="hero-sub">Thanks${email ? `, we've got your payment confirmation for <strong>${email}</strong>` : ''} — your £199 setup fee is paid.</p>
-          <p class="hero-sub">Your £499/month plan won't start billing until 14 days after your site goes live — not before.</p>
-          <p class="hero-sub">Our team will be in touch by email shortly to collect your business details and get started. If you don't hear from us within one business day, <a href="/contact.html">reach out</a>.</p>
-        `,
-      })
-    );
+    res.end(renderOnboardingPage({ sessionId, email }));
   } catch (err) {
     console.error('thank-you: failed to verify Stripe session', err);
     res.status(500).setHeader('Content-Type', 'text/html; charset=utf-8');
@@ -117,3 +71,48 @@ module.exports = async function handler(req, res) {
     );
   }
 };
+
+function renderOnboardingPage({ sessionId, email }) {
+  const field = (name, label, opts = {}) => `
+    <div class="form-field">
+      <label for="${name}">${label}${opts.required === false ? ' <span style="font-weight:400;color:var(--gray-4)">(optional)</span>' : ''}</label>
+      ${opts.textarea
+        ? `<textarea id="${name}" name="${name}" ${opts.required !== false ? 'required' : ''}>${escapeHtml(opts.value || '')}</textarea>`
+        : `<input type="${opts.type || 'text'}" id="${name}" name="${name}" value="${escapeHtml(opts.value || '')}" ${opts.required !== false ? 'required' : ''}>`
+      }
+    </div>
+  `;
+
+  const body = `
+    <p class="hero-sub">Your £199 setup fee is paid — your £499/month plan won't start billing until 14 days after your site goes live, not before. Tell us about your business so we can get started.</p>
+
+    <form method="POST" action="/api/get-started/complete" style="margin-top:32px">
+      <input type="hidden" name="sessionId" value="${escapeHtml(sessionId)}">
+
+      ${field('businessName', 'Business Name')}
+      ${field('contactName', 'Primary Contact Name')}
+      ${field('email', 'Email Address', { type: 'email', value: email })}
+      ${field('phone', 'Phone Number', { type: 'tel' })}
+      ${field('websiteUrl', 'Website URL', { required: false })}
+      ${field('streetAddress', 'Street Address')}
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        ${field('city', 'City')}
+        ${field('region', 'State / Region')}
+      </div>
+      ${field('postcode', 'Postcode')}
+      ${field('industry', 'Primary Service / Industry')}
+      ${field('keywords', 'Keywords You Want to Rank For', { textarea: true, required: false })}
+      ${field('competitors', 'Competitors You Want to Outrank', { textarea: true, required: false })}
+      ${field('notes', 'Notes / Special Requirements', { textarea: true, required: false })}
+
+      <button type="submit" class="btn btn-white btn-lg" style="width:100%;margin-top:8px">Complete Setup →</button>
+    </form>
+  `;
+
+  return renderPage({
+    title: 'You’re In — Payment Received.',
+    metaTitle: 'Complete Your Setup',
+    body,
+  });
+}
