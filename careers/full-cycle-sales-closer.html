@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.min.css?v=min19">
+<link rel="stylesheet" href="/assets/css/style.min.css?v=min20">
 
 <script type="application/ld+json">
 {
@@ -230,15 +230,74 @@
   </div>
 </section>
 
-<!-- HOW TO APPLY -->
+<!-- APPLICATION FORM -->
 <section class="section dark" id="apply">
   <div class="container">
     <div class="contact-grid">
       <div class="fade">
         <div class="sec-label-dark">How to Apply</div>
-        <h2 class="h2" style="margin-bottom:12px">Ready to Close and Get Paid?</h2>
-        <p class="muted-dark" style="margin-bottom:32px">Send a short note about why you'd be a great closer, along with your best contact number, to <a href="mailto:adam@acendia.us">adam@acendia.us</a>. We review every application and follow up directly with strong candidates.</p>
-        <a href="mailto:adam@acendia.us?subject=Full-Cycle%20Sales%20Closer%20Application" class="btn btn-white btn-lg">Email Your Application →</a>
+        <h2 class="h2" style="margin-bottom:12px">Apply for This Role.</h2>
+        <p class="muted-dark" style="margin-bottom:32px">Fill out the form below and a member of our team will review your application.</p>
+
+        <form id="careers-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="access_key" value="93e0569b-3b4f-43be-9be0-889205d8743f">
+          <input type="hidden" name="subject" value="New Application — Full-Cycle Sales Closer">
+          <input type="hidden" name="from_name" value="Acendia Careers Page">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div class="form-field">
+              <label for="c-name">Full Name *</label>
+              <input type="text" id="c-name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-field">
+              <label for="c-email">Email *</label>
+              <input type="email" id="c-email" name="email" placeholder="jane@email.com" required>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div class="form-field">
+              <label for="c-phone">Phone (optional)</label>
+              <input type="tel" id="c-phone" name="phone" placeholder="+1 900 000 0000">
+            </div>
+            <div class="form-field">
+              <label for="c-linkedin">LinkedIn / Portfolio / Video Intro (optional)</label>
+              <input type="url" id="c-linkedin" name="linkedin_or_portfolio" placeholder="https://">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="c-about">Tell Us About Yourself *</label>
+            <textarea id="c-about" name="about_you" placeholder="Your experience, what you've sold or built before, and anything else relevant to this role." required></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="c-best-week">What was your best sales result in a single week, and how did you achieve it? *</label>
+            <textarea id="c-best-week" name="best_sales_week" placeholder="Tell us the numbers and what made that week work." required></textarea>
+          </div>
+
+          <div class="script-callout">
+            <p><strong>Quick practical exercise:</strong> Record yourself delivering the script below as if it were a live cold call — Loom or any screen/voice recorder works — then paste the link in the field underneath.</p>
+            <p>"Hi there! This is &lt;Your Name&gt; calling. Is your business busy right now… or can you handle us sending you a lot more leads?"</p>
+            <p>"Great — let me ask you straight up: how would you like to get your business onto PAGE ONE of Google… and bring in a lot more paying clients. You could see the benefit of having more clients, couldn't you?"</p>
+            <p>"So here's what it costs you: just $999 to get started — and we build you an AI and Google-optimised website, set up your business profile, and start moving you straight to Page One."</p>
+            <p>"And that includes everything. No hidden fees. No surprise bills. Just more visibility, more leads, more paying clients."</p>
+          </div>
+
+          <div class="form-field">
+            <label for="c-video-link">Sales Pitch Video Link (optional, but highly recommended)</label>
+            <input type="url" id="c-video-link" name="video_pitch_link" placeholder="Loom or video link">
+          </div>
+
+          <div class="form-field">
+            <label for="c-cv">CV / Résumé (PDF or Word, 8MB max)</label>
+            <input type="file" id="c-cv" name="attachment" accept=".pdf,.doc,.docx">
+          </div>
+
+          <button type="submit" class="btn btn-white btn-lg btn-block">Submit Application</button>
+          <p id="careers-form-status" class="small" style="margin-top:16px;display:none"></p>
+        </form>
       </div>
 
       <div class="fade">
