@@ -53,7 +53,7 @@
   --r-lg:   24px;
   --r-xl:   40px;
 
-  --banner-h: 40px;
+  --banner-h: 0px;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -120,14 +120,6 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 /* ═══════════════════════════════════════════════════════
    NAVIGATION
 ═══════════════════════════════════════════════════════ */
-/* PROMO BANNER (sitewide, fixed above the nav) */
-.promo-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; height: var(--banner-h); display: flex; align-items: center; justify-content: center; background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%); padding: 6px 16px; text-align: center }
-.promo-banner p { color: var(--white); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.3 }
-@media (max-width: 480px) {
-  :root { --banner-h: 56px }
-  .promo-banner p { font-size: 0.66rem; letter-spacing: 0.02em; white-space: normal }
-}
-
 .nav { position: fixed; top: var(--banner-h); left: 0; right: 0; z-index: 1000; padding: 0 24px; transition: all 0.3s }
 .nav-inner { max-width: 1200px; margin: 0 auto; height: 72px; display: flex; align-items: center; justify-content: space-between }
 .nav.scrolled { background: rgba(0,0,0,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-dark) }
@@ -219,8 +211,8 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .pricing-body { padding: 28px }
 .pricing-due-sub { color: var(--gray-3); font-size: 0.78rem; line-height: 1.5; margin-bottom: 4px }
 .pricing-checklist { list-style: none; margin: 20px 0 24px; padding-top: 20px; border-top: 1px solid var(--border-dim) }
-.pricing-checklist li { color: var(--gray-2); font-size: 0.9rem; line-height: 1.9; padding-left: 26px; position: relative }
-.pricing-checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--gray-3); font-size: 0.85rem }
+.pricing-checklist li { color: var(--white); font-weight: 700; font-size: 0.92rem; line-height: 1.9; padding-left: 26px; position: relative }
+.pricing-checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-light); font-size: 0.95rem; font-weight: 800 }
 .pricing-cta { width: 100%; text-align: center; display: block }
 
 /* SEO PACKAGE — hero promotional panel (purple, glossy) */
@@ -281,21 +273,6 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .tick { display: flex; align-items: center; gap: 10px; white-space: nowrap; color: var(--gray-3); font-size: 0.9rem; font-weight: 500 }
 .tick-dot { width: 8px; height: 8px; flex-shrink: 0; background: var(--accent); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); opacity: 0.95 }
 @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-/* ═══════════════════════════════════════════════════════
-   INTRO VIDEO
-═══════════════════════════════════════════════════════ */
-.video-section { padding: 72px 0 }
-.video-embed-wrap { position: relative; width: 100%; max-width: 1080px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border-hi); box-shadow: var(--shadow-dark), var(--glow-accent) }
-.video-embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none }
-.video-unmute-btn { position: absolute; right: 16px; bottom: 16px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.25); color: var(--white); display: flex; align-items: center; justify-content: center; transition: background 0.2s, transform 0.2s }
-.video-unmute-btn:hover { background: rgba(0,0,0,0.75); transform: scale(1.06) }
-.video-unmute-btn .icon-unmuted { display: none }
-.video-unmute-btn.is-unmuted .icon-muted { display: none }
-.video-unmute-btn.is-unmuted .icon-unmuted { display: block }
-@media (max-width: 768px) {
-  .video-section { padding: 48px 0 }
-}
 
 /* ═══════════════════════════════════════════════════════
    SECTION HEADERS
