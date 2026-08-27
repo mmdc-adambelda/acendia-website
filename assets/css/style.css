@@ -418,8 +418,12 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 900px; margin: 0 auto }
 .team-card { text-align: center }
 .team-card .img-ph, .team-card .ph-photo { border-radius: var(--r-lg); margin-bottom: 20px }
-.team-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px }
+.team-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--black) }
 .team-card p { font-size: 0.82rem; color: var(--gray-4) }
+.team-avatar { width: 96px; height: 96px; margin: 0 auto 20px; border-radius: 50%; background: var(--off-black); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.02em }
+.team-avatar.placeholder { background: var(--off-white); border: 1px dashed var(--border-dark-hi); color: var(--gray-3) }
+.team-role { color: var(--accent) !important; font-weight: 600; margin-bottom: 10px }
+.team-bio-placeholder { font-style: italic; color: var(--gray-3) !important }
 
 .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px }
 .value-card { background: var(--white); border: 1px solid var(--border-dark); border-radius: var(--r-lg); padding: 36px 40px; transition: all 0.3s }
@@ -569,6 +573,18 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .prose .callout h3 { margin-top: 0 }
 .prose .table-wrap { overflow-x: auto; margin: 8px 0 32px; border: 1px solid var(--border-dark); border-radius: var(--r-lg) }
 .prose table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 640px }
+
+/* Lead magnet — inline email-capture component reused across
+   blog articles (mid-article + end-of-article). */
+.lead-magnet { background: var(--off-black); border-radius: var(--r-lg); padding: 32px; margin: 40px 0; display: flex; align-items: center; gap: 28px; flex-wrap: wrap }
+.lead-magnet-text { flex: 1; min-width: 220px }
+.lead-magnet-text h3 { color: var(--white); margin: 0 0 6px; font-size: 1.1rem }
+.lead-magnet-text p { color: var(--gray-2); font-size: 0.92rem; margin: 0; line-height: 1.6 }
+.lead-magnet-form { display: flex; gap: 10px; flex-wrap: wrap; flex: 1; min-width: 260px }
+.lead-magnet-form input[type="email"] { flex: 1; min-width: 180px; min-height: 48px; background: var(--card); border: 1px solid var(--border); color: var(--white); padding: 12px 16px; border-radius: var(--r-sm); font-family: var(--font); font-size: 1rem }
+.lead-magnet-form input[type="email"]:focus { outline: none; border-color: var(--white) }
+.lead-magnet-form .btn { white-space: nowrap }
+.lead-magnet-status { flex-basis: 100%; font-size: 0.85rem; color: var(--gray-2); margin: 0 }
 .prose th, .prose td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border-dark); vertical-align: top }
 .prose th { background: var(--off-white); font-weight: 700; color: var(--black); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em }
 .prose tbody tr:last-child td { border-bottom: none }

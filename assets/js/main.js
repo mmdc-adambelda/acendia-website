@@ -197,6 +197,24 @@ initWeb3Form(
   "Thanks — your application has been received. We'll review it and follow up if you're a good fit."
 );
 
+// ── Lead magnet: "The Local SEO Scorecard" (blog articles) ──
+// NOTE / CONTENT DEPENDENCY: the scorecard itself doesn't exist yet
+// as a deliverable (no automated PDF/tool/email sequence is wired
+// up). The success copy below is deliberately honest about that —
+// a person follows up manually rather than an instant automated send.
+initWeb3Form(
+  'leadmagnet-mid',
+  'leadmagnet-mid-status',
+  "Thanks — we'll email your Local SEO Scorecard within one business day.",
+  () => { if (typeof gtag === 'function') gtag('event', 'lead_magnet_submit', { placement: 'mid-article' }); }
+);
+initWeb3Form(
+  'leadmagnet-end',
+  'leadmagnet-end-status',
+  "Thanks — we'll email your Local SEO Scorecard within one business day.",
+  () => { if (typeof gtag === 'function') gtag('event', 'lead_magnet_submit', { placement: 'end-article' }); }
+);
+
 // ── GA4: primary CTA click (delegated — covers every
 //    "Get My Free SEO Audit" link/button site-wide) ──
 document.addEventListener('click', (e) => {
