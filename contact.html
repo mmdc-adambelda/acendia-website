@@ -47,21 +47,19 @@
   ]
 }
 </script>
-<!-- Local Business schema placeholder — update with verified NAP data before launch -->
+<!-- Organization schema — was LocalBusiness with a Delaware address, which
+     is misleading for a UK-targeted site with no physical UK presence.
+     Downgraded to Organization (no address claimed) rather than invent a
+     UK address we don't have. Revert to LocalBusiness with real address
+     fields once/if a verified UK entity or office exists. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   "name": "Acendia International",
   "image": "https://acendia.uk/images/office-01.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "Delaware",
-    "addressCountry": "US"
-  },
   "areaServed": ["United Kingdom"],
-  "url": "https://acendia.uk",
-  "priceRange": "$$"
+  "url": "https://acendia.uk"
 }
 </script>
 <!-- FAQ schema placeholder -->
@@ -215,7 +213,7 @@
 
         <div class="contact-info-item">
           <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-          <div><h4>Based In</h4><p>Delaware, United States</p></div>
+          <div><h4>How We Work</h4><p>We work remotely with businesses across the United Kingdom. Acendia International LLC is a US-registered company operating internationally.</p></div>
         </div>
         <div class="contact-info-item">
           <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
