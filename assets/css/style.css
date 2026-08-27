@@ -32,6 +32,9 @@
   --accent-hover: #4A3FE0;
   --accent-light: #8B82FF;
 
+  --danger:       #FF6B6B;
+  --success:      #3DDC97;
+
   --border-dim:   rgba(255,255,255,0.06);
   --border:       rgba(255,255,255,0.12);
   --border-hi:    rgba(255,255,255,0.28);
@@ -502,9 +505,18 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: flex-start }
 .form-field { margin-bottom: 22px }
 .form-field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--gray-3); margin-bottom: 8px; letter-spacing: 0.02em }
-.form-field input, .form-field select, .form-field textarea { width: 100%; background: var(--card); border: 1px solid var(--border); color: var(--white); padding: 14px 16px; border-radius: var(--r-sm); font-family: var(--font); font-size: 0.95rem; transition: border-color 0.2s }
+.form-field .optional-tag { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--gray-4) }
+.form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 48px; background: var(--card); border: 1px solid var(--border); color: var(--white); padding: 14px 16px; border-radius: var(--r-sm); font-family: var(--font); font-size: 1rem; transition: border-color 0.2s }
 .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--white) }
 .form-field textarea { resize: vertical; min-height: 120px }
+.form-field.field-error input, .form-field.field-error select, .form-field.field-error textarea { border-color: var(--danger) }
+.field-error-msg { display: none; color: var(--danger); font-size: 0.82rem; margin-top: 7px }
+.form-field.field-error .field-error-msg { display: block }
+.form-consent { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 10px; margin-bottom: 24px }
+.form-consent input[type="checkbox"] { width: 20px; height: 20px; min-height: 20px; flex-shrink: 0; margin-top: 2px; accent-color: var(--white) }
+.form-consent label { flex: 1; min-width: 200px; font-size: 0.85rem; color: var(--gray-2); line-height: 1.5; text-transform: none; letter-spacing: 0 }
+.form-consent.field-error label { color: var(--danger) }
+.form-consent .field-error-msg { flex-basis: 100%; margin: -4px 0 0 30px }
 .script-callout { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--r-md); padding: 20px 24px; margin-bottom: 22px; color: var(--gray-2); font-size: 0.88rem; line-height: 1.7 }
 .script-callout p { margin-bottom: 12px }
 .script-callout p:last-child { margin-bottom: 0 }
@@ -514,11 +526,20 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .contact-info-item .svc-icon { flex-shrink: 0; margin-bottom: 0 }
 .contact-info-item h4 { font-size: 0.95rem; margin-bottom: 4px }
 .contact-info-item p, .contact-info-item a { color: var(--gray-3); font-size: 0.88rem }
-.contact-tabs { display: flex; gap: 28px; margin-bottom: 28px; border-bottom: 1px solid var(--border) }
-.contact-tab { background: none; border: none; color: var(--gray-3); font-family: var(--font); font-size: 0.95rem; font-weight: 600; padding: 0 0 14px; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s }
-.contact-tab:hover { color: var(--white) }
-.contact-tab.active { color: var(--white); border-bottom-color: var(--white) }
-.contact-tab-panel[hidden] { display: none }
+
+/* Demoted "book a call instead" alternative — the form itself is
+   now the default, always-visible primary path. */
+.contact-alt { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px 22px; margin-top: 28px }
+.contact-alt p { color: var(--gray-2); font-size: 0.88rem; margin: 0; flex: 1; min-width: 200px }
+.contact-alt strong { color: var(--white) }
+
+/* Visible, unmistakable success state */
+.form-success { display: none; text-align: center; padding: 40px 24px; background: rgba(61,220,151,0.08); border: 1px solid rgba(61,220,151,0.35); border-radius: var(--r-md) }
+.form-success.show { display: block }
+.form-success .success-icon { width: 56px; height: 56px; margin: 0 auto 20px; border-radius: 50%; background: var(--success); display: flex; align-items: center; justify-content: center }
+.form-success h3 { color: var(--white); margin-bottom: 10px }
+.form-success p { color: var(--gray-2); font-size: 0.95rem; margin: 0 }
+#contact-form.hide-on-success { display: none }
 
 /* ═══════════════════════════════════════════════════════
    ARTICLE / PROSE (blog article pages)

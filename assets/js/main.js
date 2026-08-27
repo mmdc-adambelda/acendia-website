@@ -64,24 +64,6 @@ if (hamburger && drawer) {
   }));
 }
 
-// ── Contact tabs (Book a Call / Request an Audit) ────
-const contactTabs = document.querySelectorAll('.contact-tab');
-if (contactTabs.length) {
-  const contactPanels = document.querySelectorAll('.contact-tab-panel');
-  const activateContactTab = (name) => {
-    contactTabs.forEach(t => {
-      const isActive = t.dataset.tab === name;
-      t.classList.toggle('active', isActive);
-      t.setAttribute('aria-selected', isActive);
-    });
-    contactPanels.forEach(p => { p.hidden = p.dataset.panel !== name });
-  };
-  contactTabs.forEach(t => t.addEventListener('click', () => activateContactTab(t.dataset.tab)));
-  const applyContactHash = () => activateContactTab(window.location.hash === '#audit' ? 'audit' : 'call');
-  window.addEventListener('hashchange', applyContactHash);
-  applyContactHash();
-}
-
 // ── Web3Forms submission handler (reusable) ──────────
 function initWeb3Form(formId, statusId, successMessage, onSuccess) {
   const form = document.getElementById(formId);
@@ -120,12 +102,94 @@ function initWeb3Form(formId, statusId, successMessage, onSuccess) {
   });
 }
 
-initWeb3Form(
-  'contact-form',
-  'form-status',
-  "Thanks — we've received your message and will follow up within one business day.",
-  () => gtag('event', 'ads_conversion_SUBMIT_LEAD_FORM_1', {})
-);
+// ── Contact form: inline validation + visible success state ──
+(function () {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const statusEl = document.getElementById('form-status');
+  const successEl = document.getElementById('form-success');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+  let startedTracked = false;
+
+  const validators = {
+    name: (el) => el.value.trim().length > 0,
+    business_name: (el) => el.value.trim().length > 0,
+    email: (el) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()),
+    phone: (el) => el.value.trim().length > 0,
+    consent: (el) => el.checked
+  };
+
+  function setFieldError(el, hasError) {
+    const wrap = el.closest('[data-field]');
+    if (wrap) wrap.classList.toggle('field-error', hasError);
+  }
+
+  function validateField(el) {
+    const check = validators[el.name];
+    if (!check) return true;
+    const ok = check(el);
+    setFieldError(el, !ok);
+    return ok;
+  }
+
+  Object.keys(validators).forEach((name) => {
+    const el = form.elements[name];
+    if (!el) return;
+    el.addEventListener('blur', () => validateField(el));
+    el.addEventListener('input', () => {
+      if (el.closest('[data-field]')?.classList.contains('field-error')) validateField(el);
+    });
+    el.addEventListener('focus', () => {
+      if (!startedTracked) {
+        startedTracked = true;
+        if (typeof gtag === 'function') gtag('event', 'form_start', { form_id: 'contact-form' });
+      }
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let valid = true;
+    Object.keys(validators).forEach((name) => {
+      const el = form.elements[name];
+      if (el && !validateField(el)) valid = false;
+    });
+    if (!valid) {
+      const firstError = form.querySelector('.field-error input, .field-error textarea, .field-error select');
+      if (firstError) firstError.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.style.display = 'none';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.classList.add('hide-on-success');
+        successEl.classList.add('show');
+        if (typeof gtag === 'function') {
+          gtag('event', 'ads_conversion_SUBMIT_LEAD_FORM_1', {});
+          gtag('event', 'form_submit_success', { form_id: 'contact-form' });
+        }
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      statusEl.textContent = 'Something went wrong sending your message. Please email us directly at support@acendia.agency.';
+      statusEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    }
+  });
+})();
 
 initWeb3Form(
   'careers-form',

@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.min.css?v=min23">
+<link rel="stylesheet" href="assets/css/style.min.css?v=min24">
 
 <script type="application/ld+json">
 {
@@ -150,60 +150,63 @@
 
       <div class="fade">
         <div class="sec-label-dark">Get Started</div>
-        <h2 class="h2" style="margin-bottom:12px">Let's Get You Growing.</h2>
-        <p class="muted-dark" style="margin-bottom:28px">Book a free 30-minute strategy call directly, or request a free website and SEO audit first — either way, a member of our team will follow up within one business day.</p>
+        <h2 class="h2" style="margin-bottom:12px">Request Your Free SEO Audit.</h2>
+        <p class="muted-dark" style="margin-bottom:28px">Tell us a bit about your business and a member of our team will follow up within one business day with your free website and SEO audit — no obligation.</p>
 
-        <div class="contact-tabs" role="tablist">
-          <button type="button" class="contact-tab active" data-tab="call" role="tab" aria-selected="true" aria-controls="tab-call">Book a Call</button>
-          <button type="button" class="contact-tab" data-tab="audit" role="tab" aria-selected="false" aria-controls="tab-audit">Request an Audit</button>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="93e0569b-3b4f-43be-9be0-889205d8743f">
+          <input type="hidden" name="subject" value="New Free SEO Audit Request — Acendia Website">
+          <input type="hidden" name="from_name" value="Acendia Website Contact Form">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-field" data-field="name">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required>
+            <p class="field-error-msg">Please enter your full name.</p>
+          </div>
+          <div class="form-field" data-field="business_name">
+            <label for="business_name">Business Name</label>
+            <input type="text" id="business_name" name="business_name" placeholder="Your Business Ltd" autocomplete="organization" required>
+            <p class="field-error-msg">Please enter your business name.</p>
+          </div>
+          <div class="form-field" data-field="email">
+            <label for="email">Business Email</label>
+            <input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" inputmode="email" autocomplete="email" required>
+            <p class="field-error-msg">Please enter a valid email address.</p>
+          </div>
+          <div class="form-field" data-field="phone">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="07123 456789" inputmode="tel" autocomplete="tel" required>
+            <p class="field-error-msg">Please enter a phone number.</p>
+          </div>
+          <div class="form-field" data-field="website">
+            <label for="website">Website URL <span class="optional-tag">(optional)</span></label>
+            <input type="url" id="website" name="website" placeholder="https://yourbusiness.com" inputmode="url" autocomplete="url">
+          </div>
+          <div class="form-field" data-field="message">
+            <label for="message">What's your biggest challenge right now? <span class="optional-tag">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="Tell us a bit about what's not working..."></textarea>
+          </div>
+
+          <div class="form-field form-consent" data-field="consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to be contacted by Acendia about my request.</label>
+            <p class="field-error-msg">Please confirm you're happy for us to contact you.</p>
+          </div>
+
+          <button type="submit" class="btn btn-white btn-lg btn-block">Get My Free SEO Audit →</button>
+          <p id="form-status" class="small" style="margin-top:16px;display:none;color:var(--danger)"></p>
+        </form>
+
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          <div class="success-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+          <h3>Request Received.</h3>
+          <p>Thanks — we've got your details and will follow up within one business day with your free audit.</p>
         </div>
 
-        <div class="contact-tab-panel" id="tab-call" data-panel="call">
-          <p class="muted-dark" style="margin-bottom:28px">Pick a time that works for you on our calendar — no back-and-forth emails required. Opens in a new tab so your appointment times show correctly in your own timezone.</p>
-          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1k9VHI-pmQkkT9XZIwheJi3eWalZmBjNK-1W_aTZtJsN4qL8l3illVj_NSO0lZlNnAvHFcUnCX" target="_blank" rel="noopener" class="btn btn-white btn-lg btn-block">Book Your Free Call →</a>
-        </div>
-
-        <div class="contact-tab-panel" id="tab-audit" data-panel="audit" hidden>
-          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="93e0569b-3b4f-43be-9be0-889205d8743f">
-            <input type="hidden" name="subject" value="New Strategy Call Request — Acendia Website">
-            <input type="hidden" name="from_name" value="Acendia Website Contact Form">
-            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-            <div class="form-field">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
-            </div>
-            <div class="form-field">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" required>
-            </div>
-            <div class="form-field">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+64 21 000 0000">
-            </div>
-            <div class="form-field">
-              <label for="website">Website URL</label>
-              <input type="url" id="website" name="website" placeholder="https://yourbusiness.com">
-            </div>
-            <div class="form-field">
-              <label for="service">What are you interested in?</label>
-              <select id="service" name="service">
-                <option>Free Website Audit</option>
-                <option>SEO / Local SEO</option>
-                <option>Website Development</option>
-                <option>Google Business Profile</option>
-                <option>Automation / CRM</option>
-                <option>Google Ads</option>
-                <option>Not sure — general enquiry</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us a bit about your business and goals..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-white btn-lg btn-block">Request My Free Audit</button>
-            <p id="form-status" class="small" style="margin-top:16px;display:none"></p>
-          </form>
+        <div class="contact-alt">
+          <p><strong>Prefer to talk it through live?</strong> Book a free 30-minute strategy call instead — no form required.</p>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1k9VHI-pmQkkT9XZIwheJi3eWalZmBjNK-1W_aTZtJsN4qL8l3illVj_NSO0lZlNnAvHFcUnCX" target="_blank" rel="noopener" class="cta-secondary-link" id="calendar-link">Book Your Free Call →</a>
         </div>
       </div>
 
@@ -343,6 +346,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.min.js?v=min2"></script>
+<script src="assets/js/main.min.js?v=min3"></script>
 </body>
 </html>
