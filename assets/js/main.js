@@ -197,6 +197,25 @@ initWeb3Form(
   "Thanks — your application has been received. We'll review it and follow up if you're a good fit."
 );
 
+// ── GA4: primary CTA click (delegated — covers every
+//    "Get My Free SEO Audit" link/button site-wide) ──
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('a[href*="contact.html#audit"], a[href="#audit"]');
+  if (!el || typeof gtag !== 'function') return;
+  gtag('event', 'primary_cta_click', {
+    link_text: el.textContent.trim(),
+    link_location: window.location.pathname
+  });
+});
+
+// ── GA4: calendar booking click (contact.html) ───────
+const calendarLink = document.getElementById('calendar-link');
+if (calendarLink) {
+  calendarLink.addEventListener('click', () => {
+    if (typeof gtag === 'function') gtag('event', 'calendar_booking_click', {});
+  });
+}
+
 // ── Scroll fade-in ──────────────────────────────────
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') });
