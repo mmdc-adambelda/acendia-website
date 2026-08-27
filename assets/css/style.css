@@ -117,6 +117,14 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .btn-lg { padding: 16px 36px; font-size: 1.05rem; border-radius: var(--r-md) }
 .btn-block { width: 100%; justify-content: center }
 
+/* Demoted secondary actions — plain text, never competing with the
+   single primary CTA button style above. */
+.cta-secondary-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.95rem; color: var(--accent-light); border-bottom: 1px solid transparent; transition: border-color 0.2s, color 0.2s }
+.cta-secondary-link:hover { border-bottom-color: currentColor }
+.cta-secondary-link.on-light { color: var(--accent) }
+.pricing-secondary-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.95rem; color: var(--white); border-bottom: 1px solid transparent; transition: border-color 0.2s }
+.pricing-secondary-link:hover { border-bottom-color: currentColor }
+
 /* ═══════════════════════════════════════════════════════
    NAVIGATION
 ═══════════════════════════════════════════════════════ */
