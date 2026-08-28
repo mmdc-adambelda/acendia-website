@@ -3,6 +3,16 @@
 Tracks progress against the full flow specified for acendia.uk (mirroring
 the pay-first-then-onboard pattern already live on acendia.us).
 
+> **⚠️ Out of date as of the Aug 2026 CRO audit.** The approved UK pricing
+> is now £750/month, no setup fee (see `2026-08-26_Acendia_UK_US_Landing_Page_CRO_Audit_v1.md`).
+> `checkout.js` has been updated to charge that directly as a subscription
+> (Stripe Price `price_1U9GM1RqmdbsKtD2gMiWkX9v`), but **everything below
+> this note still describes the old £199-setup-fee-then-£499/mo-later
+> flow** — `thank-you.js`, `complete.js`, and `lib/billing.js` have NOT
+> been updated to match. This whole flow remains unlinked from the live
+> site (the homepage "Join Now!" button was removed in B1) and needs a
+> full reconciliation pass before it's safe to re-link to a real button.
+
 ## Live now — full flow built end-to-end
 
 1. **`/api/get-started/checkout.js`** — homepage "Join Now!" form POSTs
