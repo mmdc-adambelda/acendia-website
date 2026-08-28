@@ -1,32 +1,28 @@
 // POST /api/get-started/checkout
 //
 // UPDATED per the Aug 2026 CRO audit's approved UK pricing: £750/month,
-// no setup fee, no lock-in contract. This now creates a direct Stripe
-// Checkout Session in subscription mode against the real Stripe Price
-// (price_1U9GM1RqmdbsKtD2gMiWkX9v) — no more separate one-time setup-fee
-// charge, no more delayed second subscription created later.
+// no setup fee, no lock-in contract. Creates a direct Stripe Checkout
+// Session in subscription mode against the real Stripe Price
+// (price_1U9GM1RqmdbsKtD2gMiWkX9v) — no separate one-time setup-fee
+// charge, no delayed second subscription created later.
 //
-// ⚠️ SCOPE OF THIS FIX — READ BEFORE RELYING ON THE REST OF THIS FLOW:
-// Only this file was updated. It is currently UNLINKED — nothing on the
-// live site points a button/form at this endpoint (the homepage "Join
-// Now!" button that used to POST here was removed entirely in the CRO
-// audit's B1 pass, since a self-serve checkout doesn't exist on the UK
-// site by design). The rest of the pipeline this file's success_url
-// still redirects into — /get-started/thank-you/ (thank-you.js),
-// /api/get-started/complete (complete.js), /get-started/success/
-// (success.js), and lib/billing.js's delayed-subscription math — was
-// ALL built around the OLD two-step model (pay a £199 setup fee here,
-// then complete.js schedules a separate delayed £499/mo subscription
-// after onboarding). That downstream flow has NOT been updated to match
-// this file's new direct-subscription checkout, and will need its own
-// pass before this can safely be re-linked to a live button:
-//   - complete.js will still try to schedule an EXTRA delayed £499/mo
-//     subscription on top of the one this file now creates directly —
-//     that's a double-subscription bug if left as-is.
-//   - thank-you.js's post-checkout onboarding form and copy still assume
-//     "you've paid a setup fee, your subscription starts later."
-// Do not re-link this endpoint to a live button until that downstream
-// flow is reconciled with the new pricing model.
+// The full downstream pipeline this file's success_url redirects into —
+// /get-started/thank-you/ (thank-you.js), /api/get-started/complete
+// (complete.js), /get-started/success/ (success.js) — has been
+// reconciled to match this single-step model: complete.js now attaches
+// the newly-created organization to the subscription that THIS file
+// already created (via stripe.subscriptions.update), rather than
+// creating a second delayed subscription. lib/billing.js (the old
+// post-go-live billing-delay estimator) is no longer used and has been
+// removed.
+//
+// ⚠️ STILL UNLINKED FROM THE LIVE SITE: nothing on acendia.uk currently
+// POSTs to this endpoint — the homepage "Join Now!" button that used to
+// was removed entirely in the CRO audit's B1 pass, since a self-serve
+// checkout doesn't exist on the UK site by design. Re-adding a live
+// button that submits here is a separate, deliberate product decision —
+// confirm that's wanted (and test against Stripe in test mode first)
+// before wiring one up.
 //
 // This is invoked by a real HTML <form method="POST">, not fetch() — see
 // the flow doc for why. Vercel's Node.js runtime parses

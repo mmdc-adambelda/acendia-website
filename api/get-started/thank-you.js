@@ -84,7 +84,7 @@ function renderOnboardingPage({ sessionId, email }) {
   `;
 
   const body = `
-    <p class="hero-sub">Your £199 setup fee is paid — your £499/month plan won't start billing until 14 days after your site goes live, not before. Tell us about your business so we can get started.</p>
+    <p class="hero-sub">You're subscribed at £750/month — no setup fee, no lock-in contract. Tell us about your business so we can get started.</p>
 
     <form method="POST" action="/api/get-started/complete" style="margin-top:32px">
       <input type="hidden" name="sessionId" value="${escapeHtml(sessionId)}">

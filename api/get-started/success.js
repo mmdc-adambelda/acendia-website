@@ -12,7 +12,7 @@ module.exports = async function handler(req, res) {
       metaTitle: 'Setup Complete',
       body: `
         <p class="hero-sub">Thanks — we've got everything we need. Check your inbox for an email to set your password and access your client portal.</p>
-        <p class="hero-sub">Your team will be in touch shortly to kick things off. Your £499/month plan won't start billing until 14 days after your site goes live — not before.</p>
+        <p class="hero-sub">Your team will be in touch shortly to kick things off. Your £750/month plan is active now — no setup fee, no lock-in contract.</p>
         <a href="/" class="btn btn-white btn-lg" style="margin-top:12px">Back to Homepage</a>
       `,
     })

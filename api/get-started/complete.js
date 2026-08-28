@@ -1,11 +1,14 @@
 // POST /api/get-started/complete
 //
+// UPDATED to match checkout.js's new single-step £750/mo subscription
+// checkout (no separate setup fee, no delayed second subscription).
 // Submitted by the onboarding form rendered on /get-started/thank-you/
-// after a verified £199 payment. Re-verifies the Stripe session again
-// (never trust a hidden form field alone — the browser controls it),
-// then: creates the Supabase account, org, website, and payment records;
-// emails a password-set link; schedules the delayed £499/mo subscription;
-// notifies the admin inbox; redirects to the success page.
+// after a verified subscription payment. Re-verifies the Stripe session
+// again (never trust a hidden form field alone — the browser controls
+// it), then: creates the Supabase account, org, website, and payment
+// records; emails a password-set link; attaches the organization_id to
+// the subscription that checkout.js already created (no new subscription
+// is created here); notifies the admin inbox; redirects to success.
 //
 // SCHEMA ASSUMPTION FLAG — read before deploying:
 // The exact Supabase table/column names below (profiles, organizations,
@@ -24,11 +27,10 @@ const crypto = require('crypto');
 const Stripe = require('stripe');
 const { getSupabaseAdmin } = require('../../lib/supabase');
 const { getStartedSchema } = require('../../lib/validation');
-const { estimateDefaultBillingStart } = require('../../lib/billing');
 const { sendWelcomeSetPasswordEmail, sendAdminNewSignupNotification } = require('../../lib/email');
 const { renderPage } = require('../../lib/pageChrome');
 
-const MONTHLY_PRICE_PENCE = 49900; // £499.00
+const MONTHLY_PRICE_PENCE = 75000; // £750.00 — matches price_1U9GM1RqmdbsKtD2gMiWkX9v
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://acendia.uk';
 
 module.exports = async function handler(req, res) {
@@ -60,10 +62,13 @@ module.exports = async function handler(req, res) {
   // Re-verify payment against Stripe's own API — the sessionId came
   // through a hidden form field, which the browser (or anyone crafting a
   // request) fully controls. Never trust it without checking Stripe.
+  // This session is subscription-mode (see checkout.js), so the payment
+  // reference lives at session.subscription.latest_invoice.payment_intent
+  // rather than session.payment_intent directly.
   let session;
   try {
     session = await stripe.checkout.sessions.retrieve(form.sessionId, {
-      expand: ['payment_intent', 'payment_intent.payment_method'],
+      expand: ['subscription', 'subscription.latest_invoice.payment_intent'],
     });
   } catch (err) {
     console.error('complete: failed to retrieve Stripe session', err);
@@ -71,13 +76,19 @@ module.exports = async function handler(req, res) {
     return;
   }
 
+  // For a subscription-mode session with no trial (checkout.js sets
+  // none), payment_status is "paid" once the first invoice is paid — the
+  // same check that worked for the old one-time-payment flow still holds.
   if (session.payment_status !== 'paid') {
     sendFailurePage(res, 'We don’t see a completed payment for this session. Please contact us directly.');
     return;
   }
 
-  const paymentIntent = session.payment_intent;
-  const paymentIntentId = typeof paymentIntent === 'string' ? paymentIntent : paymentIntent?.id;
+  const subscription = session.subscription;
+  const subscriptionId = typeof subscription === 'string' ? subscription : subscription?.id;
+  const paymentIntent =
+    subscription && typeof subscription === 'object' ? subscription.latest_invoice?.payment_intent : null;
+  const paymentIntentId = typeof paymentIntent === 'string' ? paymentIntent : paymentIntent?.id || null;
 
   let supabase;
   try {
@@ -93,13 +104,14 @@ module.exports = async function handler(req, res) {
 
   // ── Idempotency — this endpoint may legitimately be hit twice (a
   // refreshed page, a double-click, the browser retrying a slow request).
-  // The payment_intent id is the natural dedupe key: one payment, one
-  // account, ever.
+  // Dedupe on the Checkout Session id — unlike payment_intent_id (which
+  // can theoretically be absent depending on invoice timing), the session
+  // id is always present and unique per checkout attempt.
   try {
     const { data: existingPayment } = await supabase
       .from('payments')
       .select('id')
-      .eq('stripe_payment_intent_id', paymentIntentId)
+      .eq('stripe_checkout_session_id', session.id)
       .maybeSingle();
 
     if (existingPayment) {
@@ -227,8 +239,8 @@ module.exports = async function handler(req, res) {
       type: 'signup',
       metadata: {
         plan: 'seo-package',
-        setup_fee_pence: 19900,
         monthly_price_pence: MONTHLY_PRICE_PENCE,
+        setup_fee_pence: 0,
         currency: 'gbp',
         keywords: form.keywords || null,
         competitors: form.competitors || null,
@@ -239,13 +251,16 @@ module.exports = async function handler(req, res) {
     console.error('complete: failed to write activity log', err);
   }
 
-  // ── 7. payments row.
+  // ── 7. payments row. amount/monthly_price_pence reflects the £750/mo
+  // subscription that checkout.js already created — no separate setup
+  // fee exists under the new pricing.
   try {
     await supabase.from('payments').insert({
       organization_id: organizationId,
       stripe_payment_intent_id: paymentIntentId,
       stripe_checkout_session_id: session.id,
-      amount: 19900,
+      stripe_subscription_id: subscriptionId,
+      amount: MONTHLY_PRICE_PENCE,
       currency: 'gbp',
       status: 'paid',
     });
@@ -253,52 +268,24 @@ module.exports = async function handler(req, res) {
     console.error('complete: failed to record payment — check for a duplicate/idempotency issue', err);
   }
 
-  // ── 8. Schedule the delayed £499/mo subscription. Uses the payment
-  // method already saved from the setup-fee payment
-  // (setup_future_usage: "off_session" on the original Checkout Session)
-  // so the customer is never asked to pay twice.
-  try {
-    let customerId = session.customer;
-    const paymentMethodId =
-      paymentIntent && typeof paymentIntent === 'object' ? paymentIntent.payment_method?.id : null;
-
-    if (!customerId && form.email) {
-      // setup_future_usage should have auto-created a Customer, but fall
-      // back to creating one explicitly if it didn't, so the
-      // subscription still has somewhere to attach.
-      const customer = await stripe.customers.create({
-        email: form.email,
-        name: form.businessName,
-        payment_method: paymentMethodId || undefined,
-      });
-      customerId = customer.id;
-    }
-
-    if (customerId) {
-      await stripe.subscriptions.create({
-        customer: customerId,
-        items: [
-          {
-            price_data: {
-              currency: 'gbp',
-              unit_amount: MONTHLY_PRICE_PENCE,
-              recurring: { interval: 'month' },
-              product_data: { name: 'Acendia SEO Package — Monthly' },
-            },
-          },
-        ],
-        trial_end: estimateDefaultBillingStart(),
-        default_payment_method: paymentMethodId || undefined,
+  // ── 8. Attach the organization to the subscription's metadata. The
+  // subscription itself was already created directly by checkout.js at
+  // the moment of payment (no organization existed yet at that point) —
+  // this just links the two records after the fact. No new subscription
+  // is created here, unlike the old delayed-billing flow.
+  if (subscriptionId) {
+    try {
+      await stripe.subscriptions.update(subscriptionId, {
         metadata: {
           organization_id: organizationId || '',
           business_name: form.businessName,
         },
       });
-    } else {
-      console.error('complete: no Stripe customer available — subscription not scheduled for', form.email);
+    } catch (err) {
+      console.error('complete: failed to attach organization_id to subscription metadata', err);
     }
-  } catch (err) {
-    console.error('complete: failed to schedule delayed subscription', err);
+  } else {
+    console.error('complete: no subscription id on session — cannot attach organization metadata', session.id);
   }
 
   // ── 9. Admin notification (non-blocking).

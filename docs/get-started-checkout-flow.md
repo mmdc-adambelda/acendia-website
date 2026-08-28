@@ -1,39 +1,50 @@
 # "Join Now" → Stripe Checkout Flow — Status
 
-Tracks progress against the full flow specified for acendia.uk (mirroring
-the pay-first-then-onboard pattern already live on acendia.us).
+Tracks progress against the full flow specified for acendia.uk.
 
-> **⚠️ Out of date as of the Aug 2026 CRO audit.** The approved UK pricing
-> is now £750/month, no setup fee (see `2026-08-26_Acendia_UK_US_Landing_Page_CRO_Audit_v1.md`).
-> `checkout.js` has been updated to charge that directly as a subscription
-> (Stripe Price `price_1U9GM1RqmdbsKtD2gMiWkX9v`), but **everything below
-> this note still describes the old £199-setup-fee-then-£499/mo-later
-> flow** — `thank-you.js`, `complete.js`, and `lib/billing.js` have NOT
-> been updated to match. This whole flow remains unlinked from the live
-> site (the homepage "Join Now!" button was removed in B1) and needs a
-> full reconciliation pass before it's safe to re-link to a real button.
+> **Reconciled to the Aug 2026 CRO audit's approved UK pricing** (£750/
+> month, no setup fee, no lock-in contract — see
+> `2026-08-26_Acendia_UK_US_Landing_Page_CRO_Audit_v1.md`). The flow below
+> is now a single-step subscription checkout against a real Stripe Price
+> (`price_1U9GM1RqmdbsKtD2gMiWkX9v`), replacing the old two-step
+> £199-setup-fee-then-delayed-£499/mo model. `lib/billing.js` (the old
+> post-go-live billing-delay estimator) is no longer used and has been
+> removed.
+>
+> **Still unlinked from the live site.** Nothing on acendia.uk currently
+> POSTs to `checkout.js` — the homepage "Join Now!" button was removed
+> entirely in the CRO audit's B1 pass, since a self-serve checkout doesn't
+> exist on the UK site by design. Re-adding a live button that submits
+> here is a separate product decision, not made as part of this
+> reconciliation — test against Stripe in **test mode** first if you do.
 
-## Live now — full flow built end-to-end
+## Flow — full pipeline, single-step subscription
 
-1. **`/api/get-started/checkout.js`** — homepage "Join Now!" form POSTs
-   here. Creates a Stripe Checkout Session (`mode: "payment"`,
-   `currency: "gbp"`) for the **£199 setup fee only**. Saves the card
-   (`setup_future_usage: "off_session"`) for later, disables Managed
-   Payments, redirects (303) to Stripe's hosted checkout.
+1. **`/api/get-started/checkout.js`** — entry point (currently unlinked
+   from any button). Creates a Stripe Checkout Session (`mode:
+   "subscription"`) with a single line item referencing the real Price
+   `price_1U9GM1RqmdbsKtD2gMiWkX9v` (£750.00/month). No separate setup
+   fee, no trial — the customer is charged the first month immediately at
+   checkout. Disables Managed Payments, redirects (303) to Stripe's
+   hosted checkout.
 2. **`/get-started/thank-you/`** (`api/get-started/thank-you.js`, rewritten
    via `vercel.json`) — re-fetches the Checkout Session from Stripe's own
-   API and only proceeds if `payment_status === "paid"`. On success,
-   renders the full onboarding form (business name, contact, email —
-   prefilled from Stripe, phone, website URL, address, industry, keywords,
-   competitors, notes) as a real `<form method="POST">` with a hidden
-   `sessionId` field.
+   API (expanding `subscription` and
+   `subscription.latest_invoice.payment_intent`) and only proceeds if
+   `payment_status === "paid"` — this still holds for a no-trial
+   subscription session, since the first invoice is paid synchronously at
+   checkout. On success, renders the full onboarding form (business name,
+   contact, email — prefilled from Stripe, phone, website URL, address,
+   industry, keywords, competitors, notes) as a real `<form
+   method="POST">` with a hidden `sessionId` field.
 3. **`/api/get-started/complete.js`** — the onboarding form POSTs here.
    Validates input with Zod (`lib/validation.js` — phone has no format
    check, per spec). **Re-verifies the Stripe session again** (a hidden
-   form field is not proof of payment). Checks `payments` for an existing
-   row matching this `stripe_payment_intent_id` first — **idempotent**: a
-   duplicate submit (refresh/double-click) redirects straight to success
-   without creating a second account. Then:
+   form field is not proof of payment), pulling the subscription and its
+   payment intent from the expanded session. Checks `payments` for an
+   existing row matching this `stripe_checkout_session_id` first —
+   **idempotent**: a duplicate submit (refresh/double-click) redirects
+   straight to success without creating a second account. Then:
    - Creates the Supabase auth user (`admin.auth.admin.createUser`, random
      discarded password, `email_confirm: true`)
    - Generates a recovery link (`admin.auth.admin.generateLink`) and
@@ -41,14 +52,16 @@ the pay-first-then-onboard pattern already live on acendia.us).
    - Upserts `profiles`, inserts `organizations` +
      `organization_members` (role `owner`), `websites`, `activity_logs`
      (keywords/competitors/notes/plan as `metadata` jsonb), and `payments`
-   - Schedules the delayed £499/mo subscription
-     (`stripe.subscriptions.create` with inline `price_data`, no
-     pre-created Stripe Price needed, `trial_end` from `lib/billing.js`),
-     reusing the payment method saved from the setup-fee payment
+     (now includes `stripe_subscription_id` alongside the existing
+     `stripe_payment_intent_id` / `stripe_checkout_session_id` columns)
+   - **Attaches** `organization_id` to the subscription that
+     `checkout.js` already created, via `stripe.subscriptions.update()` —
+     no new subscription is created here (the old flow's "schedule the
+     delayed subscription" step is gone entirely)
    - Sends the admin new-signup notification email
    - Redirects (303) to `/get-started/success/`
 4. **`/get-started/success/`** (`api/get-started/success.js`) — simple
-   confirmation page.
+   confirmation page, copy updated to £750/month with no setup fee.
 
 Each Supabase write in `complete.js` is wrapped in its own try/catch and
 logged independently — a failure on one table (e.g. a schema mismatch,
@@ -63,9 +76,10 @@ Supabase schema.** The table/column names used in `complete.js`
 `organization_members.organization_id/user_id/role`,
 `websites.organization_id/url/street_address/city/region/postcode/industry`,
 `activity_logs.organization_id/type/metadata`,
-`payments.organization_id/stripe_payment_intent_id/stripe_checkout_session_id/amount/currency/status`)
+`payments.organization_id/stripe_payment_intent_id/stripe_checkout_session_id/stripe_subscription_id/amount/currency/status`)
 are this session's best-effort guess at reasonable conventions, not a port
-of the real schema.
+of the real schema. The `stripe_subscription_id` column on `payments` is
+new as of this reconciliation and has *not* been confirmed to exist.
 
 **Before trusting a real customer's data to this**: open the Supabase
 table editor and confirm these tables/columns actually exist with these
@@ -74,16 +88,12 @@ names. Mismatches will show up as errors in the Vercel function logs for
 those logs after your first real test run, don't just trust the "success"
 redirect, since a failed write is deliberately non-fatal to the request.
 
-`lib/billing.js`'s `estimateDefaultBillingStart()` (14-day post-go-live
-delay + a 5-day estimate-to-go-live, ~19 days total) is similarly a
-re-implementation from the spec's own description, not a port of the real
-`lib/billing.ts`. If/when that real file becomes available, it's a
-mechanical swap — `complete.js` only depends on the one exported function.
-
 ## Environment variables this flow depends on
 
 Confirmed set:
-- `STRIPE_SECRET_KEY`
+- `STRIPE_SECRET_KEY` — **verify whether this is a `sk_live_...` or
+  `sk_test_...` key in Vercel before relying on any of this taking real
+  payments.** This session cannot check that from here.
 
 Assumed names — confirm these match what's actually in Vercel, or rename
 in Vercel to match:
@@ -95,25 +105,24 @@ in Vercel to match:
 
 ## Testing this far
 
-Verified locally (mocked Stripe/Supabase/Resend modules, see git history
-for the exact test scripts): the happy path creates all six records with
-correct field values, schedules a subscription with the correct £499.00
-GBP monthly price and ~19-day `trial_end`, and redirects to success:
-resubmitting the same `sessionId` short-circuits to success without
-re-creating anything; missing required fields render a validation error
-instead of proceeding. All three confirmed via direct handler invocation
-with fake credentials that reached real Stripe servers where applicable.
+The reconciliation (checkout.js's price/mode change, complete.js's
+subscription-attach rewrite, thank-you.js/success.js copy) has been
+syntax-checked (`node --check`) but **not exercised end-to-end against
+real Stripe or Supabase credentials** — this session has none. Please
+test on the real deployment, in Stripe **test mode** first:
 
-**Not yet verified**: an actual real Stripe test-mode payment end-to-end
-against your real Supabase project — this session has no live credentials
-for either. Please test on the real deployment:
-
-1. Click "Join Now!" → real Stripe checkout for £199.00 → card
-   `4242 4242 4242 4242`
+1. POST to `/api/get-started/checkout` (there is no live button yet —
+   test by hand, e.g. a temporary form or `curl`) → Stripe test checkout
+   for £750.00/month → card `4242 4242 4242 4242`
 2. Lands on `/get-started/thank-you/` with the onboarding form, email
-   prefilled
+   prefilled, copy showing £750/month with no setup fee
 3. Submit the form → should redirect to `/get-started/success/`
 4. Check: a new row in `auth.users` for the email used; a "set your
    password" email arrives; the Vercel function logs for `complete.js`
-   show no unexpected write failures; the new Subscription shows as
-   `trialing` in the Stripe dashboard (not `active`, not billing yet)
+   show no unexpected write failures (including the new
+   `stripe_subscription_id` column write); the Subscription shows as
+   `active` in the Stripe dashboard, billing immediately (no trial); the
+   subscription's metadata shows the correct `organization_id`
+5. Resubmit the same `sessionId` (refresh the onboarding form's POST) —
+   should redirect straight to success without creating a second
+   `organizations` row
