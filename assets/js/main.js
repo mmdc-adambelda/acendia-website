@@ -260,6 +260,40 @@ document.addEventListener('click', (e) => {
   gtag('event', `${prefix}_homepage_cta_click`, {});
 });
 
+// ── Interactive glossy tilt card (ebook cover) — cursor-tracked 3D
+//    tilt + a shine that follows the pointer; a slow ambient sweep
+//    (pure CSS) keeps it "alive" at rest. Generic — works for any
+//    future .ebook-card-tilt instance without new JS. ──
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.ebook-card-tilt').forEach((card) => {
+    const inner = card.querySelector('.ebook-card-tilt-inner');
+    if (!inner) return;
+    const maxTilt = 10;
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+      const rotY = (px - 0.5) * maxTilt * 2;
+      const rotX = (0.5 - py) * maxTilt * 2;
+      inner.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
+      inner.style.setProperty('--mx', `${px * 100}%`);
+      inner.style.setProperty('--my', `${py * 100}%`);
+      inner.classList.add('is-active');
+    });
+    card.addEventListener('mouseleave', () => {
+      inner.style.transform = '';
+      inner.classList.remove('is-active');
+    });
+    // Touch has no hover — give it a brief shine pulse on tap instead
+    // of leaving the effect entirely dead on mobile.
+    card.addEventListener('touchstart', () => {
+      inner.classList.add('is-active');
+      setTimeout(() => inner.classList.remove('is-active'), 700);
+    }, { passive: true });
+  });
+}
+
 // ── Scroll fade-in ──────────────────────────────────
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') });
