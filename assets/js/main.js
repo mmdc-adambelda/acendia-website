@@ -234,6 +234,32 @@ if (calendarLink) {
   });
 }
 
+// ── GA4: lead-magnet homepage promo (view + CTA click) — scoped by
+//    data-ga-prefix so future lead magnets (a second ebook, a
+//    checklist, etc.) can reuse this without new JS, just a new
+//    section using the same data attributes with their own prefix. ──
+document.querySelectorAll('[data-ebook-section]').forEach((section) => {
+  const prefix = section.dataset.gaPrefix || 'ebook';
+  let fired = false;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !fired) {
+        fired = true;
+        if (typeof gtag === 'function') gtag('event', `${prefix}_homepage_view`, {});
+        obs.unobserve(section);
+      }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(section);
+});
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-ebook-cta="homepage"]');
+  if (!el || typeof gtag !== 'function') return;
+  const section = el.closest('[data-ebook-section]');
+  const prefix = section?.dataset.gaPrefix || 'ebook';
+  gtag('event', `${prefix}_homepage_cta_click`, {});
+});
+
 // ── Scroll fade-in ──────────────────────────────────
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') });
@@ -276,6 +302,135 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     item.classList.toggle('open', !wasOpen);
   });
 });
+
+// ── Lead-magnet landing page (e.g. /free-seo-ebook/) — generic, keyed
+//    off #ebook-form-el's data-resource so future lead magnets reuse
+//    this without new JS: copy the landing page's form markup with a
+//    different data-resource and GA event prefix, done. ──
+(function () {
+  const form = document.getElementById('ebook-form-el');
+  if (!form) return;
+
+  const resource = form.dataset.resource;
+  const gaPrefix = 'ebook'; // matches the brief's explicit ebook_* event names
+  const track = (name, params) => { if (typeof gtag === 'function') gtag('event', name, params || {}); };
+
+  track(`${gaPrefix}_landing_view`, {});
+
+  document.querySelectorAll(`[data-ebook-cta="landing-hero"]`).forEach((el) => {
+    el.addEventListener('click', () => track(`${gaPrefix}_cta_click`, {}));
+  });
+
+  const statusEl = document.getElementById('ebook-form-status');
+  const successEl = document.getElementById('ebook-form-success');
+  const downloadLink = document.getElementById('ebook-download-link');
+  const auditCta = document.getElementById('ebook-audit-cta');
+  const auditCtaLink = document.getElementById('ebook-audit-cta-link');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+  let startedTracked = false;
+
+  const validators = {
+    fullName: (el) => el.value.trim().length > 0,
+    companyName: (el) => el.value.trim().length > 0,
+    email: (el) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()),
+    phone: (el) => el.value.trim().length > 0,
+    websiteUrl: (el) => el.value.trim().length > 0,
+    consent: (el) => el.checked,
+  };
+
+  function setFieldError(el, hasError) {
+    const wrap = el.closest('[data-field]');
+    if (wrap) wrap.classList.toggle('field-error', hasError);
+  }
+
+  function validateField(el) {
+    const check = validators[el.name];
+    if (!check) return true;
+    const ok = check(el);
+    setFieldError(el, !ok);
+    return ok;
+  }
+
+  Object.keys(validators).forEach((name) => {
+    const el = form.elements[name];
+    if (!el) return;
+    el.addEventListener('blur', () => validateField(el));
+    el.addEventListener('input', () => {
+      if (el.closest('[data-field]')?.classList.contains('field-error')) validateField(el);
+    });
+    el.addEventListener('focus', () => {
+      if (!startedTracked) {
+        startedTracked = true;
+        track(`${gaPrefix}_form_start`, {});
+      }
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let valid = true;
+    Object.keys(validators).forEach((name) => {
+      const el = form.elements[name];
+      if (el && !validateField(el)) valid = false;
+    });
+    if (!valid) {
+      const firstError = form.querySelector('.field-error input, .field-error textarea, .field-error select');
+      if (firstError) firstError.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.style.display = 'none';
+
+    const payload = {
+      resource,
+      fullName: form.elements.fullName.value.trim(),
+      companyName: form.elements.companyName.value.trim(),
+      email: form.elements.email.value.trim(),
+      phone: form.elements.phone.value.trim(),
+      websiteUrl: form.elements.websiteUrl.value.trim(),
+      challenge: form.elements.challenge?.value.trim() || '',
+      company_website: form.elements.company_website?.value || '', // honeypot
+    };
+
+    try {
+      const res = await fetch('/api/lead-magnet/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.classList.add('hide-on-success');
+        successEl.classList.add('show');
+        track(`${gaPrefix}_form_submit`, {});
+        if (data.downloadUrl && downloadLink) {
+          downloadLink.href = data.downloadUrl;
+        }
+        if (auditCta) auditCta.style.display = 'block';
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      statusEl.textContent = 'Something went wrong sending your request. Please email us directly at support@acendia.agency.';
+      statusEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    }
+  });
+
+  if (downloadLink) {
+    downloadLink.addEventListener('click', () => track(`${gaPrefix}_download`, {}));
+  }
+  if (auditCtaLink) {
+    auditCtaLink.addEventListener('click', () => {
+      track('seo_audit_cta_click', {});
+      track('booking_click', {});
+    });
+  }
+})();
 
 // ── Init ────────────────────────────────────────────
 showCookie();

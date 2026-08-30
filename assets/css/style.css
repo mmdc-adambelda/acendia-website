@@ -543,7 +543,7 @@ button { cursor: pointer; border: none; font-family: var(--font); background:non
 .form-success .success-icon { width: 56px; height: 56px; margin: 0 auto 20px; border-radius: 50%; background: var(--success); display: flex; align-items: center; justify-content: center }
 .form-success h3 { color: var(--white); margin-bottom: 10px }
 .form-success p { color: var(--gray-2); font-size: 0.95rem; margin: 0 }
-#contact-form.hide-on-success { display: none }
+.hide-on-success { display: none }
 
 /* ═══════════════════════════════════════════════════════
    ARTICLE / PROSE (blog article pages)
@@ -682,6 +682,39 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
 .fade-delay-5 { transition-delay:0.5s }
 
 /* ═══════════════════════════════════════════════════════
+   LEAD MAGNET SYSTEM (ebook homepage promo + landing pages)
+   Scoped generically so future guides/checklists reuse it as-is.
+═══════════════════════════════════════════════════════ */
+.ebook-promo-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center }
+.ebook-benefits { list-style: none; margin: 24px 0 32px; padding: 0 }
+.ebook-benefits li { color: var(--white); font-weight: 600; font-size: 0.95rem; line-height: 1.7; padding-left: 28px; position: relative; margin-bottom: 10px }
+.ebook-benefits li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--accent-light); font-size: 1rem; font-weight: 800 }
+.ebook-benefits.on-light li { color: var(--black) }
+.ebook-benefits.on-light li::before { color: var(--accent) }
+
+/* CSS-only "book cover" mockup — no external image asset. */
+.ebook-mockup-wrap { display: flex; justify-content: center }
+.ebook-mockup { width: 100%; max-width: 320px; aspect-ratio: 3/4; background: linear-gradient(155deg, var(--card) 0%, var(--off-black) 60%, var(--black) 100%); border: 1px solid var(--border-hi); border-radius: var(--r-lg); box-shadow: var(--shadow-dark), 0 0 0 1px rgba(255,255,255,0.03) inset; padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden }
+.ebook-mockup::before { content: ''; position: absolute; top: -40%; right: -30%; width: 70%; height: 70%; background: radial-gradient(circle, rgba(91,80,255,0.28), transparent 70%); pointer-events: none }
+.ebook-mockup-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-light); position: relative; z-index: 1 }
+.ebook-mockup-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; color: var(--white); line-height: 1.25; margin-top: 14px; position: relative; z-index: 1 }
+.ebook-mockup-sub { font-size: 0.82rem; color: var(--gray-3); line-height: 1.6; margin-top: 14px; position: relative; z-index: 1 }
+.ebook-mockup-foot { display: flex; align-items: center; justify-content: space-between; font-size: 0.72rem; color: var(--gray-4); letter-spacing: 0.03em; text-transform: uppercase; position: relative; z-index: 1 }
+
+/* Lead-magnet landing page: "who is this for" chip list */
+.audience-chips { display: flex; flex-wrap: wrap; gap: 12px }
+.audience-chip { background: var(--off-white); border: 1px solid var(--border-dark); border-radius: 999px; padding: 10px 20px; font-size: 0.88rem; font-weight: 600; color: var(--black) }
+
+/* Lead-magnet form panel — reuses .form-field / .form-consent / .field-error / .form-success from the contact form system as-is. */
+.lead-form-panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 36px }
+.lead-form-panel .form-consent label { color: var(--gray-2) }
+
+/* Post-download audit CTA panel */
+.post-download-cta { background: var(--off-white); border: 1px solid var(--border-dark); border-radius: var(--r-lg); padding: 36px; text-align: center; margin-top: 28px }
+.post-download-cta h3 { color: var(--black); margin-bottom: 10px }
+.post-download-cta p { color: var(--gray-4); font-size: 0.95rem; line-height: 1.7; max-width: 560px; margin: 0 auto 22px }
+
+/* ═══════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
 @media(max-width:1024px){
@@ -721,4 +754,8 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   #cookie { left:12px; right:12px; bottom:12px }
   .case-body { padding:36px 28px }
   .team-grid { grid-template-columns:1fr 1fr }
+  .ebook-promo-grid { grid-template-columns:1fr; gap:40px }
+  .ebook-mockup-wrap { order:-1 }
+  .ebook-mockup { max-width:220px }
+  .lead-form-panel { padding:24px }
 }
