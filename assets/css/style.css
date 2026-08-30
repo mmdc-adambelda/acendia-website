@@ -692,14 +692,10 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
 .ebook-benefits.on-light li { color: var(--black) }
 .ebook-benefits.on-light li::before { color: var(--accent) }
 
-/* CSS-only "book cover" mockup — no external image asset. */
+/* Ebook cover — real cover artwork. */
 .ebook-mockup-wrap { display: flex; justify-content: center }
-.ebook-mockup { width: 100%; max-width: 320px; aspect-ratio: 3/4; background: linear-gradient(155deg, var(--card) 0%, var(--off-black) 60%, var(--black) 100%); border: 1px solid var(--border-hi); border-radius: var(--r-lg); box-shadow: var(--shadow-dark), 0 0 0 1px rgba(255,255,255,0.03) inset; padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden }
-.ebook-mockup::before { content: ''; position: absolute; top: -40%; right: -30%; width: 70%; height: 70%; background: radial-gradient(circle, rgba(91,80,255,0.28), transparent 70%); pointer-events: none }
-.ebook-mockup-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-light); position: relative; z-index: 1 }
-.ebook-mockup-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; color: var(--white); line-height: 1.25; margin-top: 14px; position: relative; z-index: 1 }
-.ebook-mockup-sub { font-size: 0.82rem; color: var(--gray-3); line-height: 1.6; margin-top: 14px; position: relative; z-index: 1 }
-.ebook-mockup-foot { display: flex; align-items: center; justify-content: space-between; font-size: 0.72rem; color: var(--gray-4); letter-spacing: 0.03em; text-transform: uppercase; position: relative; z-index: 1 }
+.ebook-cover-img { width: 100%; max-width: 320px; border-radius: var(--r-lg); box-shadow: var(--shadow-dark); display: block }
+.ebook-cover-img.sm { max-width: 200px }
 
 /* Lead-magnet landing page: "who is this for" chip list */
 .audience-chips { display: flex; flex-wrap: wrap; gap: 12px }
@@ -756,6 +752,6 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .team-grid { grid-template-columns:1fr 1fr }
   .ebook-promo-grid { grid-template-columns:1fr; gap:40px }
   .ebook-mockup-wrap { order:-1 }
-  .ebook-mockup { max-width:220px }
+  .ebook-cover-img { max-width:220px }
   .lead-form-panel { padding:24px }
 }
