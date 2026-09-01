@@ -687,6 +687,17 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
 .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start }
 .reviews-widget-cell { min-height: 80px }
 
+/* Nudge Trustindex's fixed "Trusted Site" certificate badge up so it
+   clears the LeadConnector chat bubble — both default to bottom-right.
+   The chat widget renders inside a Shadow DOM we can't reach, so the
+   badge is the one we can safely move. !important is deliberate here:
+   overriding a third-party stylesheet we don't control the load order
+   or specificity of. */
+.ti-sticky-button { bottom: 92px !important; }
+@media (max-width: 480px) {
+  .ti-sticky-button { bottom: 84px !important; }
+}
+
 /* ═══════════════════════════════════════════════════════
    LEAD MAGNET SYSTEM (ebook homepage promo + landing pages)
    Scoped generically so future guides/checklists reuse it as-is.
