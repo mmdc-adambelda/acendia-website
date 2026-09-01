@@ -1,17 +1,4 @@
 {
-  "cleanUrls": false,
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.acendia.uk" }],
-      "destination": "https://acendia.uk/:path*",
-      "permanent": true
-    },
-    { "source": "/local-seo-uk", "destination": "/local-seo-uk.html", "permanent": true },
-    { "source": "/local-seo-uk/", "destination": "/local-seo-uk.html", "permanent": true },
-    { "source": "/blog/uk/how-to-rank-higher-google-uk", "destination": "/blog/uk/how-to-rank-higher-google-uk.html", "permanent": true },
-    { "source": "/blog/uk/how-to-rank-higher-google-uk/", "destination": "/blog/uk/how-to-rank-higher-google-uk.html", "permanent": true }
-  ],
   "rewrites": [
     { "source": "/get-started/thank-you", "destination": "/api/get-started/thank-you" },
     { "source": "/get-started/thank-you/", "destination": "/api/get-started/thank-you" },
