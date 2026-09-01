@@ -682,6 +682,12 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
 .fade-delay-5 { transition-delay:0.5s }
 
 /* ═══════════════════════════════════════════════════════
+   REVIEWS (Trustindex — Google + Facebook widgets)
+═══════════════════════════════════════════════════════ */
+.reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start }
+.reviews-widget-cell { min-height: 80px }
+
+/* ═══════════════════════════════════════════════════════
    LEAD MAGNET SYSTEM (ebook homepage promo + landing pages)
    Scoped generically so future guides/checklists reuse it as-is.
 ═══════════════════════════════════════════════════════ */
@@ -776,4 +782,5 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .ebook-mockup-wrap { order:-1 }
   .ebook-cover-img, .ebook-card-tilt { max-width:220px }
   .lead-form-panel { padding:24px }
+  .reviews-grid { grid-template-columns:1fr; gap:24px }
 }
