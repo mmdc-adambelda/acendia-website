@@ -4,5 +4,8 @@
     { "source": "/get-started/thank-you/", "destination": "/api/get-started/thank-you" },
     { "source": "/get-started/success", "destination": "/api/get-started/success" },
     { "source": "/get-started/success/", "destination": "/api/get-started/success" }
+  ],
+  "crons": [
+    { "path": "/api/cron/keep-alive", "schedule": "0 6 * * *" }
   ]
 }
